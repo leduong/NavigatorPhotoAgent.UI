@@ -4,7 +4,7 @@ declare var $: any;
 import { SessionService } from '../../../shared/services/session';
 
 import { ReferencesService } from '../services/references';
-import { LPCReportService } from '../../lpcreport/services/lpcreport';
+// import { LPCReportService } from '../../lpcreport/services/lpcreport';
 
 import { ReferencesListComponent } from './referencesList';
 import { FilterSelectboxComponent } from './filterSelectbox';
@@ -12,7 +12,8 @@ import { FilterSelectboxComponent } from './filterSelectbox';
 @Component({
   selector: 'properties',
   templateUrl: 'app/routes/references/components/references.html',
-  providers: [ReferencesService, LPCReportService, SessionService]
+  // providers: [ReferencesService, LPCReportService, SessionService]
+  providers: [ReferencesService, SessionService]
 })
 
 export class ReferencesComponent implements OnInit {
