@@ -4,7 +4,7 @@ export class AppSettings {
     return "local";
   }
   public static get ng2ENV(): string {
-    return null;
+    return "Dev";
   }
   public static get ApiEndpoint(): string {
     return "http://informationcart.eastus2.cloudapp.azure.com:6500/api/";
