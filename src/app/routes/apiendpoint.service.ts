@@ -19,6 +19,6 @@ export class ApiEndpointService {
       params.set('value', text);
     }
     return this.http.get(`${AppSettings.ApiEndpoint}stringvalue`, { search: params }, { headers: headers })
-      .map((res: Response) => res.json());
+      .map((res: Response) => res.text());
   };
 }
