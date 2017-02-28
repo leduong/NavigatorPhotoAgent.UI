@@ -41,12 +41,18 @@ export class ReferencesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getFeedManagement();
     this.scrollTop();
   }
 
- 
-
   private scrollTop() {
     $(window).scrollTop(0, 0);
+  }
+
+  public getFeedManagement(){
+    this.referenceService.getFeedManagement(this.page, this.limit).subscribe(
+      res => { this.properties = res; },
+      err => console.error(err)
+    );
   }
 }

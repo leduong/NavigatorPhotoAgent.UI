@@ -17,7 +17,8 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <references-list [properties]="filteredReference"></references-list>
+          <!-- <references-list [properties]="filteredReference"></references-list> -->
+          <pre>{{properties|json}}</pre>
         </div>
       </div>
       <div class="table-footer" ng-show="items.total > 0">
