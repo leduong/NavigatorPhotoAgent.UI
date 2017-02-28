@@ -21,8 +21,8 @@ export class SettingsService {
     // App Settings
     // -----------------------------------
     this.app = {
-      name: 'CoreDB',
-      description: 'CoreDataStore',
+      name: 'NPA',
+      description: 'Navigator Photo Agent',
       year: ((new Date()).getFullYear())
     };
 
@@ -33,7 +33,7 @@ export class SettingsService {
       isCollapsed: false,
       isBoxed: false,
       isRTL: false,
-      horizontal: true,
+      horizontal: false,
       isFloat: false,
       asideHover: false,
       theme: null,

@@ -13,3 +13,28 @@ Formated Message (Click the Photo Link)
 http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 
 
+### Init first
+
+```
+npm i
+```
+
+### Set Environment and Run with Dev
+
+```bash
+export NG_ENVIRONMENT=Dev
+export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+npm run clean
+npm run build
+npm start
+```
+
+
+###
+
+### Build to Github Page
+
+```bash
+export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+npm run ghpage
+```
