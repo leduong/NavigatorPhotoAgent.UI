@@ -8,30 +8,21 @@ import { AppSettings } from '../../appsettings';
 export class ReferencesService {
 
   constructor(private http: Http) {}
-  getReferences(page = 1, limit = 10, borough: string, objectType: string) {
+  getFeedManagement(page = 1, limit = 10, photoTag ? : string, startDate ? : string, endDate ? : string) {
     let params = new URLSearchParams();
-    if (borough && borough !== '') {
-      params.set('Borough', borough);
+    params.set('currentPageIndex', String(page-1));
+    params.set('pageSize', String(limit));
+    if (photoTag && photoTag !== '') {
+      params.set('photoTag', photoTag);
     }
-    if (objectType && objectType !== '') {
-      params.set('ObjectType', objectType);
+    if (startDate && startDate !== '') {
+      params.set('startDate', startDate);
     }
-    return this.http.get(`${AppSettings.ApiEndpoint}LPCReport/${limit}/${page}`, { search: params })
-      .map((res: Response) => res.json());
-  };
+    if (endDate && endDate !== '') {
+      params.set('endDate', endDate);
+    }
 
-  getBoroughs() {
-    return this.http.get(`${AppSettings.ApiEndpoint}Reference/borough`)
-      .map((res: Response) => res.json());
-  };
-
-  getObjectTypes() {
-    return this.http.get(`${AppSettings.ApiEndpoint}Reference/objectType`)
-      .map((res: Response) => res.json());
-  };
-
-  getParentStyle() {
-    return this.http.get(`${AppSettings.ApiEndpoint}Reference/parentStyle`)
+    return this.http.get(`${AppSettings.ApiEndpoint}FeedManagement`, { search: params })
       .map((res: Response) => res.json());
   };
 }
