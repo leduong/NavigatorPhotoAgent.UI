@@ -190,7 +190,7 @@ gulp.task('bundle', function() {
 gulp.task('systemjs', function() {
   if (NG_ENVIRONMENT === 'Dev') {
     return gulp.src('systemjs.config.js')
-      .pipe(replace('.tmp', 'app'))
+      .pipe(replace('.tmp/src/app', 'app'))
       .pipe(gulp.dest(buildDir));
   }
   return;

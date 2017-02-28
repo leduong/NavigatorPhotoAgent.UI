@@ -29,12 +29,11 @@ npm run build
 npm start
 ```
 
-
-###
-
 ### Build to Github Page
 
 ```bash
 export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+npm run clean
+npm run build
 npm run ghpage
 ```
