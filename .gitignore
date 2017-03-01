@@ -1,8 +1,0 @@
-.publish
-.tmp
-wwwroot
-node_modules
-typings
-appsettings.yml
-src/app/appsettings.ts
-npm-debug\.log
