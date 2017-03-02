@@ -4,6 +4,7 @@ declare var $: any;
 import { SessionService } from '../../../shared/services/session';
 
 import { ReferencesService } from '../services/references';
+import { MessageLoggingService } from '../services/messageLogging'
 
 import { ReferencesListComponent } from './referencesList';
 import { FilterSelectboxComponent } from './filterSelectbox';
@@ -11,7 +12,7 @@ import { FilterSelectboxComponent } from './filterSelectbox';
 @Component({
   selector: 'properties',
   templateUrl: 'app/routes/references/components/references.html',
-  providers: [ReferencesService, SessionService]
+  providers: [ReferencesService, SessionService, MessageLoggingService]
 })
 
 export class ReferencesComponent implements OnInit {
@@ -35,6 +36,7 @@ export class ReferencesComponent implements OnInit {
   constructor(
     private session: SessionService,
     private referenceService: ReferencesService,
+    private messageLoggingService: MessageLoggingService
     ) {
     let page = this.session.get('page');
     this.page = (parseInt(page, 10) > 0) ? page : 1;
@@ -42,6 +44,7 @@ export class ReferencesComponent implements OnInit {
 
   ngOnInit() {
     this.getFeedManagement();
+    this.getMessageLogging(this.page, this.limit);
     this.scrollTop();
   }
 
@@ -53,6 +56,13 @@ export class ReferencesComponent implements OnInit {
     this.referenceService.getFeedManagement(this.page, this.limit).subscribe(
       res => { this.properties = res; },
       err => console.error(err)
+    );
+  }
+
+  public getMessageLogging(page, limit) {
+    this.messageLoggingService.getMessageLogging(page, limit).subscribe(
+        res => { console.log(res, 'Res') },
+        err => console.error(err)
     );
   }
 }
