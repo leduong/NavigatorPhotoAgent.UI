@@ -31,7 +31,7 @@ npm start
 
 ### Build to Github Page
 
-https://stuartshay.github.io/NavigatorPhotoAgent.UI/
+http://stuartshay.github.io/NavigatorPhotoAgent.UI/
 
 ```bash
 export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
