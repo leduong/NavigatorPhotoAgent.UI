@@ -11,9 +11,9 @@ import { MenuService } from '../core/menu/menu.service';
 import { HomeComponent } from './home/home.component';
 
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
-import { ReferencesComponent } from './references/components/references';
-import { ReferencesListComponent } from './references/components/referencesList';
-import { FilterSelectboxComponent } from './references/components/filterSelectbox';
+import { FeedComponent } from './feed/components/feed';
+import { FeedListComponent } from './feed/components/feedList';
+import { FilterSelectboxComponent } from './feed/components/filterSelectbox';
 // import { DetailsComponent } from './lpcreport/components/details';
 // import { DetailFormComponent } from './lpcreport/components/detailForm';
 
@@ -38,9 +38,9 @@ import appRoutes from './routes';
   declarations: [
     HomeComponent,
     DiagnosticsComponent,
-    ReferencesComponent,
+    FeedComponent,
     FilterSelectboxComponent,
-    ReferencesListComponent,
+    FeedListComponent,
     // DetailsComponent,
     // DetailFormComponent,
     // MapsComponent,
@@ -54,8 +54,8 @@ import appRoutes from './routes';
     HomeComponent,
     DiagnosticsComponent,
     FilterSelectboxComponent,
-    ReferencesComponent,
-    ReferencesListComponent,
+    FeedComponent,
+    FeedListComponent,
     // DetailsComponent,
     // MapsComponent
   ]

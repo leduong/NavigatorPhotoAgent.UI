@@ -6,7 +6,7 @@ const Home = {
 
 const Feed = {
   text: 'Feed',
-  link: '/references',
+  link: '/feed',
   icon: 'icon-picture'
 };
 

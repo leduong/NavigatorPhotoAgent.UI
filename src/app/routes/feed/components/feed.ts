@@ -5,16 +5,16 @@ import { SessionService } from '../../../shared/services/session';
 
 import { MessageLoggingService } from '../services/messageLogging'
 
-import { ReferencesListComponent } from './referencesList';
+import { FeedListComponent } from './feedList';
 import { FilterSelectboxComponent } from './filterSelectbox';
 
 @Component({
   selector: 'properties',
-  templateUrl: 'app/routes/references/components/references.html',
+  templateUrl: 'app/routes/feed/components/feed.html',
   providers: [SessionService, MessageLoggingService]
 })
 
-export class ReferencesComponent implements OnInit {
+export class FeedComponent implements OnInit {
   title: string;
   borough: string;
   objectType: string;
