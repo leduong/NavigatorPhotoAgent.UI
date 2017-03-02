@@ -11,6 +11,7 @@ import { MenuService } from '../core/menu/menu.service';
 import { HomeComponent } from './home/home.component';
 
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
+import { ManagementComponent } from './management/components/management';
 import { ReferencesComponent } from './references/components/references';
 import { ReferencesListComponent } from './references/components/referencesList';
 import { FilterSelectboxComponent } from './references/components/filterSelectbox';
@@ -38,6 +39,7 @@ import appRoutes from './routes';
   declarations: [
     HomeComponent,
     DiagnosticsComponent,
+    ManagementComponent,
     ReferencesComponent,
     FilterSelectboxComponent,
     ReferencesListComponent,
@@ -53,6 +55,7 @@ import appRoutes from './routes';
     InfiniteScrollModule,
     HomeComponent,
     DiagnosticsComponent,
+    ManagementComponent,
     FilterSelectboxComponent,
     ReferencesComponent,
     ReferencesListComponent,
