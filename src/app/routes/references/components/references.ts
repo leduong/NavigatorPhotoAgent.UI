@@ -3,7 +3,6 @@ declare var $: any;
 
 import { SessionService } from '../../../shared/services/session';
 
-import { ReferencesService } from '../services/references';
 import { MessageLoggingService } from '../services/messageLogging'
 
 import { ReferencesListComponent } from './referencesList';
@@ -12,7 +11,7 @@ import { FilterSelectboxComponent } from './filterSelectbox';
 @Component({
   selector: 'properties',
   templateUrl: 'app/routes/references/components/references.html',
-  providers: [ReferencesService, SessionService, MessageLoggingService]
+  providers: [SessionService, MessageLoggingService]
 })
 
 export class ReferencesComponent implements OnInit {
@@ -35,7 +34,6 @@ export class ReferencesComponent implements OnInit {
 
   constructor(
     private session: SessionService,
-    private referenceService: ReferencesService,
     private messageLoggingService: MessageLoggingService
     ) {
     let page = this.session.get('page');
@@ -43,20 +41,12 @@ export class ReferencesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFeedManagement();
     this.getMessageLogging(this.page, this.limit);
     this.scrollTop();
   }
 
   private scrollTop() {
     $(window).scrollTop(0, 0);
-  }
-
-  public getFeedManagement(){
-    this.referenceService.getFeedManagement(this.page, this.limit).subscribe(
-      res => { this.properties = res; },
-      err => console.error(err)
-    );
   }
 
   public getMessageLogging(page, limit) {
