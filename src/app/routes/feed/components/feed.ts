@@ -48,7 +48,6 @@ export class FeedComponent implements OnInit {
   public getMessageLogging(page, limit) {
     this.messageLoggingService.getMessageLogging(page, limit).subscribe(
         res => {
-          console.log(res, 'Res');
           this.feedItems = res.results;
           this.totalItems = res.total;
           this.scrollTop();
