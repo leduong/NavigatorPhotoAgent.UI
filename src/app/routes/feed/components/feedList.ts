@@ -9,5 +9,5 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeedListComponent {
-  @Input() properties: Object;
+  @Input() feedItems: Object;
 }

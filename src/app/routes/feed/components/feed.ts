@@ -26,7 +26,7 @@ export class FeedComponent implements OnInit {
   toItem: number = 20;
   boroughs: string[] = [];
   objectTypes: string[] = [];
-  properties: any[] = []; // LPCReports list;
+  feedItems: any[] = []; // LPCReports list;
   filteredReference: any[] = [];
 
   // displayMode: DisplayModeEnum;
@@ -51,7 +51,16 @@ export class FeedComponent implements OnInit {
 
   public getMessageLogging(page, limit) {
     this.messageLoggingService.getMessageLogging(page, limit).subscribe(
-        res => { console.log(res, 'Res') },
+        res => {
+          console.log(res, 'Res');
+          this.feedItems = this.filteredReference = res.results;
+          this.totalItems = res.total;
+          this.scrollTop();
+
+          this.page = page;
+          this.fromItem = ((page - 1) * limit) + 1;
+          this.toItem = (this.totalItems < (page * limit)) ? this.totalItems : (page * limit);
+        },
         err => console.error(err)
     );
   }
