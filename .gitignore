@@ -6,3 +6,5 @@ typings
 appsettings.yml
 src/app/appsettings.ts
 npm-debug\.log
+
+src/app/routes/appsettings\.ts
