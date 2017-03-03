@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { AppSettings } from '../../appsettings';
 
 @Injectable()
-export class LoggingService {
+export class ManagementLoggingService {
 
   constructor(private http: Http) {}
 
@@ -19,9 +19,6 @@ export class LoggingService {
     Sort ? : string,
     Order ? : string) {
     let params = new URLSearchParams();
-    params.set('currentPageIndex', String(page - 1));
-    params.set('pageSize', String(limit));
-
     if (FieldsList && FieldsList !== '') {
       params.set('FieldsList', FieldsList);
     }

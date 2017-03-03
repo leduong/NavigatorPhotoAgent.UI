@@ -12,13 +12,10 @@ import { HomeComponent } from './home/home.component';
 
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 import { ManagementComponent } from './management/components/management';
+import { MessageComponent } from './message/components/message';
 import { ReferencesComponent } from './references/components/references';
 import { ReferencesListComponent } from './references/components/referencesList';
 import { FilterSelectboxComponent } from './references/components/filterSelectbox';
-// import { DetailsComponent } from './lpcreport/components/details';
-// import { DetailFormComponent } from './lpcreport/components/detailForm';
-
-// import { MapsComponent } from './maps/components/maps';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -40,6 +37,7 @@ import appRoutes from './routes';
     HomeComponent,
     DiagnosticsComponent,
     ManagementComponent,
+    MessageComponent,
     ReferencesComponent,
     FilterSelectboxComponent,
     ReferencesListComponent,
@@ -56,11 +54,10 @@ import appRoutes from './routes';
     HomeComponent,
     DiagnosticsComponent,
     ManagementComponent,
+    MessageComponent,
     FilterSelectboxComponent,
     ReferencesComponent,
     ReferencesListComponent,
-    // DetailsComponent,
-    // MapsComponent
   ]
 })
 
