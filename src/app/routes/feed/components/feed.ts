@@ -15,19 +15,15 @@ import { FilterSelectboxComponent } from './filterSelectbox';
 })
 
 export class FeedComponent implements OnInit {
-  title: string;
-  borough: string;
-  objectType: string;
+  title: string = 'Feed';
   page: number = 1;
   limit: number = 20;
-  perPage: any[] = [10, 20, 50, 100];
+  perPage: any[] = [2, 20, 50, 100];
   totalItems: number = 100;
   fromItem: number = 1;
   toItem: number = 20;
-  boroughs: string[] = [];
-  objectTypes: string[] = [];
+  ignorePageChangedEvent: boolean = false;
   feedItems: any[] = []; // LPCReports list;
-  filteredReference: any[] = [];
 
   // displayMode: DisplayModeEnum;
   // displayModeEnum = DisplayModeEnum;
@@ -53,7 +49,7 @@ export class FeedComponent implements OnInit {
     this.messageLoggingService.getMessageLogging(page, limit).subscribe(
         res => {
           console.log(res, 'Res');
-          this.feedItems = this.filteredReference = res.results;
+          this.feedItems = res.results;
           this.totalItems = res.total;
           this.scrollTop();
 
@@ -64,4 +60,22 @@ export class FeedComponent implements OnInit {
         err => console.error(err)
     );
   }
+
+    public pageChanged(event: any) {
+        if (!this.ignorePageChangedEvent) {
+            this.page = event.page;
+            this.session.set('page', this.page);
+            this.getMessageLogging(event.page, this.limit);
+        }
+        this.ignorePageChangedEvent = false;
+    }
+
+    public perPageChanged(limit: any) {
+        limit = parseInt(limit, 10);
+        this.ignorePageChangedEvent =  this.limit < limit; //Little workaround for paginator last page cornercase
+        this.page = 1;
+        this.limit = limit;
+        this.session.set('page', this.page);
+        this.getMessageLogging(1, limit);
+    }
 }

@@ -9,7 +9,7 @@
     <div class="panel-body">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <feed-list [feedItems]="filteredReference"></feed-list>
+          <feed-list [feedItems]="feedItems"></feed-list>
           <pre>{{feedItems|json}}</pre>
         </div>
       </div>
@@ -28,7 +28,7 @@
             <pagination 
               [totalItems]="totalItems" 
               [maxSize]="5" 
-              [(ngModel)]="page"
+              [ngModel]="page"
               [boundaryLinks]="true"
               [rotate]="false"
               (pageChanged)="pageChanged($event)" class="pagination-sm">
