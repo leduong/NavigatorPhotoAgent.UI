@@ -10,9 +10,9 @@
       <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <label>Method</label>
-          <select  class="form-control">
+          <select  class="form-control" [(ngModel)]="method" (ngModelChange)="changeMethod($event)">
           	<option value=""></option>
-          	<option *ngFor="let method of methods" value="{{method}}">{{method}}</option>
+          	<option *ngFor="let m of methods" value="{{m}}">{{m}}</option>
           </select>
         </div>
         <div (click)="isCollapsedStart = !isCollapsedStart" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">

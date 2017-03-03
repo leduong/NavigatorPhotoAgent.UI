@@ -76,4 +76,9 @@ export class ManagementComponent implements OnInit {
     this.endTime = time;
     this.getLoggings(this.page, this.limit);
   }
+
+  public changeMethod(method: any) {
+    this.method = method;
+    this.getLoggings(this.page, this.limit);
+  }
 }
