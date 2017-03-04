@@ -1,7 +1,7 @@
 {
-  "name": "CoreDataStore",
+  "name": "NavigatorPhotoAgent.UI",
   "version": "1.0.0",
-  "description": "CoreDataStore Angular2 with TypeScript and Gulp",
+  "description": "NavigatorPhotoAgent.UI Angular2 with TypeScript and Gulp",
   "private": true,
   "scripts": {
     "clean": "./node_modules/.bin/gulp clean",

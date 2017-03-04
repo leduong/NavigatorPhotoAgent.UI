@@ -1,7 +1,7 @@
 import { LayoutComponent } from '../layout/layout.component';
 
 import { HomeComponent } from './home/home.component';
-import { ReferencesComponent } from './references/components/references';
+import { FeedComponent } from './feed/components/feed';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 
 
@@ -12,7 +12,7 @@ const routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'diagnostics', component: DiagnosticsComponent },
-      { path: 'references', component: ReferencesComponent },
+      { path: 'feed', component: FeedComponent },
       // { path: 'details/:id', component: DetailsComponent },
       // { path: 'maps', component: MapsComponent },
       { path: '**', redirectTo: 'home' }
