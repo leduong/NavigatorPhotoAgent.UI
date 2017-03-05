@@ -60,7 +60,7 @@ npm start
 
 ```bash
 docker build -t navigator-photo-agent-ui .
-docker run -d -p 5000:5000 navigator-photo-agent-ui
+docker run -d -p 8000:8000 navigator-photo-agent-ui
 ```
 
 #### Tag & Push to Docker Hub
