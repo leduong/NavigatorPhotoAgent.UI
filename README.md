@@ -69,7 +69,7 @@ docker run -d -p 5000:5000 navigator-photo-agent-ui
 docker tag <imageid> navigator-photo-agent-ui:staging
 docker tag navigator-photo-agent-ui:staging  stuartshay/navigator-photo-agent-ui:staging
 
-docker push stuartshay/stuartshay/navigator-photo-agent-ui:staging
+docker push stuartshay/navigator-photo-agent-ui:staging
 ```
 
 ### Build and Deploy to Github Pages
