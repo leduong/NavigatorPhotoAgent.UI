@@ -5,31 +5,59 @@ API Endpoint
 http://informationcart.eastus2.cloudapp.azure.com:6500/swagger/ui/index.html#/
 
 
-
 ### UI Mockup
 http://navigatordesign.azurewebsites.net/Home/Feed
 
 Formated Message (Click the Photo Link)     
 http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 
+### Prereq
+nodejs version: 6.x   
+gulp
+typings 
+npm3
+
+
 
 ### Init first
 
-```
+```bash
 npm i
 ```
 
-### Set Environment and Run with Dev
+### Set Environment 
 
+#### Linux/Mac
 ```bash
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+```
+
+#### Windows CMD
+```bash
+set NG_ENVIRONMENT=Dev
+set APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+```
+
+
+#### Windows Powershell
+```bash
+$env:NG_ENVIRONMENT = 'Dev'
+$env:APIENDPOINT = 'http://informationcart.eastus2.cloudapp.azure.com:6500/api/'
+
+Get-ChildItem Env:APIENDPOINT
+```
+
+### Build and Run
+
+```bash
 npm run clean
 npm run build
 npm start
 ```
 
-### Build to Github Page
+
+### Build and Deploy to Github Pages
 
 http://stuartshay.github.io/NavigatorPhotoAgent.UI/
 
