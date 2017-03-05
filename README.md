@@ -59,7 +59,7 @@ npm start
 ### Docker Build
 
 ```bash
-docker build -t navigator-photo-agent-ui
+docker build -t navigator-photo-agent-ui .
 docker run -d -p 5000:5000 navigator-photo-agent-ui
 ```
 
