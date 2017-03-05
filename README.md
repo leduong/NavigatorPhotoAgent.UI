@@ -56,6 +56,21 @@ npm run build
 npm start
 ```
 
+### Docker Build
+
+```bash
+docker build -t navigator-photo-agent-ui
+docker run -d -p 5000:5000 navigator-photo-agent-ui
+```
+
+#### Tag & Push to Docker Hub
+
+```bash
+docker tag <imageid> navigator-photo-agent-ui:staging
+docker tag navigator-photo-agent-ui:staging  stuartshay/navigator-photo-agent-ui:staging
+
+docker push stuartshay/stuartshay/navigator-photo-agent-ui:staging
+```
 
 ### Build and Deploy to Github Pages
 
