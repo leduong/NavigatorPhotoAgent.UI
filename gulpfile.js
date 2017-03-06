@@ -98,7 +98,7 @@ gulp.task('shims', () => {
 });
 
 gulp.task('tsc', ['tslint'], () => {
-  var tsDest = (NG_ENVIRONMENT === 'Dev') ? (buildDir + '/app') : '.tmp';
+  var tsDest = (NG_ENVIRONMENT === 'Dev') ? (buildDir + '/app') : '.tmp/src/app';
   var tsProject = tsc.createProject('tsconfig.json'),
     tsResult = tsProject.src()
     .pipe(tsc(tsProject));
@@ -150,7 +150,7 @@ gulp.task('watch', () => {
   });
   gulp.watch(['src/**/**.less'], ['less']).on('change', function(e) {
     console.log('LESS file ' + e.path + ' has been changed. Updating.');
-  }); 
+  });
   // gulp.watch(['src/**/**.scss'], ['less']).on('change', function(e) {
   //   console.log('SASS file ' + e.path + ' has been changed. Updating.');
   // });

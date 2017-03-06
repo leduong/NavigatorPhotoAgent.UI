@@ -2,6 +2,8 @@ import { LayoutComponent } from '../layout/layout.component';
 
 import { HomeComponent } from './home/home.component';
 import { FeedComponent } from './feed/components/feed';
+import { ManagementComponent } from './management/components/management';
+import { MessageComponent } from './message/components/message';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 
 
@@ -12,6 +14,8 @@ const routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'diagnostics', component: DiagnosticsComponent },
+      { path: 'management', component: ManagementComponent },
+      { path: 'message', component: MessageComponent },
       { path: 'feed', component: FeedComponent },
       // { path: 'details/:id', component: DetailsComponent },
       // { path: 'maps', component: MapsComponent },

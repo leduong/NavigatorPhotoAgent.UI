@@ -11,13 +11,11 @@ import { MenuService } from '../core/menu/menu.service';
 import { HomeComponent } from './home/home.component';
 
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
+import { ManagementComponent } from './management/components/management';
+import { MessageComponent } from './message/components/message';
 import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
 import { FilterSelectboxComponent } from './feed/components/filterSelectbox';
-// import { DetailsComponent } from './lpcreport/components/details';
-// import { DetailFormComponent } from './lpcreport/components/detailForm';
-
-// import { MapsComponent } from './maps/components/maps';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -38,6 +36,8 @@ import appRoutes from './routes';
   declarations: [
     HomeComponent,
     DiagnosticsComponent,
+    ManagementComponent,
+    MessageComponent,
     FeedComponent,
     FilterSelectboxComponent,
     FeedListComponent,
@@ -53,11 +53,11 @@ import appRoutes from './routes';
     InfiniteScrollModule,
     HomeComponent,
     DiagnosticsComponent,
+    ManagementComponent,
+    MessageComponent,
     FilterSelectboxComponent,
     FeedComponent,
     FeedListComponent,
-    // DetailsComponent,
-    // MapsComponent
   ]
 })
 

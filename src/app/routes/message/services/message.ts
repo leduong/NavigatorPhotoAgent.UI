@@ -5,20 +5,21 @@ import 'rxjs/add/operator/map';
 import { AppSettings } from '../../appsettings';
 
 @Injectable()
-export class MessageService {
+export class MessageLoggingService {
 
   constructor(private http: Http) {}
-  getMessages(page = 1, limit = 10, 
+
+  getLoggings(page = 1, limit = 10,
+    StartTime ? : string,
+    EndTime ? : string,
     Sort ? : string,
-    Order ? : string, 
-    StartTime ? : string, 
-    EndTime ? : string) {
+    Order ? : string) {
     let params = new URLSearchParams();
-    params.set('currentPageIndex', String(page-1));
-    params.set('pageSize', String(limit));
+  
     if (Order && Order !== '') {
       params.set('Order', Order);
-    }    if (Sort && Sort !== '') {
+    }
+    if (Sort && Sort !== '') {
       params.set('Sort', Sort);
     }
     if (StartTime && StartTime !== '') {
@@ -32,9 +33,8 @@ export class MessageService {
       .map((res: Response) => res.json());
   };
 
-  getMessageId(id: number) {
+  getLoggingId(id: number) {
     return this.http.get(`${AppSettings.ApiEndpoint}messagelogging/${id}`)
       .map((res: Response) => res.json());
-  };
-
+  }
 }

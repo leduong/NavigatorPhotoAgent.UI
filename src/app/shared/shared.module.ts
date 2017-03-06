@@ -13,8 +13,9 @@ import { CheckallDirective } from './directives/checkall';
 import { NowDirective } from './directives/now';
 import { ScrollableDirective } from './directives/scrollable';
 
-import { CapitalizePipe } from './pipes/capitalize';
 import { TrimPipe } from './pipes/trim';
+import { CapitalizePipe } from './pipes/capitalize';
+import { CharactersPipe } from './pipes/characters';
 
 // https://angular.io/styleguide#!#04-10
 @NgModule({
@@ -33,6 +34,7 @@ import { TrimPipe } from './pipes/trim';
   declarations: [
     TrimPipe,
     CapitalizePipe,
+    CharactersPipe,
     CheckallDirective,
     NowDirective,
     ScrollableDirective
@@ -48,6 +50,7 @@ import { TrimPipe } from './pipes/trim';
 
     TrimPipe,
     CapitalizePipe,
+    CharactersPipe,
 
     CheckallDirective,
     NowDirective,
