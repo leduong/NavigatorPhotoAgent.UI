@@ -10,7 +10,8 @@
     "ghpage": "./node_modules/.bin/gulp ghpage",
     "build:dev": "./node_modules/.bin/gulp build:dev",
     "postinstall": "./node_modules/.bin/typings install",
-    "start": "concurrently --kill-others \"./node_modules/.bin/gulp watch\" \"./node_modules/.bin/lite-server --host=0.0.0.0\"",
+    "serve": "concurrently --kill-others \"./node_modules/.bin/gulp watch\" \"./node_modules/.bin/lite-server --host=0.0.0.0\"",
+    "start": "node server.js",
     "tsc": "./node_modules/.bin/tsc",
     "tsc:w": "./node_modules/.bin/tsc -w",
     "typings": "./node_modules/.bin/typings"
