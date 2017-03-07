@@ -4,7 +4,7 @@
       <li>
         <a [routerLink]="['/']"><i class="icon-home"></i> Home</a>
       </li>
-      <li class="active"><a [routerLink]="['/management']" asp-controller="Management">Management</a></li>
+      <li class="active"><a [routerLink]="['/message']">Message</a></li>
     </ol>
     <div class="panel-body">
       <div class="row">
@@ -40,11 +40,13 @@
             </tr>
             <tr *ngFor="let item of items.results">
               <td>{{item.title}}</td>
-              <td><a href="#{{item.feedId}}">Photo</a></td>
-              <td>{{item.operations.join(' ')}}</td>
+              <td><a href="#/photo/{{item.id}}">Photo</a></td>
+              <td>
+                <span *ngFor="let operation of item.operations" class="label label-{{operation.toLowerCase()}}">{{operation}}</span>
+              </td>
               <td>{{item.feedId}}</td>
               <td>{{item.entriesCount}}</td>
-              <td>{{item.date | date: 'shortDate'}}</td>
+              <td>{{item.date | date: 'MM/dd/y HH:mm:ss'}}</td>
             </tr>
             <!--             <tr *ngIf="!itemsLength()">
               <td colspan="6">No Records Found</td>

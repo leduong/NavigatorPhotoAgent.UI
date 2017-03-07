@@ -1,0 +1,41 @@
+<div class="page">
+  <div class="panel panel-default">
+    <ol class="breadcrumb">
+      <li>
+        <a [routerLink]="['/']"><i class="icon-home"></i> Home</a>
+      </li>
+      <li class="active"><a [routerLink]="['/references']" asp-controller="References">{{title}}</a></li>
+    </ol>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <feed-list [feedItems]="feedItems"></feed-list>
+          <pre>{{feedItems|json}}</pre>
+        </div>
+      </div>
+      <div class="table-footer" ng-show="items.total > 0">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 page-num-info">
+            <div class="inline">
+              {{fromItem}}-{{toItem}} of {{ totalItems }} items
+              <select [ngModel]="limit" (ngModelChange)="perPageChanged($event)">
+                <option [value]="p" *ngFor="let p of perPage">{{p}}</option>
+              </select>
+              per page
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 text-right pagination-container">
+            <pagination 
+              [totalItems]="totalItems" 
+              [maxSize]="5" 
+              [ngModel]="page"
+              [boundaryLinks]="true"
+              [rotate]="false"
+              (pageChanged)="pageChanged($event)" class="pagination-sm">
+            </pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
