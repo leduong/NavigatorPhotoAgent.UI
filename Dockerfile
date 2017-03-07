@@ -2,6 +2,7 @@ FROM node:6
 
 # Set environment variables
 #ENV APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+ENV APIENDPOINT
 
 RUN npm install -g gulp
 RUN npm install -g typings
