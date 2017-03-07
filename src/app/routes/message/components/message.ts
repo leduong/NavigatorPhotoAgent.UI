@@ -1,8 +1,6 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
-import { AppSettings } from '../../appsettings';
-
 import { SessionService } from '../../../shared/services/session';
 import { MessageLoggingService } from '../services/message';
 

@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 import { ManagementComponent } from './management/components/management';
 import { MessageComponent } from './message/components/message';
+import { PhotoComponent } from './photo/components/photo';
+
 import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
 import { FilterSelectboxComponent } from './feed/components/filterSelectbox';
@@ -38,6 +40,7 @@ import appRoutes from './routes';
     DiagnosticsComponent,
     ManagementComponent,
     MessageComponent,
+    PhotoComponent,
     FeedComponent,
     FilterSelectboxComponent,
     FeedListComponent,
@@ -55,6 +58,7 @@ import appRoutes from './routes';
     DiagnosticsComponent,
     ManagementComponent,
     MessageComponent,
+    PhotoComponent,
     FilterSelectboxComponent,
     FeedComponent,
     FeedListComponent,

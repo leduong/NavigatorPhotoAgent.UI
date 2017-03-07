@@ -1,0 +1,28 @@
+<div class="page">
+  <div class="panel panel-default">
+    <ol class="breadcrumb">
+      <li>
+        <a [routerLink]="['/']"><i class="icon-home"></i> Home</a>
+      </li>
+      <li><a [routerLink]="['/message']">Message Bus</a></li>
+      <li class="active">{{photo.title}}</li>
+    </ol>
+    <div class="panel-body">
+      <table class="table table-striped table-hover">
+        <tr *ngFor="let item of photo.entries">
+          <td><img src="{{item.mediaContent.url}}" height="150" width="150" /></td>
+          <td>
+            <div><b>{{item.title}}</b></div>
+            <div>Photo Id: {{item.id}}</div>
+            <div>Updated: {{photo.updatedDate | date: 'shortDate'}}</div>
+          </td>
+          <td>
+            <div>Author: {{item.author.name}}</div>
+            <div>Author URL: {{item.author.url}}</div>
+            <div>Photo Id: {{item.mediaContent.url}}</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { SettingsService } from '../../core/settings/settings.service';
 import { Router } from '@angular/router';
 declare var $: any;
 
+import { AppSettings } from '../../routes/appsettings';
 @Component({
   selector: 'app-sidebar',
   templateUrl: 'app/layout/sidebar/sidebar.component.html'
@@ -12,11 +13,10 @@ export class SidebarComponent implements OnInit {
 
   menuItems: Array < any > ;
   router: Router;
-
+  ApiEndpoint: string = AppSettings.ApiEndpoint;
   constructor(private menu: MenuService, public settings: SettingsService, private injector: Injector) {
-
     this.menuItems = menu.getMenu();
-
+    this.ApiEndpoint = this.ApiEndpoint.replace('/api', '');
   }
 
   ngOnInit() {

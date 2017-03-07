@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { FeedComponent } from './feed/components/feed';
 import { ManagementComponent } from './management/components/management';
 import { MessageComponent } from './message/components/message';
+import { PhotoComponent } from './photo/components/photo';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 
 
@@ -17,7 +18,7 @@ const routes = [
       { path: 'management', component: ManagementComponent },
       { path: 'message', component: MessageComponent },
       { path: 'feed', component: FeedComponent },
-      // { path: 'details/:id', component: DetailsComponent },
+      { path: 'photo/:id', component: PhotoComponent },
       // { path: 'maps', component: MapsComponent },
       { path: '**', redirectTo: 'home' }
     ]
