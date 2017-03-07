@@ -48,12 +48,12 @@ $env:APIENDPOINT = 'http://informationcart.eastus2.cloudapp.azure.com:6500/api/'
 Get-ChildItem Env:APIENDPOINT
 ```
 
-### Build and Run
+### Build and Run with Liveload
 
 ```bash
 npm run clean
 npm run build
-npm start
+npm run serve
 ```
 
 ### Docker Build
