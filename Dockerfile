@@ -10,7 +10,6 @@ RUN npm install -g npm3
 # Create app directory
 RUN mkdir -p /app
 
-
 # Bundle app source
 COPY . /app
 WORKDIR /app
