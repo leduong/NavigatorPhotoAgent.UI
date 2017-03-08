@@ -19,7 +19,7 @@ export class ManagementComponent implements OnInit {
   public page: number = 1;
   public perPage: any[] = [10, 20, 50, 100];
   public method: string = '';
-  public methods: any[] = ['GET', 'POST', 'PUT', 'DELETE'];
+  public methods: any[] = ['GET', 'POST'];
   public items: any = {};
 
   constructor(
