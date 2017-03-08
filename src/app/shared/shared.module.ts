@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule, Http } from '@angular/http';
-import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { DatepickerModule, PaginationModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { ModalModule } from 'ng2-modal';
 import { SelectModule } from 'ng2-select/ng2-select';
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 
@@ -23,7 +24,8 @@ import { CharactersPipe } from './pipes/characters';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2BootstrapModule,
+    DatepickerModule, PaginationModule, CollapseModule,
+    ModalModule,
     SelectModule,
     ToasterModule
   ],
@@ -45,7 +47,8 @@ import { CharactersPipe } from './pipes/characters';
     ReactiveFormsModule,
     HttpModule,
     RouterModule,
-    Ng2BootstrapModule,
+    ModalModule,
+    DatepickerModule, PaginationModule, CollapseModule,
     ToasterModule,
 
     TrimPipe,

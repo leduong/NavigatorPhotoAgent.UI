@@ -207,6 +207,7 @@ gulp.task("node_modules", () => {
         'zone.js/dist/**',
         'systemjs/dist/**',
         'ng2-select/**',
+        'ng2-modal/**',
         'ng2-dnd/**',
         'angular2-infinite-scroll/**',
         'angular2-toaster/**',

@@ -19,7 +19,7 @@
       '@angular/router': 'libs:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'libs:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'libs:@angular/upgrade/bundles/upgrade.umd.js',
-      "@angular/core/src/facade/lang": "libs:@angular/core/src/facade/lang.js",
+      '@angular/core/src/facade/lang': 'libs:@angular/core/src/facade/lang.js',
       // other libraries
       'rxjs': 'libs:rxjs',
       'angular2-in-memory-web-api': 'libs:angular2-in-memory-web-api',
@@ -33,6 +33,7 @@
       'angular2-toaster': 'libs:angular2-toaster',
       'angular2-google-maps': 'libs:angular2-google-maps/core/index.js',
       'ng2-bootstrap': 'libs:ng2-bootstrap',
+      'ng2-modal': 'node_modules/ng2-modal/index.js',
       'ng2-table': 'libs:ng2-table',
       'ng2-select': 'libs:ng2-select'
 

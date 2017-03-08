@@ -44,7 +44,7 @@
               <th>IP Address</th>
             </tr>
             <tr *ngFor="let item of items.results">
-              <td><i *ngIf="item.method == 'POST' && item.statusCode == '200'" class="fa fa-list"></i></td>
+              <td><i *ngIf="item.method == 'POST' && item.statusCode == '200'" (click)="myModal.open()" class="fa fa-list"></i></td>
               <td>{{item.timestamp | date: 'MM/dd/y HH:mm:ss'}}</td>
               <td><i class="label" [ngClass]="{'label-inverse' : item.method == 'GET','label-primary' : item.method != 'GET'}">{{item.method}}</i></td>
               <td><i class="label" [ngClass]="{'label-success' : item.statusCode == '200','label-danger' : item.statusCode != '200'}">{{item.statusCode}}</i></td>
@@ -79,3 +79,14 @@
     </div>
   </div>
 </div>
+<modal #myModal>
+  <modal-header>
+    <h1>Modal header</h1>
+  </modal-header>
+  <modal-content>
+    Hello Modal!
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-primary" (click)="myModal.close()">close</button>
+  </modal-footer>
+</modal>
