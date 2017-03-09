@@ -44252,7 +44252,7 @@ $__System.register('b9', ['3', 'b3', 'b8'], function (exports_1, context_1) {
                     this.page = 1;
                     this.perPage = [10, 20, 50, 100];
                     this.method = '';
-                    this.methods = ['GET', 'POST', 'PUT', 'DELETE'];
+                    this.methods = ['GET', 'POST'];
                     this.items = {};
                     this.page = this.session.get('managementPage') || 1;
                     this.limit = this.session.get('managementLimit') || 10;
@@ -44349,8 +44349,6 @@ $__System.register('ba', ['3', 'b3', 'bb'], function (exports_1, context_1) {
                     this.loggingservice = loggingservice;
                     this.startTime = new Date('1/1/1970');
                     this.endTime = new Date();
-                    this.limit = 20;
-                    this.page = 1;
                     this.keyword = '';
                     this.perPage = [10, 20, 50, 100];
                     this.items = {};
@@ -44358,7 +44356,7 @@ $__System.register('ba', ['3', 'b3', 'bb'], function (exports_1, context_1) {
                     this.limit = this.session.get('messageLimit') || 10;
                 }
                 MessageComponent.prototype.ngOnInit = function () {
-                    this.getLoggings();
+                    this.getLoggings(this.page, this.limit);
                 };
                 MessageComponent.prototype.ngOnDestroy = function () {};
                 MessageComponent.prototype.itemsLength = function () {
@@ -44366,16 +44364,10 @@ $__System.register('ba', ['3', 'b3', 'bb'], function (exports_1, context_1) {
                 };
                 MessageComponent.prototype.getLoggings = function (page, limit) {
                     var _this = this;
-                    if (page === void 0) {
-                        page = 1;
-                    }
-                    if (limit === void 0) {
-                        limit = 10;
-                    }
                     this.loggingservice.getLoggings(page, limit, this.startTime, this.endTime).subscribe(function (res) {
                         _this.items = res;
-                        _this.page = res.page;
-                        _this.limit = res.limit;
+                        // this.page = res.page;
+                        // this.limit = res.limit;
                     }, function (err) {
                         return console.error(err);
                     }, function () {
@@ -44385,7 +44377,7 @@ $__System.register('ba', ['3', 'b3', 'bb'], function (exports_1, context_1) {
                 MessageComponent.prototype.pageChanged = function (event) {
                     // console.log(event);
                     this.page = event.page;
-                    this.session.set('messagepage', this.page);
+                    this.session.set('messagePage', this.page);
                     this.getLoggings(event.page, this.limit);
                 };
                 MessageComponent.prototype.perPageChanged = function (limit) {
@@ -79160,7 +79152,7 @@ $__System.register("e", [], function (exports_1, context_1) {
                 });
                 Object.defineProperty(AppSettings, "ng2ENV", {
                     get: function () {
-                        return "Stage";
+                        return null;
                     },
                     enumerable: true,
                     configurable: true
