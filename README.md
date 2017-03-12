@@ -66,6 +66,10 @@ docker run -d -p 8000:8000 navigator-photo-agent-ui
 #### Tag & Push to Docker Hub
 
 ```bash
+https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/
+```
+
+```bash
 docker tag <imageid> navigator-photo-agent-ui:staging
 docker tag navigator-photo-agent-ui:staging  stuartshay/navigator-photo-agent-ui:staging
 

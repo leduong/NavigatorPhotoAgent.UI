@@ -8,6 +8,17 @@
       <li class="active">{{photo.title}}</li>
     </ol>
     <div class="panel-body">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <b>Deleted Entry</b>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div>Photo Id</div>
+        <div>{{photo.deletedEntry|json}}</div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div>When</div>
+        <div>{{photo.deletedEntry|json}}</div>
+      </div>
       <table class="table table-striped table-hover">
         <tr *ngFor="let item of photo.entries">
           <td><img src="{{item.mediaContent.url}}" height="150" width="150" /></td>
