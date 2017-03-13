@@ -38,19 +38,19 @@
               <th>Time</th>
               <th>Method</th>
               <th>Status</th>
-              <th>Query String</th>
-              <th>Level</th>
-              <th>Host</th>
+              <th class="hidden-xs">Query String</th>
+              <th class="hidden-xs">Level</th>
+              <th class="hidden-xs">Host</th>
               <th>IP Address</th>
             </tr>
             <tr *ngFor="let item of items.results">
-              <td><i *ngIf="item.method == 'POST' && item.statusCode == '200'" class="fa fa-list"></i></td>
+              <td><i *ngIf="item.method == 'POST' && item.statusCode == '200'" (click)="getLoggingXmlId(item.id);smModal.show()" class="fa fa-list"></i></td>
               <td>{{item.timestamp | date: 'MM/dd/y HH:mm:ss'}}</td>
               <td><i class="label" [ngClass]="{'label-gray' : item.method == 'GET','label-primary' : item.method != 'GET'}">{{item.method}}</i></td>
               <td><i class="label" [ngClass]="{'label-success' : item.statusCode == '200','label-danger' : item.statusCode != '200'}">{{item.statusCode}}</i></td>
-              <td>{{item.queryString | characters: 20: false}}</td>
-              <td>{{item.level}}</td>
-              <td>{{item.host}}</td>
+              <td class="hidden-xs">{{item.queryString | characters: 20: false}}</td>
+              <td class="hidden-xs">{{item.level}}</td>
+              <td class="hidden-xs">{{item.host}}</td>
               <td>{{item.remoteIpAddress}}</td>
             </tr>
             <!--             <tr *ngIf="!itemsLength()">
@@ -75,6 +75,21 @@
             </pagination>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ActivityAddModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">XML Body</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="smModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <xml-body [xmlbody]="xmlbody"></xml-body>
       </div>
     </div>
   </div>
