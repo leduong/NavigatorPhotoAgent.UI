@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 // import { AgmCoreModule } from 'angular2-google-maps';
-import { SelectModule } from 'ng2-select/ng2-select';
 // import { Ng2TableModule } from 'ng2-table/ng2-table';
 
 import { MenuService } from '../core/menu/menu.service';
@@ -17,7 +16,6 @@ import { PhotoComponent } from './photo/components/photo';
 
 import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
-import { FilterSelectboxComponent } from './feed/components/filterSelectbox';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -28,7 +26,6 @@ import appRoutes from './routes';
   imports: [
     SharedModule,
     // Ng2TableModule,
-    SelectModule,
     InfiniteScrollModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     // AgmCoreModule.forRoot({
@@ -42,7 +39,6 @@ import appRoutes from './routes';
     MessageComponent,
     PhotoComponent,
     FeedComponent,
-    FilterSelectboxComponent,
     FeedListComponent,
     // DetailsComponent,
     // DetailFormComponent,
@@ -59,7 +55,6 @@ import appRoutes from './routes';
     ManagementComponent,
     MessageComponent,
     PhotoComponent,
-    FilterSelectboxComponent,
     FeedComponent,
     FeedListComponent,
   ]

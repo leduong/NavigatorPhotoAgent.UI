@@ -13,8 +13,8 @@ import { ManagementLoggingService } from '../services/management';
 })
 
 export class ManagementComponent implements OnInit {
-  public startTime: any = new Date('1/1/1970');
-  public endTime: any = new Date();
+  public startTime: any;
+  public endTime: any;
   public limit: number = 20;
   public page: number = 1;
   public perPage: any[] = [10, 20, 50, 100];
@@ -28,6 +28,8 @@ export class ManagementComponent implements OnInit {
   ) {
     this.page = this.session.get('managementPage') || 1;
     this.limit = this.session.get('managementLimit') || 10;
+    this.startTime = this.formatDate(new Date('1/1/2000'));
+    this.endTime = this.formatDate(new Date());
   }
 
   ngOnInit() {
@@ -68,12 +70,12 @@ export class ManagementComponent implements OnInit {
   }
 
   public changeStartTime(time: any) {
-    this.startTime = time;
+    this.startTime = this.formatDate(time);
     this.getLoggings(this.page, this.limit);
   }
 
   public changeEndTime(time: any) {
-    this.endTime = time;
+    this.endTime = this.formatDate(time);
     this.getLoggings(this.page, this.limit);
   }
 
@@ -81,4 +83,15 @@ export class ManagementComponent implements OnInit {
     this.method = method;
     this.getLoggings(this.page, this.limit);
   }
+  private formatDate(time: any) {
+    let dt = new Date(time);
+    let arr: any = [],
+      date = dt.getDate(),
+      month = dt.getMonth() + 1;
+    arr.push(dt.getFullYear());
+    arr.push((month > 9) ? month : '0' + month);
+    arr.push((date > 9) ? date : '0' + date);
+    return arr.join('-');
+  }
+
 }

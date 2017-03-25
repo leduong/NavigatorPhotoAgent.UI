@@ -32,16 +32,14 @@
       // 'ng2-dnd': 'libs:ng2-dnd/index.js',
       // 'angular2-toaster': 'libs:angular2-toaster',
       // 'angular2-google-maps': 'libs:angular2-google-maps/core/index.js',
-      'ng2-bootstrap': 'libs:ng2-bootstrap',
+      'ng2-bootstrap': 'libs:ng2-bootstrap'
       // 'ng2-table': 'libs:ng2-table',
-      'ng2-select': 'libs:ng2-select'
 
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: { main: 'main.js', defaultExtension: 'js' },
       rxjs: { defaultExtension: 'js' },
-      'ng2-select': { defaultExtension: 'js' },
       'ng2-bootstrap': { defaultExtension: 'js' },
       'angular2-in-memory-web-api': { main: './index.js', defaultExtension: 'js' }
     }

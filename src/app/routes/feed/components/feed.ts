@@ -4,9 +4,7 @@ declare var $: any;
 import { SessionService } from '../../../shared/services/session';
 
 import { MessageLoggingService } from '../services/messageLogging'
-
 import { FeedListComponent } from './feedList';
-import { FilterSelectboxComponent } from './filterSelectbox';
 
 @Component({
   selector: 'properties',

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-declare var $: any;
+
+declare let $: any;
 
 import { SessionService } from '../../../shared/services/session';
 import { MessageLoggingService } from '../services/message';
@@ -12,8 +13,8 @@ import { MessageLoggingService } from '../services/message';
 })
 
 export class MessageComponent implements OnInit {
-  public startTime: any = new Date('1/1/1970');
-  public endTime: any = new Date();
+  public startTime: any;
+  public endTime: any;
   public limit: number;
   public currentPage: number = 1;
   public keyword: string = '';
@@ -27,6 +28,9 @@ export class MessageComponent implements OnInit {
   ) {
     this.currentPage = this.session.get('messagePage') || 1;
     this.limit = this.session.get('messageLimit') || 10;
+    this.startTime = this.formatDate(new Date('1/1/2000'));
+    this.endTime = this.formatDate(new Date());
+
   }
 
   ngOnInit() {
@@ -68,12 +72,12 @@ export class MessageComponent implements OnInit {
   }
 
   public changeStartTime(time: any) {
-    this.startTime = time;
+    this.startTime = this.formatDate(time);
     this.getLoggings(this.currentPage, this.limit);
   }
 
   public changeEndTime(time: any) {
-    this.endTime = time;
+    this.endTime = this.formatDate(time);
     this.getLoggings(this.currentPage, this.limit);
   }
 
@@ -86,6 +90,15 @@ export class MessageComponent implements OnInit {
     $(window).scrollTop(0, 0);
   }
 
+  private formatDate(time: any) {
+    let dt = new Date(time);
+    let arr: any = [],
+      date = dt.getDate(),
+      month = dt.getMonth() + 1;
+    arr.push(dt.getFullYear());
+    arr.push((month > 9) ? month : '0' + month);
+    arr.push((date > 9) ? date : '0' + date);
+    return arr.join('-');
+  }
 
 }
-

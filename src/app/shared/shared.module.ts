@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { HttpModule, Http } from '@angular/http';
 import { DatepickerModule, PaginationModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
  
-// import { SelectModule } from 'ng2-select/ng2-select';
 // import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 
 import { ColorsService } from './colors/colors.service';
@@ -25,7 +24,6 @@ import { CharactersPipe } from './pipes/characters';
     FormsModule,
     ReactiveFormsModule,
     DatepickerModule, PaginationModule, CollapseModule,
-    // SelectModule,
     // ToasterModule
   ],
   providers: [
