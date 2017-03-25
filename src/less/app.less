@@ -183,7 +183,6 @@
 @import "app/settings";
 // Documentation
 @import "app/docs";
-
 // Addons
 @import "../../node_modules/font-awesome/less/font-awesome.less";
 @import "../../node_modules/simple-line-icons/less/simple-line-icons.less";
@@ -216,12 +215,20 @@
 .page {
   .panel-body {
     margin-top: 0;
+    .label {
+      &:first-child {
+        margin-left: 0px
+      }
+      ~ .label {
+        margin-left: 5px
+      }
+    }
   }
   .breadcrumb {
     margin-bottom: 0;
   }
   .label-update,
-  .label-delete{
+  .label-delete {
     margin-right: 5px;
   }
   .fa-list {
