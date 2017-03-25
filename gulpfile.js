@@ -28,6 +28,7 @@ const buildDir = "wwwroot";
 var NG_ENVIRONMENT = process.env.NG_ENVIRONMENT || '';
 var BUILD = process.env.BUILD || 'local';
 var APIENDPOINT = process.env.APIENDPOINT || '/api/';
+var LANDMARK = process.env.LANDMARK || '/api/landmark';
 var ATTRACTION = process.env.ATTRACTION || '/api/attraction';
 var MAPSAPI = process.env.MAPSAPI || '/api/maps';
 var REPORTSAPI = process.env.REPORTSAPI || '/api/reports';
@@ -160,10 +161,11 @@ gulp.task('appsettings', function(cb) {
   var build = 'build: ' + BUILD;
   var ng2ENV = '\nng2ENV: ' + NG_ENVIRONMENT;
   var apiendpoint = '\nApiEndpoint: ' + APIENDPOINT;
+  var landmark = '\nApiLandmarks: ' + LANDMARK;
   var maps = '\nApiMaps: ' + MAPSAPI;
   var reports = '\nApiReports: ' + REPORTSAPI;
   var attraction = '\nApiAttraction: ' + ATTRACTION;
-  return fs.writeFile('appsettings.yml', build + ng2ENV + apiendpoint + maps + reports + attraction, cb);
+  return fs.writeFile('appsettings.yml', build + ng2ENV + apiendpoint + landmark + maps + reports + attraction, cb);
 });
 
 gulp.task('api', function() {
