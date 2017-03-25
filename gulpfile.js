@@ -208,7 +208,6 @@ gulp.task("node_modules", () => {
         'systemjs/dist/**',
         'ng2-select/**',
         // 'ng2-dnd/**',
-        'ng2-modal/**',
         'angular2-infinite-scroll/**',
         // 'angular2-toaster/**',
         // 'angular2-google-maps/**',
