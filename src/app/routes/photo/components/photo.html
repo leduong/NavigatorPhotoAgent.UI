@@ -26,6 +26,7 @@
             <div><b>{{item.title}}</b></div>
             <div>Photo Id: {{item.id}}</div>
             <div>Updated: {{photo.updatedDate | date: 'shortDate'}}</div>
+            <div *ngIf="item.categories.length > 0">Category: <i *ngFor="let c of item.categories" class="label label-info">{{c.term}}</i></div>
           </td>
           <td>
             <div>Author: {{item.author.name}}</div>
