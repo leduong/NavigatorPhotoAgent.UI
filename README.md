@@ -1,6 +1,6 @@
 # NavigatorPhotoAgent.UI
 
-[![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshaynavigator-photo-agent-ui/)
+[![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/)
 
 API Endpoint      
 http://informationcart.eastus2.cloudapp.azure.com:6500/swagger/ui/index.html#/
