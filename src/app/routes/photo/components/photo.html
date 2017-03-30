@@ -24,9 +24,8 @@
       </div>
 
 
-      <div style="padding-top:10px;padding-bottom:10px;" *ngIf="photo.deletedEntries != null"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div *ngIf="photo.deletedEntries?.length > 0" style="padding-top:10px;padding-bottom:10px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h4>Deleted Entries</h4>
-        <b>Hide if NULL</b>
         <div *ngFor="let item of photo.deletedEntries">
              <div>{{item.when}}   {{item.id}}     </div>
         </div>
