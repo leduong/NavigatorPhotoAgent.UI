@@ -28,7 +28,7 @@ export class ManagementComponent implements OnInit {
   ) {
     this.page = this.session.get('managementPage') || 1;
     this.limit = this.session.get('managementLimit') || 10;
-    this.startTime = this.formatDate(new Date('1/1/2000'));
+    this.startTime = this.formatDate(new Date('3/15/2017'));
     this.endTime = this.formatDate(new Date());
   }
 

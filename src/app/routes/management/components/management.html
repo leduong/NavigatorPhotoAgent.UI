@@ -38,6 +38,7 @@
               <th>Time</th>
               <th>Method</th>
               <th>Status</th>
+              <th>Exception</th>
               <th>Query String</th>
               <th>Level</th>
               <th>Host</th>
@@ -48,6 +49,7 @@
               <td>{{item.timestamp | date: 'MM/dd/y HH:mm:ss'}}</td>
               <td><i class="label" [ngClass]="{'label-gray' : item.method == 'GET','label-primary' : item.method != 'GET'}">{{item.method}}</i></td>
               <td><i class="label" [ngClass]="{'label-success' : item.statusCode == '200','label-danger' : item.statusCode != '200'}">{{item.statusCode}}</i></td>
+              <td><i class="label label-danger" *ngIf="item.exceptionExist == true">Exception</i></td>
               <td>{{item.queryString | characters: 20: false}}</td>
               <td>{{item.level}}</td>
               <td>{{item.host}}</td>
