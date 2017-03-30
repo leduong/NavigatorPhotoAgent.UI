@@ -15,7 +15,7 @@
         <h4>Flickr Push Feed</h4>
       </div>
       
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div style="padding-top:10px;padding-bottom:10px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div>
            <div>Feed Id  -  {{photo.id}}</div>
            <div>Updated Date  -  {{photo.updatedDate}}</div>
@@ -45,7 +45,11 @@
             <div>Author: {{item.author.name}}</div>
             <div>Author URL: {{item.author.url}}</div>
             <div>Updated Date: {{item.updatedDate | date: 'MM/dd/y HH:mm:ss'}}</div>
-            <div>Display Categories: XXXX  <b>Hide if NULL</b></div>
+            <div>
+              <div *ngIf="item.displayCategories != 0" >
+                  Display Categories: {{item.displayCategories}} 
+              </div>
+            </div>
           </td>
         </tr>
       </table>
