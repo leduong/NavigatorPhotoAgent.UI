@@ -9,9 +9,6 @@
     </ol>
     
 
-
-
-
     <div class="panel-body">
       
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -27,7 +24,7 @@
       </div>
 
 
-      <div style="padding-top:10px;padding-bottom:10px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div style="padding-top:10px;padding-bottom:10px;" *ngIf="photo.deletedEntries != null"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h5>Deleted Entries</h5>
         <div *ngFor="let item of photo.deletedEntries">
              <div>{{item.when}}   {{item.id}}     </div>
@@ -41,13 +38,14 @@
           <td>
             <div><b>{{item.title}}</b></div>
             <div>Photo Id: {{item.id}}</div>
-            <div>Updated: {{photo.updatedDate | date: 'shortDate'}}</div>
+            <div>Published Date: {{item.publishedDate | date: 'MM/dd/y HH:mm:ss'}}</div>
             <div *ngIf="item.categories.length > 0">Category: <i *ngFor="let c of item.categories" class="label label-info">{{c.term}}</i></div>
           </td>
           <td>
             <div>Author: {{item.author.name}}</div>
             <div>Author URL: {{item.author.url}}</div>
-            <div>Photo Id: {{item.mediaContent.url}}</div>
+            <div>Updated Date: {{item.updatedDate | date: 'MM/dd/y HH:mm:ss'}}</div>
+            <div>Display Categories: XXXX </div>
           </td>
         </tr>
       </table>
