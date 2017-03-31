@@ -2,7 +2,11 @@
 
 [![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/)
 
-API Endpoint      
+### Demo     
+http://informationcart.eastus2.cloudapp.azure.com:8000/
+
+
+### API Endpoint      
 http://informationcart.eastus2.cloudapp.azure.com:6500/swagger/ui/index.html#/
 
 
