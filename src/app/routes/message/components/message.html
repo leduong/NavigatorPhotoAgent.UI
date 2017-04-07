@@ -34,6 +34,7 @@
               <th>Title</th>
               <th>Photo</th>
               <th>Operation</th>
+              <th>Key Validation</th>
               <th>Feed Id</th>
               <th>Entries</th>
               <th>Date</th>
@@ -44,6 +45,7 @@
               <td>
                 <span *ngFor="let operation of item.operations" class="label label-{{operation.toLowerCase()}}">{{operation}}</span>
               </td>
+              <td>{{item.machineKeyValidation}}</td>
               <td>{{item.feedId}}</td>
               <td>{{item.entriesCount}}</td>
               <td>{{item.date | date: 'MM/dd/y HH:mm:ss'}}</td>
