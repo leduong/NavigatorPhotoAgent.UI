@@ -13,6 +13,7 @@ import { MessageLoggingService } from '../../message/services/message';
 
 export class PhotoComponent implements OnInit {
   public photo: any = {};
+  timestamp:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class PhotoComponent implements OnInit {
       this.loggingservice.getLoggingId(params['id']).subscribe(
         res => {
           this.photo = res.feed;
+          this.timestamp = res.timestamp;
         },
         err => console.log(err)
       );

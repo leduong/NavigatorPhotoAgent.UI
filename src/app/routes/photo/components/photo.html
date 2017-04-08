@@ -58,7 +58,7 @@
             <div>Author URL: {{item.author.url}}</div>
             <div>Updated Date: {{item.updatedDate | date:'short'  }}</div>
             <div>
-              <div *ngIf="item.displayCategories != 0" >
+              <div *ngIf="item.displayCategories.displayCategory[0] != 'E'" >
                   Display Categories: {{item.displayCategories | json}} 
               </div>
             </div>
