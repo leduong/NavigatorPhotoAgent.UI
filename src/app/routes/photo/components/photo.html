@@ -18,7 +18,7 @@
       <div style="padding-top:10px;padding-bottom:10px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div>
            <div>Feed Id  -  {{photo.id}}</div>
-           <div>Updated Date  -  {{photo.updatedDate}}</div>
+           <div>Updated Date  -  {{photo.updatedDate | UTC:true}}</div>
            <div>Timestamp  -  {{timestamp}} -  <b>Display</b> </div>
         </div>
       </div>
@@ -32,13 +32,12 @@
       </div>
 
 
-      <div style="padding-top:10px;padding-bottom:10px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div *ngIf="machineKeyValidation" style="padding-top:10px;padding-bottom:10px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h4>Machine Key Validation</h4>
-        <div>validatedOn: ----</div>
-        <div>passed: false</div>
+        <div>validatedOn: {{machineKeyValidation.validatedOn | UTC}}</div>
+        <div>passed: {{machineKeyValidation.passed}}</div>
         <div>
-             <div>machineKey  result</div>
-             <div>machineKey  result</div>
+             <div *ngFor="let item of machineKeyValidation.machineKeys">Machine Key: {{item.machineKey}}</div>
         </div>
       </div>
 
@@ -50,13 +49,13 @@
           <td>
             <div><b>{{item.title}}</b></div>
             <div>Photo Id: {{item.id}}</div>
-            <div>Date Taken: {{item.dateTaken | date: 'MM/dd/y HH:mm'}}</div>
+            <div>Date Taken: {{item.dateTaken | UTC | date: 'MM/dd/y HH:mm'}}</div>
             <div *ngIf="item.categories.length > 0">Category: <i *ngFor="let c of item.categories" class="label label-info">{{c.term}}</i></div>
           </td>
           <td>
             <div>Author: {{item.author.name}}</div>
             <div>Author URL: {{item.author.url}}</div>
-            <div>Updated Date: {{item.updatedDate | date:'short'  }}</div>
+            <div>Updated Date: {{item.updatedDate | UTC | date:'short'  }}</div>
             <div>
               <div *ngIf="item.displayCategories.displayCategory[0] != 'E'" >
                   Display Categories: {{item.displayCategories | json}} 

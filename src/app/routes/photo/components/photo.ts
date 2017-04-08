@@ -13,6 +13,7 @@ import { MessageLoggingService } from '../../message/services/message';
 
 export class PhotoComponent implements OnInit {
   public photo: any = {};
+  machineKeyValidation:any;
   timestamp:any;
 
   constructor(
@@ -30,6 +31,8 @@ export class PhotoComponent implements OnInit {
       this.loggingservice.getLoggingId(params['id']).subscribe(
         res => {
           this.photo = res.feed;
+          this.machineKeyValidation = res.machineKeyValidation;
+          // console.log(this.machineKeyValidation);
           this.timestamp = res.timestamp;
         },
         err => console.log(err)
