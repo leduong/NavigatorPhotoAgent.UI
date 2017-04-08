@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
 declare let $: any;
@@ -24,17 +25,35 @@ export class MessageComponent implements OnInit {
 
   constructor(
     private session: SessionService,
-    private loggingservice: MessageLoggingService
+    private loggingservice: MessageLoggingService, 
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-    this.currentPage = this.session.get('messagePage') || 1;
-    this.limit = this.session.get('messageLimit') || 10;
+    // this.currentPage = this.session.get('messagePage') || 1;
+    this.currentPage = +this.route.snapshot.queryParams['page'] || 1;
+    // this.limit = this.session.get('messageLimit') || 10;
+    this.limit = +this.route.snapshot.queryParams['limit'] || 10;
     this.startTime = this.formatDate(new Date('3/1/2017'));
     this.endTime = this.formatDate(new Date());
+
+
 
   }
 
   ngOnInit() {
-    this.getLoggings(this.currentPage, this.limit);
+    this.route.queryParams.subscribe(data => {
+      if(data.page) {
+        this.currentPage = +data.page;
+      } else {
+        this.currentPage = 1;
+      }
+      if(data.limit) {
+        this.limit = +data.limit
+      } else {
+        this.limit = 10;
+      }
+      this.getLoggings(this.currentPage, this.limit);
+    })
   }
 
   public itemsLength() {
@@ -56,6 +75,7 @@ export class MessageComponent implements OnInit {
   public pageChanged(event: any) {
     if (!this.ignorePageChangedEvent) {
       this.currentPage = event.page;
+      this.router.navigate(['/message'], {queryParams: {'page': this.currentPage, 'limit': this.limit}});
       this.session.set('messagePage', this.currentPage);
       this.getLoggings(event.page, this.limit);
     }
@@ -67,6 +87,7 @@ export class MessageComponent implements OnInit {
     this.currentPage = 1;
     this.limit = limit;
     this.session.set('messagePage', 1);
+    this.router.navigate(['/message'], {queryParams: {'page': this.currentPage, 'limit': this.limit}});
     this.session.set('messageLimit', this.limit);
     this.getLoggings(1, limit);
   }
