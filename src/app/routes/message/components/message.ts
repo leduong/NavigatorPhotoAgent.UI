@@ -41,7 +41,7 @@ export class MessageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(data => {
+    this.route.queryParams.subscribe((data:any) => {
       if(data.page) {
         this.currentPage = +data.page;
       } else {
