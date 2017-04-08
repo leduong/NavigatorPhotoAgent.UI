@@ -19,7 +19,7 @@
         <div>
            <div>Feed Id  -  {{photo.id}}</div>
            <div>Updated Date  -  {{photo.updatedDate | UTC:true}}</div>
-           <div>Timestamp  -  {{timestamp}} -  <b>Display</b> </div>
+           <div>Timestamp  -  {{timestamp }}</div>
         </div>
       </div>
 
@@ -34,10 +34,10 @@
 
       <div *ngIf="machineKeyValidation" style="padding-top:10px;padding-bottom:10px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h4>Machine Key Validation</h4>
-        <div>validatedOn: {{machineKeyValidation.validatedOn | UTC}}</div>
-        <div>passed: {{machineKeyValidation.passed}}</div>
+        <div>Validated Time: {{machineKeyValidation.validatedOn | UTC}}</div>
+        <div>Passed: <span class="label" [ngClass]="{'label-success' : machineKeyValidation.passed == true, 'label-danger' : machineKeyValidation.passed == false}">{{machineKeyValidation.passed.toString() | capitalize }}</span></div>
         <div>
-             <div *ngFor="let item of machineKeyValidation.machineKeys">Machine Key: {{item.machineKey}}</div>
+             <div *ngFor="let item of machineKeyValidation.machineKeys">{{item.machineKey}}  {{item.result}}  </div>
         </div>
       </div>
 
@@ -65,6 +65,7 @@
           </td>
         </tr>
       </table>
+
     </div>
   </div>
 </div>
