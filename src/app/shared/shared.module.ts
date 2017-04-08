@@ -16,6 +16,7 @@ import { ScrollableDirective } from './directives/scrollable';
 import { TrimPipe } from './pipes/trim';
 import { CapitalizePipe } from './pipes/capitalize';
 import { CharactersPipe } from './pipes/characters';
+import { UTCPipe } from './pipes/utc';
 
 // https://angular.io/styleguide#!#04-10
 @NgModule({
@@ -36,7 +37,8 @@ import { CharactersPipe } from './pipes/characters';
     CharactersPipe,
     CheckallDirective,
     NowDirective,
-    ScrollableDirective
+    ScrollableDirective,
+    UTCPipe
   ],
   exports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { CharactersPipe } from './pipes/characters';
     TrimPipe,
     CapitalizePipe,
     CharactersPipe,
+    UTCPipe,
 
     CheckallDirective,
     NowDirective,
