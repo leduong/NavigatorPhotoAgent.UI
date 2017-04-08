@@ -58,7 +58,8 @@
             <div>Updated Date: {{item.updatedDate | UTC | date:'short'  }}</div>
             <div>
               <div *ngIf="item.displayCategories.displayCategory[0] != 'E'" >
-                  Display Categories: {{item.displayCategories | json}} 
+                  Display Categories: <i *ngFor="let c of item.displayCategories.displayCategory" class="label label-info">{{c}}</i>
+                  <!--Display Categories: {{item.displayCategories | json}} -->
               </div>
             </div>
           </td>
