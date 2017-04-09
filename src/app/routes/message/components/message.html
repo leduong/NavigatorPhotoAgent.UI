@@ -68,13 +68,12 @@
             </div>
           </div>
           <div class="col-md-6 col-sm-6 text-right pagination-container">
-            <pagination 
-              [totalItems]="items.total"
+            <pagination
+              [totalItems]="totalItems"
               [maxSize]="5"
               [rotate]="false" 
-              [(ngModel)]="currentPage" 
-              (itemsPerPage)="limit"
-              (numPages)="currentPage = $event" 
+              [ngModel]="currentPage" 
+              [itemsPerPage]="limit"
               [boundaryLinks]="true" 
               (pageChanged)="pageChanged($event)" class="pagination-sm">
             </pagination>

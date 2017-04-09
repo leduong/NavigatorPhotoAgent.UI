@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 declare let $: any;
@@ -9,51 +8,39 @@ import { MessageLoggingService } from '../services/message';
 
 @Component({
   selector: 'message',
-  providers: [MessageLoggingService],
+  providers: [MessageLoggingService, SessionService],
   templateUrl: 'app/routes/message/components/message.html'
 })
 
 export class MessageComponent implements OnInit {
   public startTime: any;
   public endTime: any;
-  public limit: number;
+  public limit: number = 10;
   public currentPage: number = 1;
   public keyword: string = '';
   public perPage: any[] = [10, 20, 50, 100];
   public items: any = {};
   public ignorePageChangedEvent: boolean = false;
 
+  totalItems:number = 100;
+
+
   constructor(
     private session: SessionService,
     private loggingservice: MessageLoggingService, 
-    private route: ActivatedRoute,
-    private router: Router
   ) {
-    // this.currentPage = this.session.get('messagePage') || 1;
-    this.currentPage = +this.route.snapshot.queryParams['page'] || 1;
-    // this.limit = this.session.get('messageLimit') || 10;
-    this.limit = +this.route.snapshot.queryParams['limit'] || 10;
-    this.startTime = this.formatDate(new Date('3/1/2017'));
-    this.endTime = this.formatDate(new Date());
-
-
-
+    let currentPage = this.session.get('messagePage');
+    this.currentPage = (parseInt(currentPage, 10) > 0) ? currentPage : 1;
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe((data:any) => {
-      if(data.page) {
-        this.currentPage = +data.page;
-      } else {
-        this.currentPage = 1;
-      }
-      if(data.limit) {
-        this.limit = +data.limit
-      } else {
-        this.limit = 10;
-      }
-      this.getLoggings(this.currentPage, this.limit);
-    })
+    let messageLimit = this.session.get('messageLimit');
+    this.limit = (parseInt(messageLimit, 10) > 0) ? messageLimit : 10;
+
+    this.startTime = this.session.get('startTime') ? this.formatDate(new Date(this.session.get('startTime'))) : this.formatDate(new Date('3/1/2017'));
+    this.endTime = this.session.get('endTime') ? this.formatDate(new Date(this.session.get('endTime'))) : this.formatDate(new Date());
+
+    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);      
   }
 
   public itemsLength() {
@@ -61,11 +48,14 @@ export class MessageComponent implements OnInit {
   }
 
 
-  public getLoggings(page: number, limit: number) {
+  public getLoggings(page: number, limit: number, startIime:any, endTime:any) {
     this.loggingservice.getLoggings(page, limit, this.startTime, this.endTime).subscribe(
       res => {
         this.items = res;
+        this.totalItems = res.total;
         this.scrollTop();
+        this.currentPage = page;
+        
       },
       err => console.error(err),
       () => console.log('done loading API Message Logging')
@@ -75,36 +65,37 @@ export class MessageComponent implements OnInit {
   public pageChanged(event: any) {
     if (!this.ignorePageChangedEvent) {
       this.currentPage = event.page;
-      this.router.navigate(['/message'], {queryParams: {'page': this.currentPage, 'limit': this.limit}});
       this.session.set('messagePage', this.currentPage);
-      this.getLoggings(event.page, this.limit);
+      this.getLoggings(event.page, this.limit, this.startTime, this.endTime);
     }
     this.ignorePageChangedEvent = false;
   }
 
   public perPageChanged(limit: any): void {
-    this.ignorePageChangedEvent = true; //Little workaround for paginator last page cornercase
+    limit = parseInt(limit, 10);
+    this.ignorePageChangedEvent = this.limit < limit; //Little workaround for paginator last page cornercase
     this.currentPage = 1;
     this.limit = limit;
-    this.session.set('messagePage', 1);
-    this.router.navigate(['/message'], {queryParams: {'page': this.currentPage, 'limit': this.limit}});
+    this.session.set('messagePage', this.currentPage);
     this.session.set('messageLimit', this.limit);
-    this.getLoggings(1, limit);
+    this.getLoggings(1, limit, this.startTime, this.endTime);
   }
 
   public changeStartTime(time: any) {
+    this.session.set('startTime', time);
     this.startTime = this.formatDate(time);
-    this.getLoggings(this.currentPage, this.limit);
+    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
   }
 
   public changeEndTime(time: any) {
+    this.session.set('endTime', time);
     this.endTime = this.formatDate(time);
-    this.getLoggings(this.currentPage, this.limit);
+    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
   }
 
   public changeKeyword(keyword: any) {
     this.keyword = keyword;
-    this.getLoggings(this.currentPage, this.limit);
+    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
   }
 
   private scrollTop() {
