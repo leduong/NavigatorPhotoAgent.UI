@@ -27,7 +27,7 @@ export class MessageComponent implements OnInit {
 
   constructor(
     private session: SessionService,
-    private loggingservice: MessageLoggingService, 
+    private loggingservice: MessageLoggingService 
   ) {
     let currentPage = this.session.get('messagePage');
     this.currentPage = (parseInt(currentPage, 10) > 0) ? currentPage : 1;
