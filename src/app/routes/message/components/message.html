@@ -45,7 +45,9 @@
               <td>
                 <span *ngFor="let operation of item.operations" class="label label-{{operation.toLowerCase()}}">{{operation}}</span>
               </td>
-              <td>{{item.machineKeyValidation}}</td>
+              <td>
+                <span class="label" [ngClass]="{'label-danger' : item.machineKeyValidation == false}">{{item.machineKeyValidation}}</span>
+              </td>
               <td>{{item.feedId}}</td>
               <td>{{item.entriesCount}}</td>
               <td>{{item.date | date: 'MM/dd/y HH:mm:ss'}}</td>
