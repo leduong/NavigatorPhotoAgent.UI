@@ -82,9 +82,9 @@
           </div>
           <div class="col-md-10">
             <div [ngClass]="{'success': item.categories.length > 0, 'failed': item.categories.length == 0}">
-              <div *ngIf="item.categories.length > 0"><span><b>Category :</b> <font *ngFor="let c of item.categories">{{c.term + ' '}}</font></span></div>
+              <div *ngIf="item.categories.length > 0"><span><b>Category :</b> <font *ngFor="let c of item.categories">{{c.term + ', '}}</font></span></div>
               <div>
-                  <span><b>Display Categories : </b><font *ngFor="let c of item.displayCategories.displayCategory">{{c + ' '}}</font></span>
+                  <span><b>Display Categories :</b> <font *ngFor="let c of item.displayCategories.displayCategory">{{c + ', '}}</font></span>
               </div>
             </div>
           </div>          
