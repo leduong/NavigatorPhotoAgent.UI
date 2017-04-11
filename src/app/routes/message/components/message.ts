@@ -45,10 +45,10 @@ export class MessageComponent implements OnInit {
 
     // this.startTime = this.session.get('startTime') ? this.formatDate(new Date(this.session.get('startTime'))) : this.formatDate(new Date('3/1/2017'));
     this.startTime = this.session.get('startTime') ? moment.utc(this.session.get('startTime')).format('MM/DD/YYYY') : moment.utc().subtract(30, 'days').format('MM/DD/YYYY');
-    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));
+    this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));
     // this.endTime = this.session.get('endTime') ? this.formatDate(new Date(this.session.get('endTime'))) : this.formatDate(new Date());
     this.endTime = this.session.get('endTime') ? moment.utc(this.session.get('endTime')).format('MM/DD/YYYY') : moment.utc().format('MM/DD/YYYY');
-    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
+    this.maximumDate = new Date(String(moment(this.endTime, "MM/DD/YYYY")));
 
     this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);      
   }
@@ -95,7 +95,7 @@ export class MessageComponent implements OnInit {
     this.session.set('startTime', time);
     // this.startTime = this.formatDate(time);
     this.startTime = moment(time).format('MM/DD/YYYY');
-    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));    
+    this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));    
     this.getLoggings(1, this.limit, this.startTime, this.endTime);
     this.isCollapsedStart = false;
     this.isCollapsedEnd = false;    
@@ -105,7 +105,7 @@ export class MessageComponent implements OnInit {
     this.session.set('endTime', time);
     // this.endTime = this.formatDate(time);
     this.endTime = moment(time).format('MM/DD/YYYY');
-    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
+    this.maximumDate = new Date(String(moment(this.endTime, "MM/DD/YYYY")));
     this.getLoggings(1, this.limit, this.startTime, this.endTime);
     this.isCollapsedEnd = false;
     this.isCollapsedStart = false;

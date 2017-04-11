@@ -39,9 +39,9 @@ export class ManagementComponent implements OnInit {
 
   ngOnInit() {
     this.startTime = moment.utc().subtract(30, 'days').format('MM/DD/YYYY');
-    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));    
+    this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));    
     this.endTime = moment.utc().format('MM/DD/YYYY');
-    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
+    this.maximumDate = new Date(String(moment(this.endTime, "MM/DD/YYYY")));
     this.getLoggings();
   }
 
@@ -80,7 +80,7 @@ export class ManagementComponent implements OnInit {
 
   public changeStartTime(time: any) {
     this.startTime = moment(time).format('MM/DD/YYYY');
-    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));    
+    this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));    
     this.getLoggings(1, this.limit, this.method, this.startTime, this.endTime);
     this.isCollapsedStart = false;
     this.isCollapsedEnd = false;
@@ -88,7 +88,7 @@ export class ManagementComponent implements OnInit {
 
   public changeEndTime(time: any) {
     this.endTime = moment(time).format('MM/DD/YYYY');
-    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
+    this.maximumDate = new Date(String(moment(this.endTime, "MM/DD/YYYY")));
     this.getLoggings(1, this.limit, this.method, this.startTime, this.endTime);
     this.isCollapsedEnd = false;
     this.isCollapsedStart = false;
