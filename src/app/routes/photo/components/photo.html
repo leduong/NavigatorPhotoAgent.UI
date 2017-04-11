@@ -54,33 +54,37 @@
           </div>
           <div class="col-md-4">
             <div>
-              <span>Photo Id :</span>
+              <span><b>Photo Id :</b></span>
               <span>{{item.id}}</span>
             </div>
             <div>
-              <span>Date Taken :</span>
+              <span><b>Date Taken :</b></span>
               <span>{{item.dateTaken | UTC | date: 'MM/dd/y HH:mm'}}</span>
             </div>
             <div>
-              <span>Updated Date :</span>
+              <span><b>Updated Date :</b></span>
               <span>{{item.updatedDate | UTC | date:'short'}}</span>
             </div>
           </div>
           <div class="col-md-8">
             <div>
-              <span>Author :</span>
+              <span><b>Author :</b></span>
               <span>{{item.author.name}}</span>
             </div>
             <div>
-              <span>Author URL :</span>
+              <span><b>Author URL :</b></span>
               <a href="{{item.author.url}}">{{item.author.url}}</a>
+            </div> 
+            <div>
+              <span><b>Photo URL :</b></span>
+              <a href="{{item.photoUrl}}">{{item.photoUrl}}</a>
             </div>     
           </div>
           <div class="col-md-10">
             <div [ngClass]="{'success': item.categories.length > 0, 'failed': item.categories.length == 0}">
-              <div *ngIf="item.categories.length > 0"><span>Category: <font *ngFor="let c of item.categories">{{c.term + ', '}}</font></span></div>
+              <div *ngIf="item.categories.length > 0"><span><b>Category :</b> <font *ngFor="let c of item.categories">{{c.term + ' '}}</font></span></div>
               <div>
-                  <span>Display Categories: <font *ngFor="let c of item.displayCategories.displayCategory">{{c + ', '}}</font></span>
+                  <span><b>Display Categories : </b><font *ngFor="let c of item.displayCategories.displayCategory">{{c + ' '}}</font></span>
               </div>
             </div>
           </div>          
