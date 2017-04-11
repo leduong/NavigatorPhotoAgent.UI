@@ -201,8 +201,13 @@
 }
 
 .property_wrapper {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
+  border-radius: 5px;
   margin-bottom: 5px;
+  padding: 5px !important;
+  background-color: #f5f5f5;
+  font-family: 'Open Sans', sans-serif !important;
+  line-height: 1.428 !important;
 }
 
 .property-details tr td {
@@ -210,6 +215,35 @@
   &[rowspan="7"] {
     width: 220px;
   }
+}
+
+.property_wrapper span {
+  font-size: 0.9em;
+}
+
+.property_wrapper .title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.property_wrapper .img-thumbnail {
+  padding: 5px !important;
+  background-color: #fff !important;
+  border-color: #ddd !important;
+}
+
+.success {
+  padding: 15px;
+  margin: 5px 0;
+  border-left: 5px solid #d0e3f0;
+  background-color: #f0f7fd;
+}
+
+.failed {
+  padding: 15px;
+  margin: 5px 0;
+  border-left: 5px solid #d6e9c6;
+  background-color: #dff0d8;
 }
 
 .page {

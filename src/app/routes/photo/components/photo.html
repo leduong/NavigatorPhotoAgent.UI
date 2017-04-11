@@ -42,25 +42,50 @@
             </div>
         </div>
       </div>
-      <table class="table table-striped table-hover">
-        <tr *ngFor="let item of photo.entries">
-          <td><img src="{{item.mediaContent.url}}" height={{item.mediaContent.height}} width={{item.mediaContent.width}} /></td> 
-          <td>
-            <div><b>{{item.title}}</b></div>
-            <div>Photo Id: {{item.id}}</div>
-            <div style="margin-bottom:5px;">Date Taken: {{item.dateTaken | UTC | date: 'MM/dd/y HH:mm'}}</div>
-            <div *ngIf="item.categories.length > 0">Category: <i *ngFor="let c of item.categories" class="label label-info">{{c.term}}</i></div>
+      <div *ngFor="let item of photo.entries" class="property_wrapper col-md-12">
+        <div class="col-md-2">
+          <a href="{{item.mediaContent.url}}">
+              <img class="img-thumbnail img-responsive" src="{{item.mediaContent.url}}" height={{item.mediaContent.height}} width={{item.mediaContent.width}} >
+          </a>
+        </div>
+        <div class="col-md-10">
+          <div class="col-md-12">
+            <span class="title">{{item.title}}</span>
+          </div>
+          <div class="col-md-4">
             <div>
-                  Display Categories: <i *ngFor="let c of item.displayCategories.displayCategory" class="label label-gray">{{c}}</i>
+              <span>Photo Id :</span>
+              <span>{{item.id}}</span>
             </div>
-          </td>
-          <td>
-            <div>Author: {{item.author.name}}</div>
-            <div>Author URL: {{item.author.url}}</div>
-            <div>Updated Date: {{item.updatedDate | UTC | date:'short'  }}</div>
-          </td>
-        </tr>
-      </table>
+            <div>
+              <span>Date Taken :</span>
+              <span>{{item.dateTaken | UTC | date: 'MM/dd/y HH:mm'}}</span>
+            </div>
+            <div>
+              <span>Updated Date :</span>
+              <span>{{item.updatedDate | UTC | date:'short'}}</span>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div>
+              <span>Author :</span>
+              <span>{{item.author.name}}</span>
+            </div>
+            <div>
+              <span>Author URL :</span>
+              <a href="{{item.author.url}}">{{item.author.url}}</a>
+            </div>     
+          </div>
+          <div class="col-md-10">
+            <div [ngClass]="{'success': item.categories.length > 0, 'failed': item.categories.length == 0}">
+              <div *ngIf="item.categories.length > 0"><span>Category: <font *ngFor="let c of item.categories">{{c.term + ', '}}</font></span></div>
+              <div>
+                  <span>Display Categories: <font *ngFor="let c of item.displayCategories.displayCategory">{{c + ', '}}</font></span>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
     </div>
   </div>
 </div>
