@@ -6,6 +6,8 @@ import { AppSettings } from '../../appsettings';
 import { SessionService } from '../../../shared/services/session';
 import { ManagementLoggingService } from '../services/management';
 
+import moment, * as moments from 'moment';
+
 @Component({
   selector: 'management',
   providers: [ManagementLoggingService],
@@ -22,17 +24,24 @@ export class ManagementComponent implements OnInit {
   public methods: any[] = ['GET', 'POST'];
   public items: any = {};
 
+  isCollapsedStart:boolean = false;
+  isCollapsedEnd:boolean = false;
+  minimumDate:any;
+  maximumDate:any;
+
   constructor(
     private session: SessionService,
     private loggingservice: ManagementLoggingService
   ) {
     this.page = this.session.get('managementPage') || 1;
     this.limit = this.session.get('managementLimit') || 10;
-    this.startTime = this.formatDate(new Date('3/15/2017'));
-    this.endTime = this.formatDate(new Date());
   }
 
   ngOnInit() {
+    this.startTime = moment.utc().subtract(30, 'days').format('MM/DD/YYYY');
+    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));    
+    this.endTime = moment.utc().format('MM/DD/YYYY');
+    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
     this.getLoggings();
   }
 
@@ -42,7 +51,7 @@ export class ManagementComponent implements OnInit {
     return this.items.results.length || 0;
   }
 
-  public getLoggings(page: number = 1, limit: number = 10) {
+  public getLoggings(page: number = 1, limit: number = 10, method:any = this.method, startTime:any = this.startTime, endTime:any = this.endTime) {
     this.loggingservice.getLoggings(page, limit, this.method, this.startTime, this.endTime).subscribe(
       res => {
         this.items = res;
@@ -70,18 +79,26 @@ export class ManagementComponent implements OnInit {
   }
 
   public changeStartTime(time: any) {
-    this.startTime = this.formatDate(time);
-    this.getLoggings(this.page, this.limit);
+    this.startTime = moment(time).format('MM/DD/YYYY');
+    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));    
+    this.getLoggings(1, this.limit, this.method, this.startTime, this.endTime);
+    this.isCollapsedStart = false;
+    this.isCollapsedEnd = false;
   }
 
   public changeEndTime(time: any) {
-    this.endTime = this.formatDate(time);
-    this.getLoggings(this.page, this.limit);
+    this.endTime = moment(time).format('MM/DD/YYYY');
+    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
+    this.getLoggings(1, this.limit, this.method, this.startTime, this.endTime);
+    this.isCollapsedEnd = false;
+    this.isCollapsedStart = false;
   }
 
   public changeMethod(method: any) {
     this.method = method;
-    this.getLoggings(this.page, this.limit);
+    this.getLoggings(1, this.limit, this.method, this.startTime, this.endTime);
+    this.isCollapsedStart = false;
+    this.isCollapsedEnd = false;
   }
   private formatDate(time: any) {
     let dt = new Date(time);

@@ -6,6 +6,8 @@ declare let $: any;
 import { SessionService } from '../../../shared/services/session';
 import { MessageLoggingService } from '../services/message';
 
+import moment, * as moments from 'moment';
+
 @Component({
   selector: 'message',
   providers: [MessageLoggingService, SessionService],
@@ -23,6 +25,10 @@ export class MessageComponent implements OnInit {
   public ignorePageChangedEvent: boolean = false;
 
   totalItems:number = 100;
+  isCollapsedStart:boolean = false;
+  isCollapsedEnd:boolean = false;
+  minimumDate:any;
+  maximumDate:any;
 
 
   constructor(
@@ -37,8 +43,12 @@ export class MessageComponent implements OnInit {
     let messageLimit = this.session.get('messageLimit');
     this.limit = (parseInt(messageLimit, 10) > 0) ? messageLimit : 10;
 
-    this.startTime = this.session.get('startTime') ? this.formatDate(new Date(this.session.get('startTime'))) : this.formatDate(new Date('3/1/2017'));
-    this.endTime = this.session.get('endTime') ? this.formatDate(new Date(this.session.get('endTime'))) : this.formatDate(new Date());
+    // this.startTime = this.session.get('startTime') ? this.formatDate(new Date(this.session.get('startTime'))) : this.formatDate(new Date('3/1/2017'));
+    this.startTime = this.session.get('startTime') ? moment.utc(this.session.get('startTime')).format('MM/DD/YYYY') : moment.utc().subtract(30, 'days').format('MM/DD/YYYY');
+    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));
+    // this.endTime = this.session.get('endTime') ? this.formatDate(new Date(this.session.get('endTime'))) : this.formatDate(new Date());
+    this.endTime = this.session.get('endTime') ? moment.utc(this.session.get('endTime')).format('MM/DD/YYYY') : moment.utc().format('MM/DD/YYYY');
+    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
 
     this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);      
   }
@@ -83,14 +93,22 @@ export class MessageComponent implements OnInit {
 
   public changeStartTime(time: any) {
     this.session.set('startTime', time);
-    this.startTime = this.formatDate(time);
-    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
+    // this.startTime = this.formatDate(time);
+    this.startTime = moment(time).format('MM/DD/YYYY');
+    this.minimumDate = new Date(moment(this.startTime, "MM/DD/YYYY"));    
+    this.getLoggings(1, this.limit, this.startTime, this.endTime);
+    this.isCollapsedStart = false;
+    this.isCollapsedEnd = false;    
   }
 
   public changeEndTime(time: any) {
     this.session.set('endTime', time);
-    this.endTime = this.formatDate(time);
-    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
+    // this.endTime = this.formatDate(time);
+    this.endTime = moment(time).format('MM/DD/YYYY');
+    this.maximumDate = new Date(moment(this.endTime, "MM/DD/YYYY"));
+    this.getLoggings(1, this.limit, this.startTime, this.endTime);
+    this.isCollapsedEnd = false;
+    this.isCollapsedStart = false;
   }
 
   public changeKeyword(keyword: any) {
