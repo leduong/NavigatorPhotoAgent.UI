@@ -42,7 +42,7 @@
             </div>
         </div>
       </div>
-      <div *ngFor="let item of photo.entries" class="property_wrapper col-md-12">
+      <div *ngFor="let item of photo.entries" class="property_wrapper col-md-12 col-xs-12" [ngClass]="{'green': item.valid == true, 'red': item.valid == false}">
         <div class="col-md-2">
           <a href="{{item.mediaContent.url}}">
               <img class="img-thumbnail img-responsive" src="{{item.mediaContent.url}}" height={{item.mediaContent.height}} width={{item.mediaContent.width}} >
