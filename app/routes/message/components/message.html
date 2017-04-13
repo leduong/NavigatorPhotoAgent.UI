@@ -12,18 +12,18 @@
           <label>Search</label>
           <input type="text" class="form-control" [(ngModel)]="keyword" (ngModelChange)="changeKeyword($event)">
         </div>
-        <div (click)="isCollapsedStart = !isCollapsedStart" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div  class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <label>Start Date</label>
-          <input type="text" class="form-control" [(ngModel)]="startTime">
+          <input (click)="isCollapsedStart = !isCollapsedStart" type="text" class="form-control" [(ngModel)]="startTime">
           <div [collapse]="!isCollapsedStart" style="position: absolute; z-index: 999999">
-            <datepicker id="startTime" [(ngModel)]="startTime" (ngModelChange)="changeStartTime($event)"></datepicker>
+            <datepicker id="startTime" [maxDate]="maximumDate" [(ngModel)]="startTime" (ngModelChange)="changeStartTime($event)"></datepicker>
           </div>
         </div>
-        <div (click)="isCollapsedEnd = !isCollapsedEnd" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div  class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <label>End Date</label>
-          <input type="text" class="form-control" [(ngModel)]="endTime">
+          <input (click)="isCollapsedEnd = !isCollapsedEnd" type="text" class="form-control" [(ngModel)]="endTime">
           <div [collapse]="!isCollapsedEnd" style="position: absolute; z-index: 999999">
-            <datepicker id="endTime" [(ngModel)]="endTime" (ngModelChange)="changeEndTime($event)"></datepicker>
+            <datepicker id="endTime" [minDate]="minimumDate" [(ngModel)]="endTime" (ngModelChange)="changeEndTime($event)"></datepicker>
           </div>
         </div>
       </div>
@@ -34,8 +34,9 @@
               <th>Title</th>
               <th>Photo</th>
               <th>Operation</th>
+              <th>Key Validation</th>
               <th>Feed Id</th>
-              <th>Entry</th>
+              <th>Entries</th>
               <th>Date</th>
             </tr>
             <tr *ngFor="let item of items.results">
@@ -43,6 +44,9 @@
               <td><a href="#/photo/{{item.id}}">Photo</a></td>
               <td>
                 <span *ngFor="let operation of item.operations" class="label label-{{operation.toLowerCase()}}">{{operation}}</span>
+              </td>
+              <td>
+                <span class="label" [ngClass]="{'label-success' : item.machineKeyValidation == true}">Passed</span>
               </td>
               <td>{{item.feedId}}</td>
               <td>{{item.entriesCount}}</td>
@@ -66,13 +70,12 @@
             </div>
           </div>
           <div class="col-md-6 col-sm-6 text-right pagination-container">
-            <pagination 
-              [totalItems]="items.total"
+            <pagination
+              [totalItems]="totalItems"
               [maxSize]="5"
               [rotate]="false" 
-              [(ngModel)]="currentPage" 
-              (itemsPerPage)="limit"
-              (numPages)="currentPage = $event" 
+              [ngModel]="currentPage" 
+              [itemsPerPage]="limit"
               [boundaryLinks]="true" 
               (pageChanged)="pageChanged($event)" class="pagination-sm">
             </pagination>
