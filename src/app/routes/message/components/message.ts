@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 declare let $: any;
@@ -11,7 +11,23 @@ import moment, * as moments from 'moment';
 @Component({
   selector: 'message',
   providers: [MessageLoggingService, SessionService],
-  templateUrl: 'app/routes/message/components/message.html'
+  templateUrl: 'app/routes/message/components/message.html',
+  styles: [`
+    #searchclear {
+      position: absolute;
+      right: 5px;
+      top: 0;
+      bottom: 0;
+      height: 14px;
+      margin: auto;
+      border-top-width: 1px;
+      margin-top: 35.5;
+      right: 27px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #ccc;
+    }
+  `]
 })
 
 export class MessageComponent implements OnInit {
@@ -29,7 +45,8 @@ export class MessageComponent implements OnInit {
   isCollapsedEnd:boolean = false;
   minimumDate:any;
   maximumDate:any;
-
+  resetButton:boolean = false;
+  search:any;
 
   constructor(
     private session: SessionService,
@@ -50,11 +67,24 @@ export class MessageComponent implements OnInit {
     this.endTime = this.session.get('endTime') ? moment.utc(this.session.get('endTime')).format('MM/DD/YYYY') : moment.utc().format('MM/DD/YYYY');
     this.maximumDate = new Date(String(moment(this.endTime, "MM/DD/YYYY")));
 
-    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);      
+    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);  
   }
 
   public itemsLength() {
     return this.items.results.length || 0;
+  }
+
+  resetToDefault() {
+    this.resetButton = false;
+    window.sessionStorage.clear();
+    this.currentPage = 1;
+    this.limit = 10;
+    this.startTime = moment.utc().subtract(30, 'days').format('MM/DD/YYYY');
+    this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));
+    this.endTime = moment.utc().format('MM/DD/YYYY');
+    this.maximumDate = new Date(String(moment(this.endTime, "MM/DD/YYYY")));
+    this.keyword = '';
+    this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
   }
 
 
@@ -98,7 +128,8 @@ export class MessageComponent implements OnInit {
     this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));    
     this.getLoggings(1, this.limit, this.startTime, this.endTime);
     this.isCollapsedStart = false;
-    this.isCollapsedEnd = false;    
+    this.isCollapsedEnd = false;  
+    this.resetButton = true;  
   }
 
   public changeEndTime(time: any) {
@@ -109,9 +140,11 @@ export class MessageComponent implements OnInit {
     this.getLoggings(1, this.limit, this.startTime, this.endTime);
     this.isCollapsedEnd = false;
     this.isCollapsedStart = false;
+    this.resetButton = true;
   }
 
   public changeKeyword(keyword: any) {
+    this.resetButton = true;
     this.keyword = keyword;
     this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
   }
