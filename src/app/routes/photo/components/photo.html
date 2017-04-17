@@ -18,8 +18,8 @@
       <div style="padding-top:10px;padding-bottom:10px;" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div>
            <div>Feed Id  -  {{photo.id}}</div>
-           <div>Updated Date  -  {{photo.updatedDate | UTC:true}}</div>
-           <div>Timestamp  -  {{timestamp}}</div>
+           <div>Updated Date  - {{photo.updatedDate | UTC }}</div>
+           <div>Timestamp  -  {{timestamp | UTC }}</div>
         </div>
       </div>
       <div *ngIf="photo.deletedEntries?.length > 0" style="padding-top:10px;padding-bottom:10px;"  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
