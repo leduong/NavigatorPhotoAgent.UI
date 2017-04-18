@@ -59,7 +59,16 @@ export class MessageComponent implements OnInit {
   ngOnInit() {
     let messageLimit = this.session.get('messageLimit');
     this.limit = (parseInt(messageLimit, 10) > 0) ? messageLimit : 10;
+    let messagePage = this.session.get('messagePage');
+    let start = this.session.get('startTime');
+    let end = this.session.get('endTime');
+    let keyword = this.session.get('keyword');
 
+    if(messageLimit || messagePage || start || end || keyword) {
+      this.resetButton = true;
+    }
+
+    this.keyword = this.session.get('keyword') ? this.session.get('keyword') : '';
     // this.startTime = this.session.get('startTime') ? this.formatDate(new Date(this.session.get('startTime'))) : this.formatDate(new Date('3/1/2017'));
     this.startTime = this.session.get('startTime') ? moment.utc(this.session.get('startTime')).format('MM/DD/YYYY') : moment.utc().subtract(30, 'days').format('MM/DD/YYYY');
     this.minimumDate = new Date(String(moment(this.startTime, "MM/DD/YYYY")));
@@ -103,6 +112,7 @@ export class MessageComponent implements OnInit {
   }
 
   public pageChanged(event: any) {
+    this.resetButton = true;
     if (!this.ignorePageChangedEvent) {
       this.currentPage = event.page;
       this.session.set('messagePage', this.currentPage);
@@ -112,6 +122,7 @@ export class MessageComponent implements OnInit {
   }
 
   public perPageChanged(limit: any): void {
+    this.resetButton = true;
     limit = parseInt(limit, 10);
     this.ignorePageChangedEvent = this.limit < limit; //Little workaround for paginator last page cornercase
     this.currentPage = 1;
@@ -146,6 +157,7 @@ export class MessageComponent implements OnInit {
   public changeKeyword(keyword: any) {
     this.resetButton = true;
     this.keyword = keyword;
+    this.session.set('keyword', keyword);
     this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
   }
 
