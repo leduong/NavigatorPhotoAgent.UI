@@ -38,6 +38,7 @@
               <th>Photo</th>
               <th>Operation</th>
               <th>Key Validation</th>
+              <th>Request Id</th>
               <th>Feed Id</th>
               <th>Entries</th>
               <th>Date</th>
@@ -51,6 +52,7 @@
               <td>
                 <span class="label" [ngClass]="{'label-success' : item.machineKeyValidation == true}">Passed</span>
               </td>
+              <td>{{item.requestId}}</td>
               <td>{{item.feedId}}</td>
               <td>{{item.entriesCount}}</td>
               <td>{{item.date | date: 'MM/dd/y HH:mm:ss'}}</td>
