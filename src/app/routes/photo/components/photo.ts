@@ -16,7 +16,7 @@ export class PhotoComponent implements OnInit {
   machineKeyValidation:any;
   source:any;
   timestamp:any;
-
+  requestId:any;
   constructor(
     private route: ActivatedRoute,
     private session: SessionService,
@@ -36,6 +36,7 @@ export class PhotoComponent implements OnInit {
           // console.log(this.machineKeyValidation);
           this.timestamp = res.timestamp;
           this.source =res.source;
+          this.requestId = res.requestId;
         },
         err => console.log(err)
       );
