@@ -1,6 +1,9 @@
 # NavigatorPhotoAgent.UI
 
 [![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/)
+[![dependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI)
+
+
 
 ### Demo     
 http://informationcart.eastus2.cloudapp.azure.com:8000/
