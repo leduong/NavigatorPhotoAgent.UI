@@ -3,8 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule, Http } from '@angular/http';
-import { DatepickerModule, PaginationModule, CollapseModule } from 'ng2-bootstrap/ng2-bootstrap';
- 
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { DatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 // import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 
 import { ColorsService } from './colors/colors.service';
@@ -17,6 +20,7 @@ import { TrimPipe } from './pipes/trim';
 import { CapitalizePipe } from './pipes/capitalize';
 import { CharactersPipe } from './pipes/characters';
 import { UTCPipe } from './pipes/utc';
+import {PrettyXMLService} from "./services/prettyxml";
 
 // https://angular.io/styleguide#!#04-10
 @NgModule({
@@ -24,12 +28,13 @@ import { UTCPipe } from './pipes/utc';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DatepickerModule, PaginationModule, CollapseModule,
+    DatepickerModule.forRoot(), PaginationModule.forRoot(), CollapseModule.forRoot(), ModalModule.forRoot(),
     // ToasterModule
   ],
   providers: [
     ColorsService,
-    SessionService
+    SessionService,
+    PrettyXMLService
   ],
   declarations: [
     TrimPipe,
@@ -46,7 +51,7 @@ import { UTCPipe } from './pipes/utc';
     ReactiveFormsModule,
     HttpModule,
     RouterModule,
-    DatepickerModule, PaginationModule, CollapseModule,
+    DatepickerModule, PaginationModule, CollapseModule, ModalModule,
     // ToasterModule,
 
     TrimPipe,

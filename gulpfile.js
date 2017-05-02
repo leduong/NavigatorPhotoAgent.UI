@@ -77,8 +77,10 @@ gulp.task("less", function() {
  */
 gulp.task('tslint', () => {
   return gulp.src("src/**/*.ts")
-    .pipe(tslint())
-    .pipe(tslint.report('prose'));
+    .pipe(tslint({
+      formatter: "verbose"
+    }))
+    .pipe(tslint.report());
 });
 
 
@@ -101,11 +103,10 @@ gulp.task('shims', () => {
 gulp.task('tsc', ['tslint'], () => {
   var tsDest = (NG_ENVIRONMENT === 'Dev') ? (buildDir + '/app') : '.tmp/src/app';
   var tsProject = tsc.createProject('tsconfig.json'),
-    tsResult = tsProject.src()
-    .pipe(tsc(tsProject));
+    tsResult = tsProject.src().pipe(tsProject());
+    // .pipe(tsc(tsProject));
 
-  return tsResult.js
-    .pipe(gulp.dest(tsDest));
+  return tsResult.js.pipe(gulp.dest(tsDest));
 });
 
 gulp.task('compile', ['tsc'], () => {
@@ -210,12 +211,12 @@ gulp.task("node_modules", () => {
         'systemjs/dist/**',
         'ng2-select/**',
         // 'ng2-dnd/**',
-        'angular2-infinite-scroll/**',
+        'ngx-infinite-scroll/**',
         // 'angular2-toaster/**',
         // 'angular2-google-maps/**',
         // 'ng2-translate/**',
         'ng2-table/**',
-        'ng2-bootstrap/**',
+        'ngx-bootstrap/**',
         'screenfull/dist/screenfull.js',
         'jquery/dist/jquery.js',
         'jquery.browser/dist/jquery.browser.js',

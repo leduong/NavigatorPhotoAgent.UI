@@ -1,9 +1,9 @@
 # NavigatorPhotoAgent.UI
 
 [![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/)
-[![dependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI)
-
-
+[![dependencies Status](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI)
+[![devDependencies Status](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI?type=dev)
+[![Build Status](https://travis-ci.org/AngularVN/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/AngularVN/NavigatorPhotoAgent.UI)
 
 ### Demo     
 http://informationcart.eastus2.cloudapp.azure.com:8000/
@@ -19,19 +19,18 @@ http://navigatordesign.azurewebsites.net/Home/Feed
 Formated Message (Click the Photo Link)     
 http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 
-### Prereq
-nodejs version: 6.x   
-gulp
-typings 
-npm3
+Prerequisites
+-------------
+
+- nodejs >= 4
+- npm >= 3
 
 
+### Install dependencies:
 
-### Init first
+> npm install
 
-```bash
-npm i
-```
+`node_modules` and `typings` directories should be created during the install.
 
 ### Set Environment 
 

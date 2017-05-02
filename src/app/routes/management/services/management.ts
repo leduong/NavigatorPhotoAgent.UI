@@ -3,11 +3,12 @@ import { Http, Response, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { AppSettings } from '../../appsettings';
+import { PrettyXMLService } from '../../../shared/services/prettyxml';
 
 @Injectable()
 export class ManagementLoggingService {
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private prettyXML:PrettyXMLService) {}
 
   getLoggings(page = 1, limit = 10,
     Method ? : string,
@@ -52,8 +53,12 @@ export class ManagementLoggingService {
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/${id}`)
       .map((res: Response) => res.json());
   };
-  getLoggingXmlId(id: number) {
+  getLoggingXmlId(id: string) {
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/xml/${id}`)
-      .map((res: Response) => res.text());
+      .map((res: Response) => res.ok?this.prettyXML.getParsedXML(res.text()):res.text());
   };
+  getLoggingExceptionId(id: string){
+    return this.http.get(`${AppSettings.ApiEndpoint}httplogging/exception/${id}`)
+        .map((res: Response) => res);
+  }
 }

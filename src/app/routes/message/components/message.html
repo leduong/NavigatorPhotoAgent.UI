@@ -45,7 +45,7 @@
               <th>Time (UTC)</th>
             </tr>
             <tr *ngFor="let item of items.results">
-              <td><i class="fa fa-list"></i></td>
+              <td><i class="fa fa-list pointer" (click)="showExceptionModal(item.requestId, 'xml')"></i></td>
               <td>{{item.title}}</td>
               <td><a href="#/photo/{{item.id}}">Photo</a></td>
               <td>
@@ -88,6 +88,22 @@
             </pagination>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="exception-modal" bsModal #ExceptionModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exceptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{modal.title}}</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="hideExceptionModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <pre lang="xml" class="modal-body xml-display modal-pretty">
+          <h4 class="text-center" *ngIf="!modal.message">Loading... Please wait</h4>
+          {{modal.message}}
+        </pre>
       </div>
     </div>
   </div>

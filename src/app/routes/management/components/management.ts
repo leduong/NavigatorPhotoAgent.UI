@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ViewChild  } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs/Rx';
 
 import { AppSettings } from '../../appsettings';
@@ -6,7 +7,7 @@ import { AppSettings } from '../../appsettings';
 import { SessionService } from '../../../shared/services/session';
 import { ManagementLoggingService } from '../services/management';
 
-import moment, * as moments from 'moment';
+import moment from 'moment';
 
 @Component({
   selector: 'management',
@@ -15,6 +16,8 @@ import moment, * as moments from 'moment';
 })
 
 export class ManagementComponent implements OnInit {
+  @ViewChild('ExceptionModal') public ExceptionModal:ModalDirective;
+
   public startTime: any;
   public endTime: any;
   public limit: number = 20;
@@ -23,6 +26,13 @@ export class ManagementComponent implements OnInit {
   public method: string = '';
   public methods: any[] = ['GET', 'POST'];
   public items: any = {};
+  public modal : {
+    title: string
+    message?: string
+  } = {
+    title: '',
+    message: null
+  };
 
   isCollapsedStart:boolean = false;
   isCollapsedEnd:boolean = false;
@@ -109,6 +119,38 @@ export class ManagementComponent implements OnInit {
     arr.push((month > 9) ? month : '0' + month);
     arr.push((date > 9) ? date : '0' + date);
     return arr.join('-');
+  }
+  public showExceptionModal(requestId: string, requestType: string):void {
+    this.modal.message = null;
+    if(requestType==='exception'){
+      this.modal.title = 'Exception Stacktrace';
+      this.loggingservice.getLoggingExceptionId(requestId).subscribe(
+          res=>{
+            this.modal.message = res.text();
+          },
+          err=>{
+            this.modal.title = 'Error while calling the API';
+            this.modal.message = err.toString();
+          }
+      )
+    }else if(requestType==='xml'){
+      this.modal.title = 'XML';
+      this.loggingservice.getLoggingXmlId(requestId).subscribe(
+          res =>{
+            this.modal.message = res;
+          },
+          err => {
+            this.modal.title = 'Error while calling the API';
+            this.modal.message = err.toString();
+          }
+      )
+    }else{
+      throw new Error ('Such modal type is not declared');
+    }
+    this.ExceptionModal.show();
+  }
+  public hideExceptionModal():void {
+    this.ExceptionModal.hide();
   }
 
 }

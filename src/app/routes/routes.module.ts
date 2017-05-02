@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+// import { InfiniteScrollModule } from 'angular2-infinite-scroll';
+// import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // import { AgmCoreModule } from 'angular2-google-maps';
 // import { Ng2TableModule } from 'ng2-table/ng2-table';
 
@@ -26,7 +27,7 @@ import appRoutes from './routes';
   imports: [
     SharedModule,
     // Ng2TableModule,
-    InfiniteScrollModule,
+    // InfiniteScrollModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyA8okzgfpEduXDLlebJtrgw6cmexiGNoN0'
@@ -49,7 +50,7 @@ import appRoutes from './routes';
     RouterModule,
     // Ng2TableModule,
     // AgmCoreModule,
-    InfiniteScrollModule,
+    // InfiniteScrollModule,
     HomeComponent,
     DiagnosticsComponent,
     ManagementComponent,

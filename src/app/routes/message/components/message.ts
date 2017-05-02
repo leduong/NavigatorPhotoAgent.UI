@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 declare let $: any;
 
@@ -31,6 +32,9 @@ import moment, * as moments from 'moment';
 })
 
 export class MessageComponent implements OnInit {
+
+  @ViewChild('ExceptionModal') public ExceptionModal:ModalDirective;
+
   public startTime: any;
   public endTime: any;
   public limit: number = 10;
@@ -39,6 +43,13 @@ export class MessageComponent implements OnInit {
   public perPage: any[] = [10, 20, 50, 100];
   public items: any = {};
   public ignorePageChangedEvent: boolean = false;
+  public modal : {
+    title: string
+    message?: string
+  } = {
+    title: '',
+    message: null
+  };
 
   totalItems:number = 100;
   isCollapsedStart:boolean = false;
@@ -159,6 +170,30 @@ export class MessageComponent implements OnInit {
     this.keyword = keyword;
     this.session.set('keyword', keyword);
     this.getLoggings(this.currentPage, this.limit, this.startTime, this.endTime);
+  }
+
+  public showExceptionModal(requestId: string, requestType: string):void {
+    this.modal.message = null;
+
+    if(requestType==='xml'){
+      this.modal.title = 'XML';
+      this.loggingservice.getLoggingXmlId(requestId).subscribe(
+          res =>{
+            this.modal.message = res;
+          },
+          err => {
+            this.modal.title = 'Error while calling the API';
+            this.modal.message = err.toString();
+          }
+      )
+    }else{
+      throw new Error ('Such modal type is not declared');
+    }
+
+    this.ExceptionModal.show();
+  }
+  public hideExceptionModal():void {
+    this.ExceptionModal.hide();
   }
 
   private scrollTop() {
