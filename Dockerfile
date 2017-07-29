@@ -1,21 +1,17 @@
 FROM node:6
 
 # Set environment variables
-ENV APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+# ENV APIENDPOINT=https://agent.navigatorglass.com/api/
+# ENV APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
 
-RUN npm install -g gulp
-RUN npm install -g typings
-RUN npm install -g npm3
-
-# Create app directory
+# Create and copy app directory
 RUN mkdir -p /app
-
-# Bundle app source
-COPY . /app
 WORKDIR /app
+COPY wwwroot ./wwwroot
+COPY _package.json ./package.json
+COPY server.js ./
 
-RUN npm install
-RUN npm run build
+RUN npm i
 
 EXPOSE 8000
 CMD [ "npm", "start" ]

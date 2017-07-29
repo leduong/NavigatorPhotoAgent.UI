@@ -7,7 +7,7 @@ const fs = require('fs'),
   gulp = require('gulp'),
   iF = require('gulp-if'),
   less = require('gulp-less'),
-  sass = require('gulp-sass'),
+  // sass = require('gulp-sass'),
   concat = require('gulp-concat'),
   cssmin = require('gulp-cssmin'),
   tslint = require('gulp-tslint'),
@@ -104,7 +104,7 @@ gulp.task('tsc', ['tslint'], () => {
   var tsDest = (NG_ENVIRONMENT === 'Dev') ? (buildDir + '/app') : '.tmp/src/app';
   var tsProject = tsc.createProject('tsconfig.json'),
     tsResult = tsProject.src().pipe(tsProject());
-    // .pipe(tsc(tsProject));
+  // .pipe(tsc(tsProject));
 
   return tsResult.js.pipe(gulp.dest(tsDest));
 });
@@ -187,6 +187,9 @@ gulp.task('bundle', function() {
 
   return gulp.src('src/index.html')
     .pipe(replace('<--bundleTpl-->', bundleTpl))
+    .pipe(replace('#{APIENDPOINT}', APIENDPOINT))
+    .pipe(replace('#{MAPSAPI}', MAPSAPI))
+    .pipe(replace('#{ng2ENV}', NG_ENVIRONMENT))
     .pipe(gulp.dest(buildDir));
 });
 

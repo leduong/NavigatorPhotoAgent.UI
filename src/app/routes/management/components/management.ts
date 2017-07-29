@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnDestroy, ViewChild  } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs/Rx';
 
-import { AppSettings } from '../../appsettings';
+import { AppSettings } from '../../../appsettings';
 
 import { SessionService } from '../../../shared/services/session';
 import { ManagementLoggingService } from '../services/management';

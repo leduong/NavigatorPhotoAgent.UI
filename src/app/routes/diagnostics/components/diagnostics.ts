@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import Rx from 'rxjs/Rx'
 
-import { AppSettings } from '../../appsettings';
+import { AppSettings } from '../../../appsettings';
 import { DiagnosticsService } from '../services/diagnostics';
 
 @Component({

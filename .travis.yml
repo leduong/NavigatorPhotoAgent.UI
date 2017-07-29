@@ -1,22 +1,36 @@
-sudo: false
-
+sudo: required
+dist: trusty
+group: edge
+services:
+- docker
 language: node_js
 node_js:
-- '4'
-- '5'
 - '6'
 - '7'
-
+addons:
+  sauce_connect: true
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
-
+- if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
 script:
-  - npm run clean
-  - npm run build
-
+- npm run clean
+- npm run build
+after_success:
+- rm -f wwwroot/index.html
+- docker build -t stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER .
+- docker images
+- docker run -e APIENDPOINT="https://agent.navigatorglass.com/api/" -d -p 8000:8000 stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER
+- docker ps -a
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+  docker push stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER;
+  fi
+- npm i selenium-webdriver assert mocha
+- npm run selenium
 notifications:
   slack: leduong:8FHnajypcfOykiQS6Hn6QBB5
+env:
+  global:
+  - secure: CTwsXi5IfnUzWOI9Ke5drBlububEPzckPLwikkotUAthXZPGDWUApW3oCocd/TJNgmx9WmishOr+D4Da5NsJtlGorUe4KJEF8JPcOUPgoYzpuhq1uoRRjivCXeCZFAHoOy2IMxzyDBRz1V2vVxaLAshxuM/o4c2Txg1xTKqyj/sINV6c6jsE8HcBe5FFHY2XZaU+pKgC9iybP/blJXHpStMwKPGQJ+vNMreXCQ62qeq5AcvM0L0QWHRCmXonBEs7SXSQzoEqsAm9w7rkR15Z9eX779k53CA1szk62/HHg3YmNJ72ShgRMkbpwiDy3JGt/uKZDqvxkAoADhhuOJb2ib2BuMOyrmQe/nR1dZn0CncOuREeEmEMLHSy8h05Hyj9776aTvCUcMx83ovD+Nw8iP+/LNVs5DbutsRluGhHXzhMtiPyz3foXaOivMlyq4MGy9Kwz1kTl3o6FGORLis3nHXyUISoTuyq0UnAbt8K3bOT24onDiMbxHEWkhCnFQmO/pkn6AK/zGi1aLOzB9a/n08SEAk/spOl+QefK+jNyYzhDZ9HmN8Q5HchkwFvWzL6h/PrYgnFh5cljLs12JEha5Umj1tWFL9q6unBlOKzcN4S622ZS72el3ZM9R8sZoDA5jFb7mNgqXiCMm85bmSlljIcoAOcJJhWJ/J1HAMpsJs=
+  - secure: hJ9Peec+Hj2CgU+CgPDMSoe13fG/YIyrfezrmJpc5FnbMYXplMGHDBfw4fLXTqgwDSHVtB4bGibL14zJYr9PslGieXYV4Q5lf+xm8Nvw+6Tglmht4ogXRswy4QTUP/IKPaS7R4y9ujzCn4SOfbzgnyuI4LH6y840nYQbMmYuzQ39agp0cJO1YUxNNzeyJ039yYWUP20spFavcVGg6JDeCRC09mD7NXYz9rQGXK1uvjoSX7j0GLGXAS8EPiwJjx4K8Y7kwpxugpNqDNxgw1JxOWeJ5D90VgDO0c5k/eKgJQ8NouJQyRIKV6U2XW0ntBI9ANgDgJhWeIM5fuIxSy+qufPETxj989/HSaFncTHRT3S+lu1k9QLv9pJTzLt9ud9U/ZygW35fc8GLI24W1gIDrwFd67U+VEKVJC37PLpGEAImpzgU2RA7dps3St9BUSA9ATmOLRiJjnRfTABWr8UR/KXNhQyLhIqltnX8OKc9OKbaKTL+M0XoeZEGEsFc15WNuMNnIO7t14mkb5kJTDIv0yZQG3DD04f7t8bELu8RHNpyWIjU+8tPIvuAoksyapJVYPmzSpkTLem7POrPWWKgJEnxkc+D0l34FGnDrpsy+xmLSkgn3MZ393v0CxXNqIewLSNAOiWEawicqaQjp+kxrLkQWISm3CMFWdS2zKb2QX0=

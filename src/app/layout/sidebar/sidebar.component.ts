@@ -4,7 +4,7 @@ import { SettingsService } from '../../core/settings/settings.service';
 import { Router } from '@angular/router';
 declare var $: any;
 
-import { AppSettings } from '../../routes/appsettings';
+import { AppSettings } from '../../appsettings';
 @Component({
   selector: 'app-sidebar',
   templateUrl: 'app/layout/sidebar/sidebar.component.html'

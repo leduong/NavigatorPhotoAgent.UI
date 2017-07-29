@@ -1,16 +1,15 @@
 # NavigatorPhotoAgent.UI
 
 [![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/)
-[![dependencies Status](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI)
-[![devDependencies Status](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/AngularVN/NavigatorPhotoAgent.UI?type=dev)
-[![Build Status](https://travis-ci.org/AngularVN/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/AngularVN/NavigatorPhotoAgent.UI)
+[![dependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI)
+ [![devDependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI?type=dev) [![Build Status](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI)
 
 ### Demo     
-http://informationcart.eastus2.cloudapp.azure.com:8000/
-
+https://ui-agent.navigatorglass.com     
+https://stuartshay.github.io/NavigatorPhotoAgent.UI/
 
 ### API Endpoint      
-http://informationcart.eastus2.cloudapp.azure.com:6500/swagger/ui/index.html#/
+https://agent.navigatorglass.com/swagger/ui/index.html
 
 
 ### UI Mockup
@@ -37,20 +36,20 @@ Prerequisites
 #### Linux/Mac
 ```bash
 export NG_ENVIRONMENT=Dev
-export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+export APIENDPOINT=https://agent.navigatorglass.com/api/
 ```
 
 #### Windows CMD
 ```bash
 set NG_ENVIRONMENT=Dev
-set APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+set APIENDPOINT=https://agent.navigatorglass.com/api/
 ```
 
 
 #### Windows Powershell
 ```bash
 $env:NG_ENVIRONMENT = 'Dev'
-$env:APIENDPOINT = 'http://informationcart.eastus2.cloudapp.azure.com:6500/api/'
+$env:APIENDPOINT = 'https://agent.navigatorglass.com/api/'
 
 Get-ChildItem Env:APIENDPOINT
 ```
@@ -71,11 +70,6 @@ docker run -d -p 8000:8000 navigator-photo-agent-ui
 ```
 
 #### Tag & Push to Docker Hub
-
-```bash
-https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/
-```
-
 ```bash
 docker tag <imageid> navigator-photo-agent-ui:staging
 docker tag navigator-photo-agent-ui:staging  stuartshay/navigator-photo-agent-ui:staging
@@ -85,10 +79,8 @@ docker push stuartshay/navigator-photo-agent-ui:staging
 
 ### Build and Deploy to Github Pages
 
-http://stuartshay.github.io/NavigatorPhotoAgent.UI/
-
 ```bash
-export APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+export APIENDPOINT=https://agent.navigatorglass.com/api/
 npm run clean
 npm run build
 npm run ghpage
