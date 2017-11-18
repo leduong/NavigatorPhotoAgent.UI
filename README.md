@@ -37,12 +37,26 @@ Prerequisites
 ```bash
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
+
+export AUTHORITY=https://auth.informationcart.com
+export CLIENT_ID=navigatorphotoagentui-dev
+export REDIRECT_URI=http://localhost:8000/callback.html
+export RESPONSE_TYPE=id_token token
+export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
+export POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
 ```
 
 #### Windows CMD
 ```bash
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
+
+set AUTHORITY=https://auth.informationcart.com
+set CLIENT_ID=navigatorphotoagentui-dev
+set REDIRECT_URI=http://localhost:8000/callback.html
+set RESPONSE_TYPE=id_token token
+set SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
+set POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
 ```
 
 
