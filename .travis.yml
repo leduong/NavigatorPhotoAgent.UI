@@ -7,8 +7,6 @@ language: node_js
 node_js:
 - '6'
 - '7'
-addons:
-  sauce_connect: true
 cache:
   directories:
   - node_modules
@@ -26,8 +24,6 @@ after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   docker push stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER;
   fi
-- npm i selenium-webdriver assert mocha
-- npm run selenium
 notifications:
   slack: leduong:8FHnajypcfOykiQS6Hn6QBB5
 env:
