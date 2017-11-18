@@ -4,18 +4,18 @@ export class OAuthSettings {
     return "https://auth.informationcart.com";
   }
   public static get client_id(): string {
-    return "navigatorphotoagentui-dev";
+    return null;
   }
   public static get redirect_uri(): string {
-    return "http://localhost:8000/callback.html";
+    return null;
   }
   public static get response_type(): string {
-    return "id_token token";
+    return null;
   }
   public static get scope(): string {
-    return "openid profile roles imagegalleryapi country subscriptionlevel";
+    return null;
   }
   public static get post_logout_redirect_uri(): string {
-    return "http://localhost:8000/index.html";
+    return null;
   }
 }

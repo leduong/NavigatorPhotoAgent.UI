@@ -1,6 +1,6 @@
 authority: https://auth.informationcart.com
-client_id: navigatorphotoagentui-dev
-redirect_uri: http://localhost:8000/callback.html
-response_type: id_token token
-scope: openid profile roles imagegalleryapi country subscriptionlevel
-post_logout_redirect_uri: http://localhost:8000/index.html
+client_id: 
+redirect_uri: 
+response_type: 
+scope: 
+post_logout_redirect_uri: 
