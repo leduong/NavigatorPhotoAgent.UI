@@ -13,8 +13,8 @@ cache:
 before_install:
 - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
 script:
-- npm run clean
-- npm run build
+- npm@3 run clean
+- npm@3 run build
 after_success:
 - rm -f wwwroot/index.html
 - docker build -t stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER .
