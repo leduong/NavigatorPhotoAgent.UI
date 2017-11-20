@@ -6,6 +6,8 @@ const APIENDPOINT = process.env.APIENDPOINT || '';
 const LANDMARK = process.env.LANDMARK || '';
 const MAPSAPI = process.env.MAPSAPI || '';
 const NG_ENVIRONMENT = process.env.NG_ENVIRONMENT || '';
+const AUTHORITY = process.env.AUTHORITY || '';
+
 
 var path = require('path');
 var express = require('express');
