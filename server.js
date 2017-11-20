@@ -6,8 +6,13 @@ const APIENDPOINT = process.env.APIENDPOINT || '';
 const LANDMARK = process.env.LANDMARK || '';
 const MAPSAPI = process.env.MAPSAPI || '';
 const NG_ENVIRONMENT = process.env.NG_ENVIRONMENT || '';
+/*OAuth*/
 const AUTHORITY = process.env.AUTHORITY || '';
-
+const CLIENT_ID = process.env.CLIENT_ID || '';
+const REDIRECT_URI = process.env.REDIRECT_URI || '';
+const RESPONSE_TYPE = process.env.RESPONSE_TYPE || '';
+const SCOPE = process.env.SCOPE || '';
+const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || '';
 
 var path = require('path');
 var express = require('express');
@@ -27,7 +32,14 @@ app.get('/', function(req, res, next) {
     'APIENDPOINT': APIENDPOINT,
     'LANDMARK': LANDMARK,
     'MAPSAPI': MAPSAPI,
-    'ng2ENV': NG_ENVIRONMENT
+    'ng2ENV': NG_ENVIRONMENT,
+/*OAuth*/
+    'authority': AUTHORITY,
+    'client_id': CLIENT_ID,
+    'redirect_uri': REDIRECT_URI,
+    'response_type': RESPONSE_TYPE,
+    'scope': SCOPE,
+    'post_logout_redirect_uri': POST_LOGOUT_REDIRECT_URI
   });
 });
 

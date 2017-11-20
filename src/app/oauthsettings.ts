@@ -1,21 +1,21 @@
 export class OAuthSettings {
 
   public static get authority(): string {
-    return "https://auth.informationcart.com";
+    return localStorage.getItem("authority");
   }
   public static get client_id(): string {
-    return null;
+    return localStorage.getItem("client_id");
   }
   public static get redirect_uri(): string {
-    return null;
+    return localStorage.getItem("redirect_uri");
   }
   public static get response_type(): string {
-    return null;
+    return localStorage.getItem("response_type");
   }
   public static get scope(): string {
-    return null;
+    return localStorage.getItem("scope");
   }
   public static get post_logout_redirect_uri(): string {
-    return null;
+    return localStorage.getItem("post_logout_redirect_uri");
   }
 }
