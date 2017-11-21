@@ -18,12 +18,6 @@ http://navigatordesign.azurewebsites.net/Home/Feed
 Formated Message (Click the Photo Link)     
 http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 
-Prerequisites
--------------
-
-- nodejs >= 4
-- npm >= 3
-
 
 ### Install dependencies:
 
@@ -37,12 +31,26 @@ Prerequisites
 ```bash
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
+
+export AUTHORITY=https://auth.informationcart.com
+export CLIENT_ID=navigatorphotoagentui-dev
+export REDIRECT_URI=http://localhost:8000/callback.html
+export RESPONSE_TYPE=id_token token
+export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
+export POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
 ```
 
 #### Windows CMD
 ```bash
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
+
+set AUTHORITY=https://auth.informationcart.com
+set CLIENT_ID=navigatorphotoagentui-dev
+set REDIRECT_URI=http://localhost:8000/callback.html
+set RESPONSE_TYPE=id_token token
+set SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
+set POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
 ```
 
 
@@ -68,6 +76,16 @@ npm run serve
 docker build -t navigator-photo-agent-ui .
 docker run -d -p 8000:8000 navigator-photo-agent-ui
 ```
+
+### Docker Run
+
+```bash
+docker run -d -t -i -p 8000:8000 \ 
+-e APIENDPOINT='https://agent.navigatorglass.com/api/' \
+-e AUTHORITY='https://auth.informationcart.com' \
+--name navigator-photo-agent-ui  stuartshay/navigator-photo-agent-ui:node8-44
+```
+
 
 #### Tag & Push to Docker Hub
 ```bash
