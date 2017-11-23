@@ -1,8 +1,8 @@
-FROM node:6
+FROM node:8
 
 # Set environment variables
 # ENV APIENDPOINT=https://agent.navigatorglass.com/api/
-# ENV APIENDPOINT=http://informationcart.eastus2.cloudapp.azure.com:6500/api/
+ENV AUTHORITY=https://auth.informationcart.com
 
 # Create and copy app directory
 RUN mkdir -p /app

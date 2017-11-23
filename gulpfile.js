@@ -183,27 +183,6 @@ gulp.task('api', function () {
         .pipe(gulp.dest('./src/app/routes'))
 });
 
-gulp.task('oauthsettings', function (cb) {
-    var authority = 'authority: ' + AUTHORITY;
-    var client_id = '\nclient_id: ' + CLIENT_ID;
-    var redirect_uri = '\nredirect_uri: ' + REDIRECT_URI;
-    var response_type = '\nresponse_type: ' + RESPONSE_TYPE;
-    var scope = '\nscope: ' + SCOPE;
-    var post_logout_redirect_uri = '\npost_logout_redirect_uri: ' + POST_LOGOUT_REDIRECT_URI;
-    return fs.writeFile('oauthsettings.yml', authority
-        + client_id
-        + redirect_uri
-        + response_type
-        + scope
-        + post_logout_redirect_uri);
-});
-
-gulp.task('oauthconf', function () {
-    return gulp.src('oauthsettings.yml')
-        .pipe(tsconfig('OAuthSettings', JSON.parse('{"parser": "yml"}')))
-        .pipe(gulp.dest('./src/app'))
-});
-
 gulp.task('bundle', function () {
     var bundleTpl;
     if (NG_ENVIRONMENT === 'Dev') {
@@ -273,8 +252,6 @@ gulp.task("node_modules", () => {
 gulp.task("build", [
     'appsettings',
     'api',
-    'oauthsettings',
-    'oauthconf',
     'compile',
     'shims',
     'less',

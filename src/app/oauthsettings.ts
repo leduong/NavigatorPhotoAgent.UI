@@ -1,21 +1,21 @@
 export class OAuthSettings {
 
   public static get authority(): string {
-    return "https://auth.informationcart.com";
+    return localStorage.getItem("authority");
   }
   public static get client_id(): string {
-    return "navigatorphotoagentui-dev";
+    return localStorage.getItem("client_id");
   }
   public static get redirect_uri(): string {
-    return "http://localhost:8000/callback.html";
+    return localStorage.getItem("redirect_uri");
   }
   public static get response_type(): string {
-    return "id_token token";
+    return localStorage.getItem("response_type");
   }
   public static get scope(): string {
-    return "openid profile roles imagegalleryapi country subscriptionlevel";
+    return localStorage.getItem("scope");
   }
   public static get post_logout_redirect_uri(): string {
-    return "http://localhost:8000/index.html";
+    return localStorage.getItem("post_logout_redirect_uri");
   }
 }

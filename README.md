@@ -18,12 +18,6 @@ http://navigatordesign.azurewebsites.net/Home/Feed
 Formated Message (Click the Photo Link)     
 http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 
-Prerequisites
--------------
-
-- nodejs >= 4
-- npm >= 3
-
 
 ### Install dependencies:
 
@@ -82,6 +76,16 @@ npm run serve
 docker build -t navigator-photo-agent-ui .
 docker run -d -p 8000:8000 navigator-photo-agent-ui
 ```
+
+### Docker Run
+
+```bash
+docker run -d -t -i -p 8000:8000 \ 
+-e APIENDPOINT='https://agent.navigatorglass.com/api/' \
+-e AUTHORITY='https://auth.informationcart.com' \
+--name navigator-photo-agent-ui  stuartshay/navigator-photo-agent-ui:node8-44
+```
+
 
 #### Tag & Push to Docker Hub
 ```bash
