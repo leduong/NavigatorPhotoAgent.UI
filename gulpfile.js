@@ -81,6 +81,17 @@ gulp.task("less", function () {
 });
 
 /**
+ * Compile all Less files.
+ */
+gulp.task("addonless", function () {
+    return gulp
+        .src(["src/less/addons/*.less"])
+        .pipe(less())
+        .pipe(cssmin())
+        .pipe(gulp.dest(path.join(buildDir, "css")));
+});
+
+/**
  * Lint all custom TypeScript files.
  */
 gulp.task('tslint', () => {
@@ -278,6 +289,7 @@ gulp.task("build", [
     'compile',
     'shims',
     'less',
+    'addonless',
     // 'sass',
     'fonts',
     'resources',

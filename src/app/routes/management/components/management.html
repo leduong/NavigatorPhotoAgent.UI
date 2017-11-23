@@ -7,7 +7,7 @@
             <li class="active"><a [routerLink]="['/management']" asp-controller="Management">Management</a></li>
         </ol>
         <div class="panel-body">
-            <div class="row" id="managment-filter-row">
+            <div class="row records-row" id="managment-filter-row">
                 <div class="filter-container">
                     <label>Method</label>
                     <select class="form-control managment-method-filter-select" [(ngModel)]="method" (ngModelChange)="changeMethod($event)">

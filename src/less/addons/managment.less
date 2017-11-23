@@ -1,139 +1,113 @@
-#managment-filter-row label
-,#managment-filter-row select {
-	display: inline-block;
-	width: auto;
+#managment-filter-row {
+    label, select {
+        display: inline-block;
+        width: auto;
+    }
+    select {
+        margin: 0px 5px;
+        padding: 4px;
+    }
+    input {
+        width: 180px;
+        display: inline-block;
+        padding: 0px 4px;
+        margin: 0px;
+    }
+    .filter-container {
+        position: relative;
+        min-height: 1px;
+        padding: 0px 4px;
+        float: left;
+    }
 }
-
-.managment-method-filter-select{
-	width: 75px;
+.managment-method-filter-select {
+    width: 75px;
     display: inline-block;
     height: 2.2em;
     line-height: 2.2em;
     padding: 4px;
     margin: 0px 5px;
 }
-
-#managment-filter-row select {
-	margin: 0px 5px;
-	padding: 4px;
+.delete-padding-on-small-screen {
+    padding: 0px 15px;
 }
-
-#managment-filter-row input
-{
-	width: 180px;
-	display: inline-block;
-	padding: 0px 4px;
-	margin: 0px;
+.table-fixed-layout {
+    table-layout: fixed;
+    word-break: break-word;
 }
-
-#managment-filter-row .filter-container{
-	position: relative;
-    min-height: 1px;
-    padding: 0px 4px;
-    float: left;
+.table-managment {
+    font-size: 12px;
+    width: 100%;
+    font-family: 'Open Sans',sans-serif;
 }
-#managment-filter-row{
-	margin-bottom: 15px;
+.managment-page {
+    font-size: 12px;
+    font-family: 'Open Sans',sans-serif;
 }
-
-.delete-padding-on-small-screen{
-	padding:0px 15px;
+.managment-page {
+    .label-success, .badge-success {
+        background-color: rgb(129,189,130);
+    }
+    .label-default {
+        background-color: #999;
+    }
+    .label {
+        font-weight: lighter;
+        font-size: 90%;
+    }
 }
-
-.table-fixed-layout{
-	table-layout:fixed;
-	word-break: break-word;	
+.records-row {
+    padding-left: 15px;
+    margin-bottom: 15px;
 }
-
-.table-managment{
-	font-size: 12px;
-	width: 100%;
-	font-family: 'Open Sans', sans-serif;
+.form-correction-select {
+    width: 60px;
+    display: inline-block;
+    height: 2.2em;
+    line-height: 2.2em;
+    padding: 4px;
 }
-
-.managment-page{
-	font-size: 12px;
-	font-family: 'Open Sans', sans-serif;
-}
-
-.managment-page .label-success
-,.managment-page .badge-success {
-    background-color: rgb(129, 189, 130);
-}
-
-.managment-page .label-default{
-	background-color:#999;
-}
-
-.managment-page .label{
-	font-weight: lighter;
-    font-size: 90%;
-}
-
-.records-row{
-	padding-left: 15px;
-	margin-bottom: 15px;
-}
-
-.form-correction-select{
-	width: 60px !important;
-    display: inline-block !important;
-    height: 2.2em !important;
-    line-height: 2.2em !important;
-    padding: 4px !important;
-}
-
-@media only screen and (max-width: 800px) {
-
-.delete-padding-on-small-screen{
-	padding:0px;
-}
-
-                /* Force table to not be like tables anymore */
-                table.responsive-tbl thead,
-                table.responsive-tbl tbody,
-                table.responsive-tbl th,
-                table.responsive-tbl td,
-                table.responsive-tbl tr {
-                    display: block;
-                }
-
-                    /* Hide table headers (but not display: none;, for accessibility) */
-                    table.responsive-tbl thead tr {
-                        position: absolute;
-                        top: -9999px;
-                        left: -9999px;
-                    }
-
-                    table.responsive-tbl tbody tr {
-                        border: 1px solid #ccc;
-                    }
-
-                    table.responsive-tbl tbody td {
-                        /* Behave  like a "row" */
-                        border: none;
-                        border-bottom: 1px solid #eee;
-                        position: relative;
-                        padding-left: 35%;
-                        white-space: normal;
-                        text-align: left;
-                        min-height: 41px;
-                    }
-
-                        table.responsive-tbl tbody td:before {
-                            /* Now like a table header */
-                            position: absolute;
-                            /* Top/left values mimic padding */
-                            top: 6px;
-                            left: 6px;
-                            width: 60%;
-                            padding-right: 10px;
-                            white-space: nowrap;
-                            text-align: left;
-                            font-weight: bold;
-                        }
-
-                        table.responsive-tbl tbody td:before {
-                            content: attr(data-title);
-                        }
+@media only screen and (max-width:800px) {
+    .records-row {
+        padding-left: 0px;
+        margin-bottom: 15px;
+    }
+    .delete-padding-on-small-screen {
+        padding: 0px;
+    }
+    table.responsive-tbl {
+        thead, tbody, th, td, tr {
+            display: block;
+        }
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        tbody {
+            tr {
+                border: 1px solid #ccc;
             }
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 35%;
+                white-space: normal;
+                text-align: left;
+                min-height: 41px;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 60%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                content: attr(data-title);
+            }
+        }
+    }
+}
