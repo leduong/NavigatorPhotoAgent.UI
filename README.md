@@ -77,13 +77,6 @@ docker build -t navigator-photo-agent-ui .
 docker run -d -p 8000:8000 navigator-photo-agent-ui
 ```
 
-```
-docker run -d -t -i -p 8000:8000 \ 
--e APIENDPOINT='https://agent.navigatorglass.com/api/' \
--e AUTHORITY='https://auth.informationcart.com' \
---name navigator-photo-agent-ui  stuartshay/navigator-photo-agent-ui:node8-44
-```
-
 
 ### Docker Run
 
