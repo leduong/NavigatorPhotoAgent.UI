@@ -16,7 +16,7 @@ after_success:
 - docker images
 - docker run --env-file ./env.staging -d -p 8000:8000 stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER
 - docker ps -a
-- if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+- if [ "$TRAVIS_BRANCH" == "issue26" ]; then docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   docker push stuartshay/navigator-photo-agent-ui:node$TRAVIS_NODE_VERSION-$TRAVIS_BUILD_NUMBER;
   fi
 notifications:
