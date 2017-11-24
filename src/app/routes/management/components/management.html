@@ -41,7 +41,7 @@
                     <thead>
                         <tr>
                             <th>Body</th>
-                            <th>Date</th>
+                            <th>Time (UTC)</th>
                             <th>Method</th>
                             <th>Status</th>
                             <th>Subscription</th>
@@ -54,12 +54,12 @@
                     <tbody>
                         <tr *ngFor="let item of items.results">
                             <td data-title="Body"><span *ngIf="item.method == 'POST' && item.statusCode == '200'" (click)="showExceptionModal(item.requestId, 'xml')" class="fa fa-list pointer"></span></td>
-                            <td data-title="Date">{{item.timestamp | UTC | date: 'dd.MM.y'}}</td>
+                            <td data-title="Time (UTC)">{{item.timestamp | UTC | date: 'MM/dd/y HH:mm:ss'}}</td>
                             <td data-title="Method"><span class="label" [ngClass]="{'label-default' : item.method == 'GET','label-primary' : item.method != 'GET'}">{{item.method}}</span></td>
                             <td data-title="Status"><span class="label" [ngClass]="{'label-success' : item.statusCode == '200','label-danger' : item.statusCode != '200'}">{{item.statusCode}}</span></td>
                             <td data-title="Subscription">mock-subscription</td>
-                            <td data-title="Mode">mock-mode</td>
-                            <td data-title="Topic">mock-topic</td>
+                            <td data-title="Mode">{{getParameterByName('mode',item.queryString)}}</td>
+                            <td data-title="Topic">{{getParameterByName('topic',item.queryString)}}</td>
                             <td data-title="Host">{{item.host}}</td>
                             <td data-title="IP Address">{{item.remoteIpAddress}}</td>
                         </tr>
