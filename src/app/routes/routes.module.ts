@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // import { AgmCoreModule } from 'angular2-google-maps';
 // import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { AceEditorModule} from "ng2-ace-editor";
 
 import { MenuService } from '../core/menu/menu.service';
 
@@ -32,6 +33,7 @@ import appRoutes from './routes';
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyA8okzgfpEduXDLlebJtrgw6cmexiGNoN0'
     // })
+    AceEditorModule,
   ],
   declarations: [
     HomeComponent,
