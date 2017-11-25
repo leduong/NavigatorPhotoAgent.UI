@@ -4,7 +4,7 @@ export class OAuthSettings {
     return "https://auth.informationcart.com";
   }
   public static get client_id(): string {
-    return null;
+    return "navigatorphotoagentui-dev";
   }
   public static get redirect_uri(): string {
     return null;

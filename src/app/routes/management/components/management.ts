@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild  } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ModalDirective } from 'ngx-bootstrap';
 import { Observable } from 'rxjs/Rx';
 
 import { AppSettings } from '../../../appsettings';
@@ -17,6 +17,7 @@ import moment from 'moment';
 
 export class ManagementComponent implements OnInit {
   @ViewChild('ExceptionModal') public ExceptionModal:ModalDirective;
+  @ViewChild('editor') public editor;
 
   public startTime: any;
   public endTime: any;
@@ -121,7 +122,7 @@ export class ManagementComponent implements OnInit {
     return arr.join('-');
   }
   public showExceptionModal(requestId: string, requestType: string):void {
-    this.modal.message = null;
+    this.modal.message = 'Loading... Please wait';
     if(requestType==='exception'){
       this.modal.title = 'Exception Stacktrace';
       this.loggingservice.getLoggingExceptionId(requestId).subscribe(
@@ -150,7 +151,16 @@ export class ManagementComponent implements OnInit {
     this.ExceptionModal.show();
   }
   public hideExceptionModal():void {
+    this.modal.message = 'Loading... Please wait';
     this.ExceptionModal.hide();
   }
 
+  public getParameterByName(name, url): string {
+      if (!url || !name) return "";
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results || !results[2]) return "";
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
 }
