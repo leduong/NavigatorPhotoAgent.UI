@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild  } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+import { ModalDirective } from 'ngx-bootstrap';
 import { Observable } from 'rxjs/Rx';
 
 import { AppSettings } from '../../../appsettings';
