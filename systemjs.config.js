@@ -50,12 +50,10 @@ System.config({
         'ngx-bootstrap/modal': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/positioning': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/component-loader': { main: 'index.js', defaultExtension: 'js' },
-        'ngx-bootstrap/bs-moment': { main: 'index.js', defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: './index.js', defaultExtension: 'js' },
         'ng2-ace-editor': { main: 'index.js', defaultExtension: 'js' },
         'brace': { main: 'index.js', defaultExtension: 'js' },
         "rxjs/operators": { main: "index.js", defaultExtension: "js" },
-        'ngx-bootstrap/bs-moment/locale': { defaultExtension: "js" },
         'moment': { defaultExtension: 'js' }
     }
 });
