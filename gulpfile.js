@@ -119,6 +119,18 @@ gulp.task('shims', () => {
         .pipe(gulp.dest(path.join(buildDir, 'js')));
 });
 
+gulp.task('ace', () => {
+    return gulp.src([
+        'node_modules/ace-builds/src-min/ace.js',
+        'node_modules/ace-builds/src-min/ext-*.js',
+        'node_modules/ace-builds/src-min/theme-eclipse.js',
+        'node_modules/ace-builds/src-min/mode-xml.js',
+        'node_modules/ace-builds/src-min/worker-xml.js'
+    ])
+        .pipe(gulp.dest(path.join(buildDir, 'js')));
+});
+
+
 gulp.task('tsc', ['tslint'], () => {
     var tsDest = (NG_ENVIRONMENT === 'Dev') ? (buildDir + '/app') : '.tmp/src/app';
     var tsProject = tsc.createProject('tsconfig.json'),
@@ -288,6 +300,7 @@ gulp.task("build", [
     'oauthconf',
     'compile',
     'shims',
+    'ace',
     'less',
     'addonless',
     // 'sass',

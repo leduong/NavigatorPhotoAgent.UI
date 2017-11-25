@@ -77,7 +77,6 @@ docker build -t navigator-photo-agent-ui .
 docker run -d -p 8000:8000 navigator-photo-agent-ui
 ```
 
-
 ### Docker Run
 
 ```bash
