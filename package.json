@@ -39,7 +39,7 @@
     "ngx-bootstrap": "^1.8.1",
     "ngx-infinite-scroll": "^0.5.2",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.4.3",
+    "rxjs": "^5.5.2",
     "screenfull": "^3.2.2",
     "simple-line-icons": "^2.4.1",
     "systemjs": "^0.20.19",
