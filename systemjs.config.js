@@ -31,26 +31,31 @@ System.config({
         // 'ng2-dnd': 'libs:ng2-dnd/index.js',
         // 'angular2-toaster': 'libs:angular2-toaster',
         // 'angular2-google-maps': 'libs:angular2-google-maps/core/index.js',
-        'ngx-bootstrap': 'libs:ngx-bootstrap',
+        
         // 'ng2-bootstrap': 'libs:ng2-bootstrap'
         // 'ng2-table': 'libs:ng2-table',
         'ng2-ace-editor': 'libs:ng2-ace-editor',
         'brace': 'libs:brace',
-        'moment': 'libs:moment/moment.js'
+        'moment': 'libs:moment',
+        'ngx-bootstrap': 'libs:ngx-bootstrap',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
         app: { main: 'main.js', defaultExtension: 'js' },
         rxjs: { defaultExtension: 'js' },
+        /*
         'ngx-bootstrap/collapse': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/datepicker': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/pagination': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/modal': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/positioning': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/component-loader': { main: 'index.js', defaultExtension: 'js' },
+        */
         'angular2-in-memory-web-api': { main: './index.js', defaultExtension: 'js' },
         'ng2-ace-editor': { main: 'index.js', defaultExtension: 'js' },
         'brace': { main: 'index.js', defaultExtension: 'js' },
-        "rxjs/operators": { main: "index.js", defaultExtension: "js" }
+        "rxjs/operators": { main: "index.js", defaultExtension: "js" },
+        'moment': { main: 'moment.js', defaultExtension: 'js' },
+        'ngx-bootstrap': { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
     }
 });
