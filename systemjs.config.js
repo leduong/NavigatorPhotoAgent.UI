@@ -37,7 +37,8 @@ System.config({
         // 'ng2-bootstrap': 'libs:ng2-bootstrap'
         // 'ng2-table': 'libs:ng2-table',
         'ng2-ace-editor': 'libs:ng2-ace-editor',
-        'brace': 'libs:brace'
+        'brace': 'libs:brace',
+        'moment': 'libs:moment/src/moment.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -54,6 +55,7 @@ System.config({
         'ng2-ace-editor': { main: 'index.js', defaultExtension: 'js' },
         'brace': { main: 'index.js', defaultExtension: 'js' },
         "rxjs/operators": { main: "index.js", defaultExtension: "js" },
-        'moment': { defaultExtension: "js" }
+        'ngx-bootstrap/bs-moment/locale': { defaultExtension: "js" },
+        'moment': { defaultExtension: 'js' }
     }
 });
