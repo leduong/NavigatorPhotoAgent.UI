@@ -23,8 +23,6 @@ System.config({
         // other libraries
         'rxjs': 'libs:rxjs',
         'angular2-in-memory-web-api': 'libs:angular2-in-memory-web-api',
-
-        'moment': 'libs:moment',
         'jquery': 'libs:jquery/dist/jquery.js',
         'jquery.browser': 'libs:jquery.browser/dist/jquery.browser.js',
         'screenfull': 'libs:screenfull/dist/screenfull.js',
@@ -37,7 +35,8 @@ System.config({
         // 'ng2-bootstrap': 'libs:ng2-bootstrap'
         // 'ng2-table': 'libs:ng2-table',
         'ng2-ace-editor': 'libs:ng2-ace-editor',
-        'brace': 'libs:brace'
+        'brace': 'libs:brace',
+        'moment': 'libs:moment/moment.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -52,7 +51,6 @@ System.config({
         'angular2-in-memory-web-api': { main: './index.js', defaultExtension: 'js' },
         'ng2-ace-editor': { main: 'index.js', defaultExtension: 'js' },
         'brace': { main: 'index.js', defaultExtension: 'js' },
-        "rxjs/operators": { main: "index.js", defaultExtension: "js" },
-        moment: { main: 'moment.js', defaultExtension: 'js' }
+        "rxjs/operators": { main: "index.js", defaultExtension: "js" }
     }
 });
