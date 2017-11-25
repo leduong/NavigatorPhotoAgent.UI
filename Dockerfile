@@ -1,7 +1,7 @@
 FROM node:8
 
 # Set environment variables
-# ENV APIENDPOINT=https://agent.navigatorglass.com/api/
+ENV APIENDPOINT=https://agent.navigatorglass.com/api/
 ENV AUTHORITY=https://auth.informationcart.com
 
 # Create and copy app directory
