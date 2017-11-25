@@ -38,7 +38,7 @@ System.config({
         // 'ng2-table': 'libs:ng2-table',
         'ng2-ace-editor': 'libs:ng2-ace-editor',
         'brace': 'libs:brace',
-        'moment': 'libs:moment/src/moment.js'
+        'moment': 'libs:moment/moment.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
