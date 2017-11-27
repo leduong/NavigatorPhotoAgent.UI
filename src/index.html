@@ -63,10 +63,18 @@
 <--bundleTpl-->
     <script type="text/javascript">
         if (typeof (Storage) !== "undefined") {
-            localStorage.setItem("ApiEndpoint", "#{APIENDPOINT}");
-            localStorage.setItem("ApiMaps", "#{MAPSAPI}");
-            localStorage.setItem("ng2ENV", "#{ng2ENV}");
-            localStorage.setItem("BuildId", "#{BuildId}");
+            localStorage.setItem("ApiEndpoint", "${APIENDPOINT}");
+            localStorage.setItem("ApiMaps", "${MAPSAPI}");
+            localStorage.setItem("ng2ENV", "${ng2ENV}");
+            localStorage.setItem("BuildId", "${BuildId}");
+
+            /*OAuth*/
+            localStorage.setItem("authority", "${authority}");
+            localStorage.setItem("client_id", "${client_id}");
+            localStorage.setItem("redirect_uri", "${redirect_uri}");
+            localStorage.setItem("response_type", "${response_type}");
+            localStorage.setItem("scope", "${scope}");
+            localStorage.setItem("post_logout_redirect_uri", "${post_logout_redirect_uri}");
         } else {
             alert('Sorry! No Web Storage support..');
         }
