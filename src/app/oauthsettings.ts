@@ -7,6 +7,7 @@ export class OAuthSettings {
     return localStorage.getItem("client_id");
   }
   public static get redirect_uri(): string {
+<<<<<<< HEAD
     return localStorage.getItem("redirect_uri");
   }
   public static get response_type(): string {
@@ -17,5 +18,17 @@ export class OAuthSettings {
   }
   public static get post_logout_redirect_uri(): string {
     return localStorage.getItem("post_logout_redirect_uri");
+=======
+    return null;
+  }
+  public static get response_type(): string {
+    return null;
+  }
+  public static get scope(): string {
+    return null;
+  }
+  public static get post_logout_redirect_uri(): string {
+    return null;
+>>>>>>> master
   }
 }

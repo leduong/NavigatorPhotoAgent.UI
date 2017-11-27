@@ -1,11 +1,8 @@
-// export NG_ENVIRONMENT=Dev
-// export LANDMARK=http://informationcart.eastus2.cloudapp.azure.com:80/api/
-// export MAPSAPI=http://informationcart.eastus2.cloudapp.azure.com:82/api/
-
 const APIENDPOINT = process.env.APIENDPOINT || '';
 const LANDMARK = process.env.LANDMARK || '';
 const MAPSAPI = process.env.MAPSAPI || '';
 const NG_ENVIRONMENT = process.env.NG_ENVIRONMENT || '';
+
 /*OAuth*/
 const AUTHORITY = process.env.AUTHORITY || '';
 const CLIENT_ID = process.env.CLIENT_ID || '';
