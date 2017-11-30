@@ -40,6 +40,9 @@
     <TypeScriptCompile Include="src\app\oauthsettings.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\routeguard.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\routes\authorization\components\authorization.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

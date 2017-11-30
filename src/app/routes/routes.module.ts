@@ -21,6 +21,7 @@ import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
 
 import { SharedModule } from '../shared/shared.module';
+import { RoutGuard } from './routeguard';
 
 import appMenu from './menu';
 import appRoutes from './routes';
@@ -46,7 +47,7 @@ import appRoutes from './routes';
     // DetailFormComponent,
     // MapsComponent,
   ],
-  //providers: [OAuthService],
+  providers: [RoutGuard],
   exports: [
     RouterModule,
     // Ng2TableModule,

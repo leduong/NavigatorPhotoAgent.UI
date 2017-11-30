@@ -8,25 +8,27 @@ import { PhotoComponent } from './photo/components/photo';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 import { AuthorizationComponent } from './authorization/components/authorization';
 
+import { RoutGuard } from './routeguard';
+
 const routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: 'home', component: HomeComponent },
-      { path: 'diagnostics', component: DiagnosticsComponent },
-      { path: 'management', component: ManagementComponent },
-      { path: 'message', component: MessageComponent },
-      { path: 'feed', component: FeedComponent },
-      { path: 'photo/:id', component: PhotoComponent },
+      { path: 'home', component: HomeComponent, canActivate: [RoutGuard] },
+      { path: 'diagnostics', component: DiagnosticsComponent, canActivate: [RoutGuard] },
+      { path: 'management', component: ManagementComponent, canActivate: [RoutGuard] },
+      { path: 'message', component: MessageComponent, canActivate: [RoutGuard] },
+      { path: 'feed', component: FeedComponent, canActivate: [RoutGuard] },
+      { path: 'photo/:id', component: PhotoComponent, canActivate: [RoutGuard] },
       // { path: 'maps', component: MapsComponent },
       { path: 'authorization', component: AuthorizationComponent },
-      { path: '**', redirectTo: 'home' }
+      { path: '**', redirectTo: 'authorization' }
     ]
   },
 
   // Not found
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'authorization' }
 
 ];
 
