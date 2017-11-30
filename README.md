@@ -106,6 +106,8 @@ npm run ghpage
 
 
 ### Test Auth Enviroment
+
+```bash
 set APIENDPOINT=https://agent.navigatorglass.com/api/
 
 set PORT=4200
@@ -115,3 +117,4 @@ set REDIRECT_URI=http://localhost:4200/index.html
 set RESPONSE_TYPE=
 set SCOPE=openid profile email voucher
 set POST_LOGOUT_REDIRECT_URI=
+```
