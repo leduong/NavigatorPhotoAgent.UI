@@ -13,8 +13,7 @@ html
   // 3. Display the application
   body
     app-root
-      .spinner
-  <!--bundleTpl-->
+      .spinner  
   script.
     if (typeof(Storage) !== "undefined") {
     localStorage.setItem("ApiEndpoint", "#{APIENDPOINT}");
@@ -30,3 +29,4 @@ html
     } else {
     alert('Sorry! No Web Storage support..');
     }
+  <!--bundleTpl-->

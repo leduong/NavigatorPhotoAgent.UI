@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
       let self = this;
       discoverPromise.then(() => {
         self.oauthService.tryLogin({ customHashFragment: hashStr.substring(hashStr.indexOf('#id_token')) })
-          .then(() => { self.router.navigate(['/authorization']); });
+          //.then(() => { self.router.navigate(['/authorization']); });
       });
     }
   }
