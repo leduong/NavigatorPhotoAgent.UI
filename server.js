@@ -21,34 +21,26 @@ global.base = __dirname;
 app.set('views', path.join(__dirname, 'wwwroot'));
 app.set('view engine', 'pug');
 
+app.get('/index.html', function (req, res, next) {
+  renderIndex(req, res, next);
+});
+
 /* GET home page. */
-app.get('/', function(req, res, next) {
-  res.render('index', {
-    APIENDPOINT: APIENDPOINT,
-    LANDMARK: LANDMARK,
-    MAPSAPI: MAPSAPI,
-    ng2ENV: NG_ENVIRONMENT,
-/*OAuth*/
-    authority: AUTHORITY,
-    client_id: CLIENT_ID,
-    redirect_uri: REDIRECT_URI,
-    response_type: RESPONSE_TYPE,
-    scope: SCOPE,
-    post_logout_redirect_uri: POST_LOGOUT_REDIRECT_URI
-  });
+app.get('/', function (req, res, next) {
+  renderIndex(req, res, next);
 });
 
 app.use(express.static(path.join(__dirname, 'wwwroot')));
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -62,6 +54,22 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(port, '0.0.0.0', function() {
+app.listen(port, '0.0.0.0', function () {
   console.log('Listening on port %d', port);
 });
+
+function renderIndex(req, res, next) {
+  res.render('index', {
+    APIENDPOINT: APIENDPOINT,
+    LANDMARK: LANDMARK,
+    MAPSAPI: MAPSAPI,
+    ng2ENV: NG_ENVIRONMENT,
+    /*OAuth*/
+    authority: AUTHORITY,
+    client_id: CLIENT_ID,
+    redirect_uri: REDIRECT_URI,
+    response_type: RESPONSE_TYPE,
+    scope: SCOPE,
+    post_logout_redirect_uri: POST_LOGOUT_REDIRECT_URI
+  });
+}

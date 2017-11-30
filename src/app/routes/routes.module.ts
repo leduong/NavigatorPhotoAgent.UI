@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // import { AgmCoreModule } from 'angular2-google-maps';
 // import { Ng2TableModule } from 'ng2-table/ng2-table';
-import { AceEditorModule} from "ng2-ace-editor";
+import { AceEditorModule } from "ng2-ace-editor";
 
 import { MenuService } from '../core/menu/menu.service';
 
@@ -16,6 +16,7 @@ import { ManagementComponent } from './management/components/management';
 import { MessageComponent } from './message/components/message';
 import { PhotoComponent } from './photo/components/photo';
 
+import { AuthorizationComponent } from './authorization/components/authorization';
 import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
 
@@ -30,9 +31,6 @@ import appRoutes from './routes';
     // Ng2TableModule,
     // InfiniteScrollModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyA8okzgfpEduXDLlebJtrgw6cmexiGNoN0'
-    // })
     AceEditorModule,
   ],
   declarations: [
@@ -43,11 +41,12 @@ import appRoutes from './routes';
     PhotoComponent,
     FeedComponent,
     FeedListComponent,
+    AuthorizationComponent,
     // DetailsComponent,
     // DetailFormComponent,
     // MapsComponent,
   ],
-  providers: [],
+  //providers: [OAuthService],
   exports: [
     RouterModule,
     // Ng2TableModule,
@@ -60,6 +59,7 @@ import appRoutes from './routes';
     PhotoComponent,
     FeedComponent,
     FeedListComponent,
+    AuthorizationComponent
   ]
 })
 

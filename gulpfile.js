@@ -154,7 +154,7 @@ gulp.task('compile', ['tsc'], () => {
  * Copy all resources that are not TypeScript files into build directory.
  */
 gulp.task("resources", () => {
-    return gulp.src(["!src/index.html", "!src/less", "!src/less/**/*", "!**/*.ts", "src/**/*"])
+    return gulp.src(["!src/index.pug", "!src/less", "!src/less/**/*", "!**/*.ts", "src/**/*"])
         .pipe(gulp.dest(buildDir));
 });
 
@@ -209,26 +209,16 @@ gulp.task('api', function () {
 gulp.task('bundle', function () {
     var bundleTpl;
     if (NG_ENVIRONMENT === 'Dev') {
-        bundleTpl = '<script src="systemjs.config.js"></script>' +
-            '<script>System.import(\'app\').catch(function(err) {console.error(err);});</script>';
+        bundleTpl = `script(type='text/javascript', src='systemjs.config.js')
+  script.
+    System.import(\'app\').catch(function(err) {console.error(err);});`;
     } else {
-        bundleTpl = '<script type="text/javascript" src="js/bundle.js"></script>';
+        bundleTpl = "script(type='text/javascript', src='js/bundle.js')";
     }
 
-    return gulp.src('src/index.html')
-        .pipe(replace('<--bundleTpl-->', bundleTpl))
-        .pipe(replace('#{APIENDPOINT}', APIENDPOINT))
-        .pipe(replace('#{MAPSAPI}', MAPSAPI))
-        .pipe(replace('#{ng2ENV}', NG_ENVIRONMENT))
-        //OAuth
-        .pipe(replace('#{authority}', AUTHORITY))
-        .pipe(replace('#{client_id}', CLIENT_ID))
-        .pipe(replace('#{redirect_uri}', REDIRECT_URI))
-        .pipe(replace('#{response_type}', RESPONSE_TYPE))
-        .pipe(replace('#{scope}', SCOPE))
-        .pipe(replace('#{post_logout_redirect_uri}', POST_LOGOUT_REDIRECT_URI))
-
-        .pipe(gulp.dest(buildDir));
+    return gulp.src('src/index.pug')
+            .pipe(replace('<!--bundleTpl-->', bundleTpl))
+            .pipe(gulp.dest(buildDir));
 });
 
 gulp.task('systemjs', function () {
@@ -258,11 +248,17 @@ gulp.task("node_modules", () => {
             // 'ng2-translate/**',
             //'ng2-table/**',
             'ngx-bootstrap/**',
-            'screenfull/dist/screenfull.js',
-            'jquery/dist/jquery.js',
-            'jquery.browser/dist/jquery.browser.js',
-            'moment/moment.js',
-            '@angular/**'
+            'screenfull/**',
+            'jquery/**',
+            'jquery.browser/**',
+            'moment/**',
+            '@angular/**',
+            'ng2-ace-editor/**',
+            'brace/**',
+            'systemjs-plugin-babel/**',
+            'angular-oauth2-oidc/**',
+            'jsrsasign/**',
+            'tslib/**'
         ], { cwd: "node_modules/**" }) /* Glob required here. */
             .pipe(gulp.dest(path.join(buildDir, "node_modules")));
     }

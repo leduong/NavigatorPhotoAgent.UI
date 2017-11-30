@@ -103,3 +103,15 @@ npm run clean
 npm run build
 npm run ghpage
 ```
+
+
+### Test Auth Enviroment
+set APIENDPOINT=https://agent.navigatorglass.com/api/
+
+set PORT=4200
+set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+set CLIENT_ID=spa-demo
+set REDIRECT_URI=http://localhost:4200/index.html
+set RESPONSE_TYPE=
+set SCOPE=openid profile email voucher
+set POST_LOGOUT_REDIRECT_URI=

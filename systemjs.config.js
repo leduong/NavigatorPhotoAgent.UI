@@ -11,6 +11,7 @@ System.config({
 
         // angular bundles
         '@angular/core': 'libs:@angular/core/bundles/core.umd.js',
+        '@angular/common/http': 'node_modules/@angular/common/bundles/common-http.umd.js',
         '@angular/common': 'libs:@angular/common/bundles/common.umd.js',
         '@angular/compiler': 'libs:@angular/compiler/bundles/compiler.umd.js',
         '@angular/platform-browser': 'libs:@angular/platform-browser/bundles/platform-browser.umd.js',
@@ -38,7 +39,13 @@ System.config({
         'brace': 'libs:brace',
         'moment': 'libs:moment',
         'ngx-bootstrap': 'libs:ngx-bootstrap',
+        'plugin-babel': 'libs:systemjs-plugin-babel/plugin-babel.js',
+        'systemjs-babel-build': 'libs:systemjs-plugin-babel/systemjs-babel-browser.js',
+        'angular-oauth2-oidc': 'libs:angular-oauth2-oidc',
+        'jsrsasign': 'libs:jsrsasign/lib',
+        'tslib': 'libs:tslib'
     },
+    transpiler: 'plugin-babel',
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
         app: { main: 'main.js', defaultExtension: 'js' },
@@ -57,5 +64,14 @@ System.config({
         "rxjs/operators": { main: "index.js", defaultExtension: "js" },
         'moment': { main: 'moment.js', defaultExtension: 'js' },
         'ngx-bootstrap': { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
+        'angular-oauth2-oidc': {
+            main: 'angular-oauth2-oidc.umd.js',
+            format: 'cjs',
+            defaultExtension: 'js',
+            map: { 'jsrsasign': 'libs:jsrsasign/lib/jsrsasign', },
+            meta: { 'angular-oauth2-oidc': { deps: ['require', 'jsrsasign'] }, }
+        },
+        'jsrsasign': { main: 'jsrsasign.js', defaultExtension: 'js' },
+        'tslib': { main: 'tslib.js', defaultExtension: 'js' }
     }
 });

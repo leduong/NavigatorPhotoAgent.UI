@@ -6,7 +6,7 @@ import { ManagementComponent } from './management/components/management';
 import { MessageComponent } from './message/components/message';
 import { PhotoComponent } from './photo/components/photo';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
-
+import { AuthorizationComponent } from './authorization/components/authorization';
 
 const routes = [
   {
@@ -20,9 +20,9 @@ const routes = [
       { path: 'feed', component: FeedComponent },
       { path: 'photo/:id', component: PhotoComponent },
       // { path: 'maps', component: MapsComponent },
+      { path: 'authorization', component: AuthorizationComponent },
       { path: '**', redirectTo: 'home' }
     ]
-
   },
 
   // Not found
