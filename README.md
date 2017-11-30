@@ -67,8 +67,9 @@ Get-ChildItem Env:APIENDPOINT
 ```bash
 npm run clean
 npm run build
-npm run serve
+npm start
 ```
+~~run serve~~
 
 ### Docker Build
 
