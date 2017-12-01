@@ -47,7 +47,7 @@ set APIENDPOINT=https://agent.navigatorglass.com/api/
 
 set AUTHORITY=https://auth.informationcart.com
 set CLIENT_ID=navigatorphotoagentui-dev
-set REDIRECT_URI=http://localhost:8000/callback.html
+set REDIRECT_URI=http://localhost:8000/index.html
 set RESPONSE_TYPE=id_token token
 set SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
 set POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
