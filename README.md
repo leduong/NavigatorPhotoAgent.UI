@@ -34,7 +34,7 @@ export APIENDPOINT=https://agent.navigatorglass.com/api/
 
 export AUTHORITY=https://auth.informationcart.com
 export CLIENT_ID=navigatorphotoagentui-dev
-export REDIRECT_URI=http://localhost:8000/callback.html
+export REDIRECT_URI=http://localhost:8000/index.html
 export RESPONSE_TYPE=id_token token
 export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
 export POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
