@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { SettingsService } from '../../core/settings/settings.service';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 import * as screenfull from 'screenfull';
 import * as browser from 'jquery.browser';
@@ -14,13 +15,29 @@ export class HeaderComponent implements OnInit {
   isNavSearchVisible: boolean;
   @ViewChild('fsbutton') fsbutton; // the fullscreen button
 
-  constructor(private settings: SettingsService) {}
+  constructor(private settings: SettingsService, private oauthService: OAuthService) { }
 
   ngOnInit() {
     this.isNavSearchVisible = false;
     if (browser.msie) { // Not supported under IE
       this.fsbutton.nativeElement.style.display = 'none';
     }
+  }
+
+  logoff() {
+    this.oauthService.logOut();
+  }
+
+  get name() {
+    let claims = this.oauthService.getIdentityClaims();
+    if (!claims) return null;
+    return claims['given_name'];
+  }
+
+  get familyName() {
+    var claims = this.oauthService.getIdentityClaims();
+    if (!claims) return null;
+    return claims['family_name'];
   }
 
   toggleUserBlock(event) {

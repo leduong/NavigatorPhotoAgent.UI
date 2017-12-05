@@ -48,8 +48,9 @@ System.config({
     transpiler: 'plugin-babel',
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
-        app: { main: 'main.js', defaultExtension: 'js' },
-        rxjs: { defaultExtension: 'js' },
+      app: { main: 'main.js', defaultExtension: 'js' },
+      rxjs: { main: "bundles/Rx.min.js", defaultExtension: 'js' },
+        //rxjs: { main: "index.js", defaultExtension: 'js' },
         /*
         'ngx-bootstrap/collapse': { main: 'index.js', defaultExtension: 'js' },
         'ngx-bootstrap/datepicker': { main: 'index.js', defaultExtension: 'js' },
@@ -61,7 +62,7 @@ System.config({
         'angular2-in-memory-web-api': { main: './index.js', defaultExtension: 'js' },
         'ng2-ace-editor': { main: 'index.js', defaultExtension: 'js' },
         'brace': { main: 'index.js', defaultExtension: 'js' },
-        "rxjs/operators": { main: "index.js", defaultExtension: "js" },
+        "rxjs/operators": { main: "../bundles/Rx.min.js", defaultExtension: "js" },
         'moment': { main: 'moment.js', defaultExtension: 'js' },
         'ngx-bootstrap': { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
         'angular-oauth2-oidc': {

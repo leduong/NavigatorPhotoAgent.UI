@@ -26,6 +26,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\index.pug" />
+    <Content Include="src\less\addons\managment.less" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <Content Include="typings.json" />
@@ -165,6 +166,7 @@
     <Folder Include="src\img" />
     <Folder Include="src\img\user" />
     <Folder Include="src\less" />
+    <Folder Include="src\less\addons\" />
     <Folder Include="src\less\app" />
     <Folder Include="src\less\bootstrap" />
     <Folder Include="src\less\bootstrap\mixins" />
