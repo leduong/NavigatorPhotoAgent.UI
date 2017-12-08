@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 //import { CustomValidators } from 'ng2-validation';
 import { OAuthService } from 'angular-oauth2-oidc';
-import { authPasswordFlowConfig } from './authPasswordFlowConfig'
 import { Router } from '@angular/router';
 
 @Component({
