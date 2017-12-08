@@ -1,5 +1,4 @@
 export class OAuthSettings {
-
   public static get authority(): string {
     return localStorage.getItem("authority");
   }
@@ -18,25 +17,20 @@ export class OAuthSettings {
   public static get post_logout_redirect_uri(): string {
     return localStorage.getItem("post_logout_redirect_uri");
   }
+  public static get dummy_client_secret(): string {
+    return localStorage.getItem("dummy_client_secret");
+  }
 }
 
 import { AuthConfig } from 'angular-oauth2-oidc';
 
 export const authConfig: AuthConfig = {
-  // Url of the Identity Provider
-  issuer: OAuthSettings.authority, //'https://steyer-identity-server.azurewebsites.net/identity',
-
-  // The SPA's id. The SPA is registerd with this id at the auth-server
-  clientId: OAuthSettings.client_id, //'spa-demo',
-
-  // URL of the SPA to redirect the user to after login
-  redirectUri: OAuthSettings.redirect_uri, //window.location.origin + '/index.html',
-
+  issuer: OAuthSettings.authority,
+  clientId: OAuthSettings.client_id,
+  redirectUri: OAuthSettings.redirect_uri,
   responseType: OAuthSettings.response_type,
-
-  // set the scope for the permissions the client should request
-  // The first three are defined by OIDC. The 4th is a usecase-specific one
-  scope: OAuthSettings.scope,//'openid profile email voucher',
-
-  postLogoutRedirectUri: OAuthSettings.post_logout_redirect_uri
+  scope: OAuthSettings.scope,
+  postLogoutRedirectUri: OAuthSettings.post_logout_redirect_uri,
+  dummyClientSecret: OAuthSettings.dummy_client_secret,
+  oidc: false
 }

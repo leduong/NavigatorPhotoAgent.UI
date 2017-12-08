@@ -10,6 +10,7 @@ const REDIRECT_URI = process.env.REDIRECT_URI || '';
 const RESPONSE_TYPE = process.env.RESPONSE_TYPE || '';
 const SCOPE = process.env.SCOPE || '';
 const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || '';
+const DUMMY_CLIENT_SECRET = process.env.DUMMY_CLIENT_SECRET || '';
 
 var path = require('path');
 var express = require('express');
@@ -70,6 +71,7 @@ function renderIndex(req, res, next) {
     redirect_uri: REDIRECT_URI,
     response_type: RESPONSE_TYPE,
     scope: SCOPE,
-    post_logout_redirect_uri: POST_LOGOUT_REDIRECT_URI
+    post_logout_redirect_uri: POST_LOGOUT_REDIRECT_URI,
+    dummy_client_secret:DUMMY_CLIENT_SECRET
   });
 }

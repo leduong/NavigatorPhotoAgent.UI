@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { SettingsService } from '../../core/settings/settings.service';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { Router } from '@angular/router';
 
 import * as screenfull from 'screenfull';
 import * as browser from 'jquery.browser';
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   isNavSearchVisible: boolean;
   @ViewChild('fsbutton') fsbutton; // the fullscreen button
 
-  constructor(private settings: SettingsService, private oauthService: OAuthService) { }
+  constructor(private settings: SettingsService, private oauthService: OAuthService, private router: Router) { }
 
   ngOnInit() {
     this.isNavSearchVisible = false;
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
   logoff() {
     this.oauthService.logOut();
+    this.router.navigate(["/login"]);
   }
 
   get name() {

@@ -32,12 +32,14 @@ http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
 
-export AUTHORITY=https://auth.informationcart.com
-export CLIENT_ID=navigatorphotoagentui-dev
-export REDIRECT_URI=http://localhost:8000/index.html
-export RESPONSE_TYPE=id_token token
-export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
-export POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
+export PORT=4200
+export AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+export CLIENT_ID=demo-resource-owner
+export REDIRECT_URI=http://localhost:4200/index.html
+export RESPONSE_TYPE=
+export SCOPE=openid profile email voucher
+export POST_LOGOUT_REDIRECT_URI=
+export DUMMY_CLIENT_SECRET=geheim
 ```
 
 #### Windows CMD
@@ -45,12 +47,14 @@ export POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
 
-set AUTHORITY=https://auth.informationcart.com
-set CLIENT_ID=navigatorphotoagentui-dev
-set REDIRECT_URI=http://localhost:8000/index.html
-set RESPONSE_TYPE=id_token token
-set SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
-set POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
+set PORT=4200
+set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+set CLIENT_ID=demo-resource-owner
+set REDIRECT_URI=http://localhost:4200/index.html
+set RESPONSE_TYPE=
+set SCOPE=openid profile email voucher
+set POST_LOGOUT_REDIRECT_URI=
+set DUMMY_CLIENT_SECRET=geheim
 ```
 
 

@@ -56,16 +56,7 @@ export class AppComponent implements OnInit {
   private configureWithNewConfigApi() {
     this.oauthService.configure(authConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
-    let discoverPromise = this.oauthService.loadDiscoveryDocument();
-
-    //try get id_token
-    let hashStr = window.location.hash;
-    if (~hashStr.indexOf('#id_token')) {
-      let self = this;
-      discoverPromise.then(() => {
-        self.oauthService.tryLogin({ customHashFragment: hashStr.substring(hashStr.indexOf('#id_token')) })
-      });
-    }
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
   ngOnInit() {

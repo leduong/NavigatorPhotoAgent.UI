@@ -16,7 +16,6 @@ import { ManagementComponent } from './management/components/management';
 import { MessageComponent } from './message/components/message';
 import { PhotoComponent } from './photo/components/photo';
 
-import { AuthorizationComponent } from './authorization/components/authorization';
 import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
 
@@ -41,8 +40,7 @@ import appRoutes from './routes';
     MessageComponent,
     PhotoComponent,
     FeedComponent,
-    FeedListComponent,
-    AuthorizationComponent,
+    FeedListComponent
     // DetailsComponent,
     // DetailFormComponent,
     // MapsComponent,
@@ -59,8 +57,7 @@ import appRoutes from './routes';
     MessageComponent,
     PhotoComponent,
     FeedComponent,
-    FeedListComponent,
-    AuthorizationComponent
+    FeedListComponent
   ]
 })
 

@@ -22,6 +22,7 @@
   <ItemGroup>
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <Content Include="src\app\login\login.component.html" />
     <Content Include="src\app\routes\authorization\components\authorization.html">
       <SubType>Code</SubType>
     </Content>
@@ -38,6 +39,10 @@
     <Compile Include="server.js" />
     <Compile Include="systemjs.config.js" />
     <Content Include="src\favicon.ico" />
+    <TypeScriptCompile Include="src\app\login\AuthPasswordFlowConfig.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\login\login.component.ts" />
     <TypeScriptCompile Include="src\app\oauthsettings.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -139,6 +144,7 @@
     <Folder Include="src\app\layout\header" />
     <Folder Include="src\app\layout\header\navsearch" />
     <Folder Include="src\app\layout\sidebar" />
+    <Folder Include="src\app\login\" />
     <Folder Include="src\app\routes" />
     <Folder Include="src\app\routes\diagnostics" />
     <Folder Include="src\app\routes\diagnostics\components" />

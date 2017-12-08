@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AuthorizationComponent } from './routes/authorization/components/authorization';
 
 import { CoreModule } from './core/core.module';
 import { LayoutModule } from './layout/layout.module';
@@ -13,9 +12,13 @@ import { RoutesModule } from './routes/routes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
+import { LoginComponent } from "./login/login.component";
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +32,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     HttpClientModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-    AuthorizationComponent
+    { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
 })

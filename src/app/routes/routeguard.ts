@@ -1,11 +1,12 @@
 ﻿import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class RoutGuard implements CanActivate {
 
-  constructor(private oauthService: OAuthService) {
+  constructor(private oauthService: OAuthService, private router: Router) {
   }
 
   canActivate(
@@ -15,6 +16,10 @@ export class RoutGuard implements CanActivate {
     var hasIdToken = this.oauthService.hasValidIdToken();
     var hasAccessToken = this.oauthService.hasValidAccessToken();
 
-    return (hasIdToken && hasAccessToken);
+    if (!hasAccessToken) {
+      this.router.navigate(['../login']);
+    }
+
+    return (hasAccessToken);
   }
 }
