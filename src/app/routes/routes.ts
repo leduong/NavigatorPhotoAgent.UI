@@ -7,6 +7,8 @@ import { MessageComponent } from './message/components/message';
 import { PhotoComponent } from './photo/components/photo';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
 import { LoginComponent } from "../login/login.component";
+import { RecoverComponent } from "../login/recover/recover.component";
+import { RegisterComponent } from "../login/register/register.component";
 
 import { RoutGuard } from './routeguard';
 
@@ -24,7 +26,14 @@ const routes = [
     ]
     , canActivate: [RoutGuard]
   },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login'
+    , children: [
+      { path: '', component: LoginComponent }
+      , { path: 'recover', component: RecoverComponent }
+      , { path: 'register', component: RegisterComponent }
+    ]
+  },
   { path: '**', redirectTo: 'login' }
 
 ];

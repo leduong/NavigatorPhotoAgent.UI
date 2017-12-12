@@ -53,7 +53,6 @@ export class HeaderComponent implements OnInit {
   }
 
   setNavSearchVisible(stat: boolean) {
-    // console.log(stat);
     this.isNavSearchVisible = stat;
   }
 

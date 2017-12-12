@@ -12,13 +12,11 @@ import { RoutesModule } from './routes/routes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
-import { LoginComponent } from "./login/login.component";
-
+import { OauthModuleCustom } from "./login/oauthcustom.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +25,7 @@ import { LoginComponent } from "./login/login.component";
     SharedModule,
     RoutesModule,
     HttpModule,
-
+    OauthModuleCustom,
     OAuthModule.forRoot(),
     HttpClientModule
   ],

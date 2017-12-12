@@ -32,13 +32,13 @@
                             </label>
                         </div>
                         <div class="pull-right">
-                            <a class="text-muted" [routerLink]="'/recover'">Forgot your password?</a>
+                            <a class="text-muted" [routerLink]="'/login/recover'">Forgot your password?</a>
                         </div>
                     </div>
                     <button class="btn btn-block btn-primary mt-lg" type="submit">Login</button>
                 </form>
                 <div class="alert alert-danger text-center" *ngIf="alertMessage">{{alertMessage}}</div>
-                <p class="pt-lg text-center">Need to Signup?</p><a class="btn btn-block btn-default" [routerLink]="'/register'">Register Now</a>
+                <p class="pt-lg text-center">Need to Signup?</p><a class="btn btn-block btn-default" [routerLink]="'/login/register'">Register Now</a>
             </div>
         </div>
         <!-- END panel-->

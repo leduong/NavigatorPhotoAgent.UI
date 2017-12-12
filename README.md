@@ -40,6 +40,7 @@ export RESPONSE_TYPE=
 export SCOPE=openid profile email voucher
 export POST_LOGOUT_REDIRECT_URI=
 export DUMMY_CLIENT_SECRET=geheim
+export APIUSERMANGEMENT=https://user-management.informationcart.com/
 ```
 
 #### Windows CMD
@@ -55,6 +56,7 @@ set RESPONSE_TYPE=
 set SCOPE=openid profile email voucher
 set POST_LOGOUT_REDIRECT_URI=
 set DUMMY_CLIENT_SECRET=geheim
+set APIUSERMANGEMENT=https://user-management.informationcart.com/
 ```
 
 

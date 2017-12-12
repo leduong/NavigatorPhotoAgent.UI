@@ -20,6 +20,15 @@ export class OAuthSettings {
   public static get dummy_client_secret(): string {
     return localStorage.getItem("dummy_client_secret");
   }
+  public static get api_user_management(): string {
+    return localStorage.getItem("api_user_management");
+  }
+  public static get api_user_management_recover_url(): string {
+    return `${OAuthSettings.api_user_management}api/Account`;
+  }
+  public static get api_user_management_registration_url(): string {
+    return `${OAuthSettings.api_user_management}api/UserRegistration`;
+  }
 }
 
 import { AuthConfig } from 'angular-oauth2-oidc';
