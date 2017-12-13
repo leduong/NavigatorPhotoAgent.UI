@@ -48,7 +48,8 @@ export class RegisterComponent {
     let options = new RequestOptions({ headers: headers });
 
     let body = {
-      Email: value.email
+      Email: value.email,
+      Password: value.passwordGroup.password
     };
 
     this.http.post(OAuthSettings.api_user_management_registration_url, body, options)

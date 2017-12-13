@@ -30,8 +30,7 @@ export class RecoverComponent {
       let options = new RequestOptions({ headers: headers });
 
       let body = {
-        UserId: value.email,
-        Name: "noname"
+        Email: value.email
       };
 
       this.http.post(OAuthSettings.api_user_management_recover_url, body, options)
