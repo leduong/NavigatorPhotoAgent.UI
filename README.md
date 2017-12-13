@@ -76,8 +76,13 @@ npm run build
 npm start
 ```
 
-L:max
-P:geheim
+```
+http://localhost:4200
+
+Login: max
+Password:geheim
+```
+
 
 ### Docker Build
 
