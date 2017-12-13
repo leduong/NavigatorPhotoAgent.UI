@@ -11,12 +11,11 @@ https://stuartshay.github.io/NavigatorPhotoAgent.UI/
 ### API Endpoint      
 https://agent.navigatorglass.com/swagger/ui/index.html
 
-
 ### UI Mockup
 http://navigatordesign.azurewebsites.net/Home/Feed
 
-Formated Message (Click the Photo Link)     
-http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
+### angular-oauth2-oidc 
+https://github.com/manfredsteyer/angular-oauth2-oidc#sample-auth-server
 
 
 ### Install dependencies:
@@ -31,6 +30,7 @@ http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 ```bash
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
+export APIUSERMANGEMENT=https://user-management.informationcart.com/
 
 export PORT=4200
 export AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
@@ -40,13 +40,14 @@ export RESPONSE_TYPE=
 export SCOPE=openid profile email voucher
 export POST_LOGOUT_REDIRECT_URI=
 export DUMMY_CLIENT_SECRET=geheim
-export APIUSERMANGEMENT=https://user-management.informationcart.com/
 ```
+
 
 #### Windows CMD
 ```bash
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
+set APIUSERMANGEMENT=https://user-management.informationcart.com/
 
 set PORT=4200
 set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
@@ -56,9 +57,8 @@ set RESPONSE_TYPE=
 set SCOPE=openid profile email voucher
 set POST_LOGOUT_REDIRECT_URI=
 set DUMMY_CLIENT_SECRET=geheim
-set APIUSERMANGEMENT=https://user-management.informationcart.com/
-```
 
+```
 
 #### Windows Powershell
 ```bash
@@ -68,14 +68,21 @@ $env:APIENDPOINT = 'https://agent.navigatorglass.com/api/'
 Get-ChildItem Env:APIENDPOINT
 ```
 
-### Build and Run with Liveload
+### Build and Run 
 
 ```bash
 npm run clean
 npm run build
 npm start
 ```
-~~run serve~~
+
+```
+http://localhost:4200
+
+Login: max
+Password:geheim
+```
+
 
 ### Docker Build
 
