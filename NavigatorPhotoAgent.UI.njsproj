@@ -39,9 +39,6 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Content Include="src\app\login\login.component.html" />
     <Content Include="src\app\login\recover\recover.component.html" />
     <Content Include="src\app\login\register\register.component.html" />
-    <Content Include="src\app\routes\authorization\components\authorization.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="src\index.pug" />
     <Content Include="src\less\addons\managment.less" />
     <Content Include="tsconfig.json" />
@@ -56,15 +53,13 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Compile Include="systemjs.config.js" />
     <Content Include="src\favicon.ico" />
     <TypeScriptCompile Include="src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\login\oauthcustom.module.ts" />
     <TypeScriptCompile Include="src\app\login\recover\recover.component.ts" />
     <TypeScriptCompile Include="src\app\login\register\register.component.ts" />
     <TypeScriptCompile Include="src\app\oauthsettings.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\routes\routeguard.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="src\app\routes\authorization\components\authorization.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="typings\index.d.ts" />
@@ -157,14 +152,12 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Folder Include="src\app\routes\feed\components" />
     <Folder Include="src\app\routes\feed\services" />
     <Folder Include="src\app\routes\home" />
-    <Folder Include="src\app\routes\authorization\components\" />
     <Folder Include="src\app\routes\management" />
     <Folder Include="src\app\routes\management\components" />
     <Folder Include="src\app\routes\management\services" />
     <Folder Include="src\app\routes\message" />
     <Folder Include="src\app\routes\message\components" />
     <Folder Include="src\app\routes\message\services" />
-    <Folder Include="src\app\routes\authorization\" />
     <Folder Include="src\app\routes\photo" />
     <Folder Include="src\app\routes\photo\components" />
     <Folder Include="src\app\shared" />

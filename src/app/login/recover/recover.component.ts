@@ -4,6 +4,7 @@ import { CustomValidators } from 'ng2-validation';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
 import { OAuthSettings } from '../../oauthsettings'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recover',
@@ -13,7 +14,7 @@ export class RecoverComponent {
 
   valForm: FormGroup;
 
-  constructor(public fb: FormBuilder, private http: Http) {
+  constructor(public fb: FormBuilder, private http: Http, private router: Router) {
     this.valForm = fb.group({
       'email': [null, Validators.compose([Validators.required, CustomValidators.email])]
     });
@@ -37,8 +38,8 @@ export class RecoverComponent {
         .subscribe(
         res => {
           console.dir(res);
-        }
-        );
+          this.router.navigate(['/login']);
+        });
     }
   }
 }

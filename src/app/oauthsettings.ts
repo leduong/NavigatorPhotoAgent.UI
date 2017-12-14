@@ -17,8 +17,8 @@ export class OAuthSettings {
   public static get post_logout_redirect_uri(): string {
     return localStorage.getItem("post_logout_redirect_uri");
   }
-  public static get dummy_client_secret(): string {
-    return localStorage.getItem("dummy_client_secret");
+  public static get client_secret(): string {
+    return localStorage.getItem("client_secret");
   }
   public static get api_user_management(): string {
     return localStorage.getItem("api_user_management");
@@ -40,6 +40,6 @@ export const authConfig: AuthConfig = {
   responseType: OAuthSettings.response_type,
   scope: OAuthSettings.scope,
   postLogoutRedirectUri: OAuthSettings.post_logout_redirect_uri,
-  dummyClientSecret: OAuthSettings.dummy_client_secret,
+  dummyClientSecret: OAuthSettings.client_secret,
   oidc: false
 }

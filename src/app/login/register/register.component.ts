@@ -4,6 +4,8 @@ import { CustomValidators } from 'ng2-validation';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { OAuthSettings } from '../../oauthsettings';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: 'app/login/register/register.component.html'
@@ -13,7 +15,7 @@ export class RegisterComponent {
   valForm: FormGroup;
   passwordForm: FormGroup;
 
-  constructor(public fb: FormBuilder, private http: Http) {
+  constructor(public fb: FormBuilder, private http: Http, private router: Router) {
 
     let password = new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9]{6,10}$')]));
     let certainPassword = new FormControl('', CustomValidators.equalTo(password));
@@ -24,7 +26,10 @@ export class RegisterComponent {
     });
 
     this.valForm = fb.group({
+      'userId': [null, Validators.required],
       'email': [null, Validators.compose([Validators.required, CustomValidators.email])],
+      'lname': [null, Validators.required],
+      'fname': [null, Validators.required],
       'accountagreed': [null, Validators.required],
       'passwordGroup': this.passwordForm
     });
@@ -56,6 +61,7 @@ export class RegisterComponent {
       .subscribe(
       res => {
         console.dir(res);
+        this.router.navigate(['/login']);
       }
       );
 

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
     //form validation
     this.valForm = fb.group({
-      'email': [null, Validators.compose([Validators.required/*, CustomValidators.email*/])],
+      'login': [null, Validators.compose([Validators.required])],
       'password': [null, Validators.required]
     });
   }
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.valForm.controls[c].markAsTouched();
     }
     if (this.valForm.valid) {
-      this.loginWithPassword(value.email, value.password);
+      this.loginWithPassword(value.login, value.password);
     }
   }
 

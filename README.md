@@ -39,7 +39,7 @@ export REDIRECT_URI=http://localhost:4200/index.html
 export RESPONSE_TYPE=
 export SCOPE=openid profile email voucher
 export POST_LOGOUT_REDIRECT_URI=
-export DUMMY_CLIENT_SECRET=geheim
+export CLIENT_SECRET=geheim
 ```
 
 
@@ -56,7 +56,7 @@ set REDIRECT_URI=http://localhost:4200/index.html
 set RESPONSE_TYPE=
 set SCOPE=openid profile email voucher
 set POST_LOGOUT_REDIRECT_URI=
-set DUMMY_CLIENT_SECRET=geheim
+set CLIENT_SECRET=geheim
 
 ```
 
