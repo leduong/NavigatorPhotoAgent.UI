@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7068d6fa-9d77-4d68-95ea-079380327c15}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile>server.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -16,13 +16,29 @@
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <StartWebBrowser>True</StartWebBrowser>
+    <Environment>NG_ENVIRONMENT=Dev
+APIENDPOINT=https://agent.navigatorglass.com/api/
+APIUSERMANGEMENT=https://user-management.informationcart.com/
+
+PORT=4200
+AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+CLIENT_ID=demo-resource-owner
+REDIRECT_URI=http://localhost:4200/index.html
+RESPONSE_TYPE=
+SCOPE=openid profile email voucher
+POST_LOGOUT_REDIRECT_URI=
+DUMMY_CLIENT_SECRET=geheim</Environment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include=".dockerignore" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="src\app\login\login.component.html" />
+    <Content Include="src\app\login\recover\recover.component.html" />
+    <Content Include="src\app\login\register\register.component.html" />
     <Content Include="src\app\routes\authorization\components\authorization.html">
       <SubType>Code</SubType>
     </Content>
@@ -39,10 +55,9 @@
     <Compile Include="server.js" />
     <Compile Include="systemjs.config.js" />
     <Content Include="src\favicon.ico" />
-    <TypeScriptCompile Include="src\app\login\AuthPasswordFlowConfig.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\login\recover\recover.component.ts" />
+    <TypeScriptCompile Include="src\app\login\register\register.component.ts" />
     <TypeScriptCompile Include="src\app\oauthsettings.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -111,19 +126,6 @@
     <TypeScriptCompile Include="src\app\shared\pipes\utc.ts" />
     <TypeScriptCompile Include="src\app\shared\services\prettyxml.ts" />
     <TypeScriptCompile Include="src\app\shared\services\session.ts" />
-    <Content Include="src\img\user\01.jpg" />
-    <Content Include="src\img\user\02.jpg" />
-    <Content Include="src\img\user\03.jpg" />
-    <Content Include="src\img\user\04.jpg" />
-    <Content Include="src\img\user\05.jpg" />
-    <Content Include="src\img\user\06.jpg" />
-    <Content Include="src\img\user\07.jpg" />
-    <Content Include="src\img\user\08.jpg" />
-    <Content Include="src\img\user\09.jpg" />
-    <Content Include="src\img\user\10.jpg" />
-    <Content Include="src\img\user\11.jpg" />
-    <Content Include="src\img\user\12.jpg" />
-    <Content Include="src\img\user\13.jpg" />
     <Content Include="typings\globals\core-js\typings.json" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <Content Include="typings\globals\node\typings.json" />
@@ -145,6 +147,8 @@
     <Folder Include="src\app\layout\header\navsearch" />
     <Folder Include="src\app\layout\sidebar" />
     <Folder Include="src\app\login\" />
+    <Folder Include="src\app\login\recover\" />
+    <Folder Include="src\app\login\register\" />
     <Folder Include="src\app\routes" />
     <Folder Include="src\app\routes\diagnostics" />
     <Folder Include="src\app\routes\diagnostics\components" />
@@ -170,7 +174,6 @@
     <Folder Include="src\app\shared\services" />
     <Folder Include="src\app\utils" />
     <Folder Include="src\img" />
-    <Folder Include="src\img\user" />
     <Folder Include="src\less" />
     <Folder Include="src\less\addons\" />
     <Folder Include="src\less\app" />

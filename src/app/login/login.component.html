@@ -11,7 +11,7 @@
                 <p class="text-center pv">SIGN IN TO CONTINUE.</p>
                 <form [formGroup]="valForm" class="form-validate mb-lg" role="form" name="loginForm" novalidate="" (submit)="submitForm($event, valForm.value)">
                     <div class="form-group has-feedback">
-                        <input class="form-control" id="exampleInputEmail1" type="email" name="email" placeholder="Enter email" autocomplete="off" formControlName="email" required="" />
+                        <input class="form-control" id="exampleInputEmail1" type="email" name="email" placeholder="Enter Login" autocomplete="off" formControlName="email" required="" />
                         <span class="fa fa-envelope form-control-feedback text-muted"></span>
                         <span class="text-danger" 
                               *ngIf="valForm.controls['email'].hasError('required') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field is required</span>
@@ -38,7 +38,7 @@
                     <button class="btn btn-block btn-primary mt-lg" type="submit">Login</button>
                 </form>
                 <div class="alert alert-danger text-center" *ngIf="alertMessage">{{alertMessage}}</div>
-                <p class="pt-lg text-center">Need to Signup?</p><a class="btn btn-block btn-default" [routerLink]="'/login/register'">Register Now</a>
+                <a class="btn btn-block btn-default" [routerLink]="'/login/register'">Register</a>
             </div>
         </div>
         <!-- END panel-->
@@ -46,9 +46,7 @@
             <span>&copy;</span>
             <span>2017</span>
             <span>-</span>
-            <span>Angle</span>
-            <br />
-            <span>Angle Bootstrap Admin Template</span>
+            <span>Navigator Photo Management</span>
         </div>
     </div>
 </div>
