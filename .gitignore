@@ -6,8 +6,8 @@ node_modules
 typings
 appsettings.yml
 npm-debug\.log
-bin\
-obj\
+bin/
+obj/
 
 src/app/routes/appsettings\.ts
 .idea/
