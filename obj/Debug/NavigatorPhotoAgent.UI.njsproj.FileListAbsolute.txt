@@ -1,2 +1,0 @@
-D:\Build2\NavigatorPhotoAgent.UI\obj\Debug\NavigatorPhotoAgent.UI.njsproj.CoreCompileInputs.cache
-D:\Build2\NavigatorPhotoAgent.UI\bin\Microsoft.NodejsTools.WebRole.dll
