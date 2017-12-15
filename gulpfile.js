@@ -258,7 +258,9 @@ gulp.task("node_modules", () => {
             'systemjs-plugin-babel/**',
             'angular-oauth2-oidc/**',
             'jsrsasign/**',
-            'tslib/**'
+            'tslib/**',
+            'ng2-validation/**',
+            'libphonenumber-js/**'
         ], { cwd: "node_modules/**" }) /* Glob required here. */
             .pipe(gulp.dest(path.join(buildDir, "node_modules")));
     }
