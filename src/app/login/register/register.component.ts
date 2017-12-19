@@ -41,7 +41,16 @@ export class RegisterComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.reCaptchaConfig();
+  }
+
+  private reCaptchaConfig() {
     var self = this;
+
+    if (this.reCaptchaService.recaptcha_is_disabled) {
+      setTimeout(() => { self.valForm.controls['ggl-recaptcha-input'].setValue("recaptcha not enabled") }, 0);
+      return;
+    }
 
     var reCaptchaElement: HTMLElement = <HTMLElement>document.getElementById("ggl-recaptcha");
     if (reCaptchaElement) {

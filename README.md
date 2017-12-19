@@ -42,6 +42,10 @@ export POST_LOGOUT_REDIRECT_URI=
 export CLIENT_SECRET=geheim
 export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 
+
+::test
+export RECAPTCHA_IS_DISABLED=true
+
 ```
 
 
@@ -61,6 +65,9 @@ set POST_LOGOUT_REDIRECT_URI=
 set CLIENT_SECRET=geheim
 set G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 
+
+::test
+set RECAPTCHA_IS_DISABLED=true
 ```
 
 #### Windows Powershell

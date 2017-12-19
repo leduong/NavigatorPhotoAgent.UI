@@ -24,6 +24,10 @@ export class ReCaptchaService {
   get recapthcaClientKey(): string {
     return localStorage.getItem("g_recaptcha");
   }
+
+  get recaptcha_is_disabled(): boolean {
+    return !!localStorage.getItem("recaptcha_is_disabled");
+  }
 }
 
 export interface ReCaptchaParamsInterface {

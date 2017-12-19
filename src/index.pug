@@ -35,7 +35,8 @@ html
     {name:"post_logout_redirect_uri",val:"#{post_logout_redirect_uri}"},
     {name:"client_secret",val:"#{client_secret}"},
     {name:"api_user_management",val:"#{api_user_management}"},
-    {name:"g_recaptcha",val:"#{g_recaptcha}"}
+    {name:"g_recaptcha",val:"#{g_recaptcha}"},
+    {name:"recaptcha_is_disabled",val:"#{recaptcha_is_disabled}"}
     ];
     localStoreValues.forEach(function(item){ localStorage.setItem(item.name, item.val); });
     } else {

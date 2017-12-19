@@ -13,6 +13,7 @@ const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || '';
 const CLIENT_SECRET = process.env.CLIENT_SECRET || '';
 const APIUSERMANAGEMENT = process.env.APIUSERMANGEMENT || '';
 const G_RECAPTCHA = process.env.G_RECAPTCHA || '';
+const RECAPTCHA_IS_DISABLED = process.env.RECAPTCHA_IS_DISABLED === 'true' || false;
 
 var path = require('path');
 var express = require('express');
@@ -76,6 +77,7 @@ function renderIndex(req, res, next) {
     post_logout_redirect_uri: POST_LOGOUT_REDIRECT_URI,
     client_secret:CLIENT_SECRET,
     api_user_management: APIUSERMANAGEMENT,
-    g_recaptcha: G_RECAPTCHA
+    g_recaptcha: G_RECAPTCHA,
+    recaptcha_is_disabled: RECAPTCHA_IS_DISABLED ? "true":""
   });
 }
