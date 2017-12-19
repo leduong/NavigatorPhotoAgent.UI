@@ -20,6 +20,10 @@ export class ReCaptchaService {
   render(el: HTMLElement, params: ReCaptchaParamsInterface): void {
     this.reCaptchaCallback_Promise.then((grecaptchaObj) => { grecaptchaObj.render(el, params) });
   }
+
+  get recapthcaClientKey(): string {
+    return localStorage.getItem("g_recaptcha");
+  }
 }
 
 export interface ReCaptchaParamsInterface {

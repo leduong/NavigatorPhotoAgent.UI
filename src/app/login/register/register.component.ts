@@ -43,10 +43,10 @@ export class RegisterComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     var self = this;
 
-    var reCaptchaElement: HTMLElement = <HTMLElement>document.querySelector("#ggl-recaptcha");
+    var reCaptchaElement: HTMLElement = <HTMLElement>document.getElementById("ggl-recaptcha");
     if (reCaptchaElement) {
       let params: ReCaptchaParamsInterface = {
-        sitekey: "6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF",
+        sitekey: this.reCaptchaService.recapthcaClientKey,
         callback: (recaptchaToken) => {
           self.valForm.controls['ggl-recaptcha-input'].setValue(recaptchaToken);
         },

@@ -40,6 +40,8 @@ export RESPONSE_TYPE=
 export SCOPE=openid profile email voucher
 export POST_LOGOUT_REDIRECT_URI=
 export CLIENT_SECRET=geheim
+export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
+
 ```
 
 
@@ -57,6 +59,7 @@ set RESPONSE_TYPE=
 set SCOPE=openid profile email voucher
 set POST_LOGOUT_REDIRECT_URI=
 set CLIENT_SECRET=geheim
+set G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 
 ```
 
