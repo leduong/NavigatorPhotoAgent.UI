@@ -34,7 +34,7 @@ export APIUSERMANGEMENT=https://user-management.informationcart.com/
 
 export PORT=8000
 export AUTHORITY=https://auth.informationcart.com
-export CLIENT_ID=demo-resource-owner
+export CLIENT_ID=navigatorphotoagentui-dev
 export REDIRECT_URI=http://localhost:8000/index.html
 export RESPONSE_TYPE=
 export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
