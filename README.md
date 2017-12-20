@@ -4,9 +4,14 @@
 [![dependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI)
  [![devDependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI?type=dev) [![Build Status](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI)
 
-### Demo     
+### Demo   
+```
 https://ui-agent.navigatorglass.com     
 https://stuartshay.github.io/NavigatorPhotoAgent.UI/
+
+L: Frank
+P: password
+```
 
 ### API Endpoint      
 https://agent.navigatorglass.com/swagger/ui/index.html
@@ -78,12 +83,11 @@ npm start
 ```
 
 ```
-http://localhost:4200
+http://localhost:8000
 
-Login: max
-Password:geheim
+L: Frank
+P: password
 ```
-
 
 ### Docker Build
 
@@ -117,19 +121,4 @@ export APIENDPOINT=https://agent.navigatorglass.com/api/
 npm run clean
 npm run build
 npm run ghpage
-```
-
-
-### Test Auth Enviroment
-
-```bash
-set APIENDPOINT=https://agent.navigatorglass.com/api/
-
-set PORT=4200
-set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
-set CLIENT_ID=spa-demo
-set REDIRECT_URI=http://localhost:4200/index.html
-set RESPONSE_TYPE=
-set SCOPE=openid profile email voucher
-set POST_LOGOUT_REDIRECT_URI=
 ```
