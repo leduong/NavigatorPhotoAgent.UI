@@ -32,14 +32,15 @@ export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
 export APIUSERMANGEMENT=https://user-management.informationcart.com/
 
-export PORT=4200
-export AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+export PORT=8000
+export AUTHORITY=https://auth.informationcart.com
 export CLIENT_ID=demo-resource-owner
-export REDIRECT_URI=http://localhost:4200/index.html
+export REDIRECT_URI=http://localhost:8000/index.html
 export RESPONSE_TYPE=
-export SCOPE=openid profile email voucher
+export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
 export POST_LOGOUT_REDIRECT_URI=
-export CLIENT_SECRET=geheim
+export CLIENT_SECRET=secret
+export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 ```
 
 
@@ -49,15 +50,15 @@ set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
 set APIUSERMANGEMENT=https://user-management.informationcart.com/
 
-set PORT=4200
-set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
-set CLIENT_ID=demo-resource-owner
-set REDIRECT_URI=http://localhost:4200/index.html
+set PORT=8000
+set AUTHORITY=https://auth.informationcart.com
+set CLIENT_ID=navigatorphotoagentui-dev
+set REDIRECT_URI=http://localhost:8000/index.html
 set RESPONSE_TYPE=
-set SCOPE=openid profile email voucher
+set SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
 set POST_LOGOUT_REDIRECT_URI=
-set CLIENT_SECRET=geheim
-
+set CLIENT_SECRET=secret
+set G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 ```
 
 #### Windows Powershell
