@@ -20,8 +20,7 @@ https://agent.navigatorglass.com/swagger/ui/index.html
 http://navigatordesign.azurewebsites.net/Home/Feed
 
 ### angular-oauth2-oidc 
-https://github.com/manfredsteyer/angular-oauth2-oidc#sample-auth-server
-
+https://github.com/manfredsteyer/angular-oauth2-oidc
 
 ### Install dependencies:
 
