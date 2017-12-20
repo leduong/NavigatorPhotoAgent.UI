@@ -11,12 +11,11 @@ https://stuartshay.github.io/NavigatorPhotoAgent.UI/
 ### API Endpoint      
 https://agent.navigatorglass.com/swagger/ui/index.html
 
-
 ### UI Mockup
 http://navigatordesign.azurewebsites.net/Home/Feed
 
-Formated Message (Click the Photo Link)     
-http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
+### angular-oauth2-oidc 
+https://github.com/manfredsteyer/angular-oauth2-oidc#sample-auth-server
 
 
 ### Install dependencies:
@@ -31,28 +30,36 @@ http://navigatordesign.azurewebsites.net/Feed/134393416/Photos
 ```bash
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
+export APIUSERMANGEMENT=https://user-management.informationcart.com/
 
+export PORT=8000
 export AUTHORITY=https://auth.informationcart.com
 export CLIENT_ID=navigatorphotoagentui-dev
-export REDIRECT_URI=http://localhost:8000/callback.html
-export RESPONSE_TYPE=id_token token
+export REDIRECT_URI=http://localhost:8000/index.html
+export RESPONSE_TYPE=
 export SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
-export POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
+export POST_LOGOUT_REDIRECT_URI=
+export CLIENT_SECRET=secret
+export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 ```
+
 
 #### Windows CMD
 ```bash
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
+set APIUSERMANGEMENT=https://user-management.informationcart.com/
 
+set PORT=8000
 set AUTHORITY=https://auth.informationcart.com
 set CLIENT_ID=navigatorphotoagentui-dev
-set REDIRECT_URI=http://localhost:8000/callback.html
-set RESPONSE_TYPE=id_token token
+set REDIRECT_URI=http://localhost:8000/index.html
+set RESPONSE_TYPE=
 set SCOPE=openid profile roles imagegalleryapi country subscriptionlevel
-set POST_LOGOUT_REDIRECT_URI=http://localhost:8000/index.html
+set POST_LOGOUT_REDIRECT_URI=
+set CLIENT_SECRET=secret
+set G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 ```
-
 
 #### Windows Powershell
 ```bash
@@ -62,13 +69,21 @@ $env:APIENDPOINT = 'https://agent.navigatorglass.com/api/'
 Get-ChildItem Env:APIENDPOINT
 ```
 
-### Build and Run with Liveload
+### Build and Run 
 
 ```bash
 npm run clean
 npm run build
-npm run serve
+npm start
 ```
+
+```
+http://localhost:4200
+
+Login: max
+Password:geheim
+```
+
 
 ### Docker Build
 
@@ -102,4 +117,19 @@ export APIENDPOINT=https://agent.navigatorglass.com/api/
 npm run clean
 npm run build
 npm run ghpage
+```
+
+
+### Test Auth Enviroment
+
+```bash
+set APIENDPOINT=https://agent.navigatorglass.com/api/
+
+set PORT=4200
+set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+set CLIENT_ID=spa-demo
+set REDIRECT_URI=http://localhost:4200/index.html
+set RESPONSE_TYPE=
+set SCOPE=openid profile email voucher
+set POST_LOGOUT_REDIRECT_URI=
 ```

@@ -6,7 +6,11 @@ import { ManagementComponent } from './management/components/management';
 import { MessageComponent } from './message/components/message';
 import { PhotoComponent } from './photo/components/photo';
 import { DiagnosticsComponent } from './diagnostics/components/diagnostics';
+import { LoginComponent } from "../login/login.component";
+import { RecoverComponent } from "../login/recover/recover.component";
+import { RegisterComponent } from "../login/register/register.component";
 
+import { RoutGuard } from './routeguard';
 
 const routes = [
   {
@@ -19,14 +23,18 @@ const routes = [
       { path: 'message', component: MessageComponent },
       { path: 'feed', component: FeedComponent },
       { path: 'photo/:id', component: PhotoComponent },
-      // { path: 'maps', component: MapsComponent },
-      { path: '**', redirectTo: 'home' }
     ]
-
+    , canActivate: [RoutGuard]
   },
-
-  // Not found
-  { path: '**', redirectTo: 'home' }
+  {
+    path: 'login'
+    , children: [
+      { path: '', component: LoginComponent }
+      , { path: 'recover', component: RecoverComponent }
+      , { path: 'register', component: RegisterComponent }
+    ]
+  },
+  { path: '**', redirectTo: 'login' }
 
 ];
 
