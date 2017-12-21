@@ -31,7 +31,7 @@ https://github.com/manfredsteyer/angular-oauth2-oidc
 ### Set Environment 
 
 #### Linux/Mac
-```bash
+```
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
 export APIUSERMANGEMENT=https://user-management.informationcart.com/
@@ -48,9 +48,11 @@ export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
 
 ::test
 export RECAPTCHA_IS_DISABLED=true
+```
 
-#### Windows CMD
-```bash
+#### Windows CMD   
+
+```
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
 set APIUSERMANGEMENT=https://user-management.informationcart.com/
