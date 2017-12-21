@@ -6,6 +6,7 @@ import { RecoverComponent } from './recover/recover.component';
 import { RegisterComponent } from './register/register.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { ReCaptchaService } from '../reCaptchaCallback'
 
 @NgModule({
   imports: [SharedModule],
@@ -14,7 +15,9 @@ import { SharedModule } from '../shared/shared.module';
     , RecoverComponent
     , RegisterComponent
   ],
-  providers: [],
+  providers: [
+    ReCaptchaService
+  ],
   exports: [
     LoginComponent
     , RecoverComponent

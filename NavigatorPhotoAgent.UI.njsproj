@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{7068d6fa-9d77-4d68-95ea-079380327c15}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile>server.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -40,7 +40,13 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Content Include="src\app\login\recover\recover.component.html" />
     <Content Include="src\app\login\register\register.component.html" />
     <Content Include="src\index.pug" />
+    <Content Include="src\less\addons.less" />
+    <Content Include="src\less\addons\gcaptcha.less" />
+    <Content Include="src\less\addons\layout.less" />
+    <Content Include="src\less\addons\login.less" />
     <Content Include="src\less\addons\managment.less" />
+    <Content Include="src\less\app.less" />
+    <Content Include="src\less\bootstrap.less" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <Content Include="typings.json" />
@@ -50,6 +56,9 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Compile Include="gulpfile.js" />
     <Compile Include="selenium.test.js" />
     <Compile Include="server.js" />
+    <Compile Include="src\app\reCaptchaCallback.ts">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="systemjs.config.js" />
     <Content Include="src\favicon.ico" />
     <TypeScriptCompile Include="src\app\login\login.component.ts" />

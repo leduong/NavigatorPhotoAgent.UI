@@ -44,9 +44,7 @@ export class LoginComponent implements OnInit {
 
       })
       .catch((err) => {
-        //console.error('error logging in', err);
         this.alertMessage = "Invalid request";
-        //this.loginFailed = true;
       });
   }
 

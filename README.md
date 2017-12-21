@@ -45,8 +45,9 @@ export SCOPE=openid offline_access profile roles photoagentapi imagegalleryapi
 export POST_LOGOUT_REDIRECT_URI=
 export CLIENT_SECRET=secret
 export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
-```
 
+::test
+export RECAPTCHA_IS_DISABLED=true
 
 #### Windows CMD
 ```bash
@@ -63,6 +64,9 @@ set SCOPE=openid offline_access profile roles photoagentapi imagegalleryapi
 set POST_LOGOUT_REDIRECT_URI=
 set CLIENT_SECRET=secret
 set G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
+
+::test
+set RECAPTCHA_IS_DISABLED=true
 ```
 
 #### Windows Powershell
