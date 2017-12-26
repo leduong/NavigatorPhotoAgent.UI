@@ -4,14 +4,9 @@
 [![dependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI)
  [![devDependencies Status](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI?type=dev) [![Build Status](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI)
 
-### Demo   
-```
+### Demo     
 https://ui-agent.navigatorglass.com     
 https://stuartshay.github.io/NavigatorPhotoAgent.UI/
-
-L: Frank
-P: password
-```
 
 ### API Endpoint      
 https://agent.navigatorglass.com/swagger/ui/index.html
@@ -20,7 +15,8 @@ https://agent.navigatorglass.com/swagger/ui/index.html
 http://navigatordesign.azurewebsites.net/Home/Feed
 
 ### angular-oauth2-oidc 
-https://github.com/manfredsteyer/angular-oauth2-oidc
+https://github.com/manfredsteyer/angular-oauth2-oidc#sample-auth-server
+
 
 ### Install dependencies:
 
@@ -31,41 +27,44 @@ https://github.com/manfredsteyer/angular-oauth2-oidc
 ### Set Environment 
 
 #### Linux/Mac
-```
+```bash
 export NG_ENVIRONMENT=Dev
 export APIENDPOINT=https://agent.navigatorglass.com/api/
 export APIUSERMANGEMENT=https://user-management.informationcart.com/
 
-export PORT=8000
-export AUTHORITY=https://auth.informationcart.com
-export CLIENT_ID=navigatorphotoagentui-dev
-export REDIRECT_URI=http://localhost:8000/index.html
+export PORT=4200
+export AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+export CLIENT_ID=demo-resource-owner
+export REDIRECT_URI=http://localhost:4200/index.html
 export RESPONSE_TYPE=
-export SCOPE=openid offline_access profile roles photoagentapi imagegalleryapi
+export SCOPE=openid profile email voucher
 export POST_LOGOUT_REDIRECT_URI=
-export CLIENT_SECRET=secret
+export CLIENT_SECRET=geheim
 export G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
+
 
 ::test
 export RECAPTCHA_IS_DISABLED=true
-```
-
-#### Windows CMD   
 
 ```
+
+
+#### Windows CMD
+```bash
 set NG_ENVIRONMENT=Dev
 set APIENDPOINT=https://agent.navigatorglass.com/api/
 set APIUSERMANGEMENT=https://user-management.informationcart.com/
 
-set PORT=8000
-set AUTHORITY=https://auth.informationcart.com
-set CLIENT_ID=navigatorphotoagentui-dev
-set REDIRECT_URI=http://localhost:8000/index.html
+set PORT=4200
+set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+set CLIENT_ID=demo-resource-owner
+set REDIRECT_URI=http://localhost:4200/index.html
 set RESPONSE_TYPE=
-set SCOPE=openid offline_access profile roles photoagentapi imagegalleryapi
+set SCOPE=openid profile email voucher
 set POST_LOGOUT_REDIRECT_URI=
-set CLIENT_SECRET=secret
+set CLIENT_SECRET=geheim
 set G_RECAPTCHA=6Lfy0xMUAAAAAFl75Kn67YGjr29FB7GsZ_M1espF
+
 
 ::test
 set RECAPTCHA_IS_DISABLED=true
@@ -88,11 +87,12 @@ npm start
 ```
 
 ```
-http://localhost:8000
+http://localhost:4200
 
-L: Frank
-P: password
+Login: max
+Password:geheim
 ```
+
 
 ### Docker Build
 
@@ -126,4 +126,19 @@ export APIENDPOINT=https://agent.navigatorglass.com/api/
 npm run clean
 npm run build
 npm run ghpage
+```
+
+
+### Test Auth Enviroment
+
+```bash
+set APIENDPOINT=https://agent.navigatorglass.com/api/
+
+set PORT=4200
+set AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+set CLIENT_ID=spa-demo
+set REDIRECT_URI=http://localhost:4200/index.html
+set RESPONSE_TYPE=
+set SCOPE=openid profile email voucher
+set POST_LOGOUT_REDIRECT_URI=
 ```
