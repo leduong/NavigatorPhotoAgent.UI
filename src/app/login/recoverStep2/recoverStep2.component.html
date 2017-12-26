@@ -8,15 +8,14 @@
                 </a>
             </div>
             <div class="panel-body">
-                <p class="text-center pv">PASSWORD RESET</p>
+                <p class="text-center pv">SIGN IN WITH TEMPORARY PASSWORD</p>
                 <form [formGroup]="valForm" class="form-validate" role="form" name="recoverForm" novalidate="" (submit)="submitForm($event, valForm.value)">
-                    <p class="text-center">Fill with your mail to receive instructions on how to reset your password.</p>
+                    <p class="text-center">Your password has been sent to {{emailShared}}</p>
                     <div class="form-group has-feedback">
-                        <label class="text-muted">Email address</label>
-                        <input class="form-control" type="email" name="email" placeholder="Enter email" autocomplete="off" formControlName="email" />
-                        <span class="fa fa-envelope form-control-feedback text-muted"></span>
-                        <span class="text-danger" *ngIf="valForm.controls['email'].hasError('required') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field is required</span>
-                        <span class="text-danger" *ngIf="valForm.controls['email'].hasError('email') && (valForm.controls['email'].dirty || valForm.controls['email'].touched)">This field must be a valid email address</span>
+                        <label class="text-muted">Password</label>
+                        <input class="form-control" id="id-password" type="password" name="password" formControlName="password" [formControl]="valForm.get('password')" />
+                        <span class="fa fa-lock form-control-feedback text-muted"></span>
+                        <span class="text-danger" *ngIf="valForm.get('password').hasError('required') && (valForm.get('password').dirty || valForm.get('password').touched)">This field is required</span>
                     </div>
                     <div class="alert alert-danger text-center" *ngIf="alertMessage">{{alertMessage}}</div>
                     <button class="btn btn-primary btn-block" type="submit">Continue</button>
