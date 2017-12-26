@@ -23,18 +23,12 @@ System.config({
     '@angular/core/src/facade/lang': 'libs:@angular/core/src/facade/lang.js',
     // other libraries
     'rxjs': 'libs:rxjs',
+    'rxjs/BehaviorSubject': 'libs:rxjs',
     'angular2-in-memory-web-api': 'libs:angular2-in-memory-web-api',
     'jquery': 'libs:jquery/dist/jquery.js',
     'jquery.browser': 'libs:jquery.browser/dist/jquery.browser.js',
     'screenfull': 'libs:screenfull/dist/screenfull.js',
     'ngx-infinite-scroll': 'libs:ngx-infinite-scroll/ngx-infinite-scroll.js',
-    // 'angular2-infinite-scroll': 'libs:angular2-infinite-scroll/angular2-infinite-scroll.js',
-    // 'ng2-dnd': 'libs:ng2-dnd/index.js',
-    // 'angular2-toaster': 'libs:angular2-toaster',
-    // 'angular2-google-maps': 'libs:angular2-google-maps/core/index.js',
-
-    // 'ng2-bootstrap': 'libs:ng2-bootstrap'
-    // 'ng2-table': 'libs:ng2-table',
     'ng2-ace-editor': 'libs:ng2-ace-editor',
     'brace': 'libs:brace',
     'moment': 'libs:moment',
@@ -57,8 +51,6 @@ System.config({
     'ng2-ace-editor': { main: 'index.js', defaultExtension: 'js' },
     'brace': { main: 'index.js', defaultExtension: 'js' },
     "rxjs/operators": { main: "../bundles/Rx.min.js", defaultExtension: "js" },
-    "rxjs/BehaviorSubject": { main: "../bundles/Rx.min.js", defaultExtension: "js" },
-    //BehaviorSubject
     'moment': { main: 'moment.js', defaultExtension: 'js' },
     'ngx-bootstrap': { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
     'angular-oauth2-oidc': {
