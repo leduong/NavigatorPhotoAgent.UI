@@ -10,7 +10,9 @@ import { RecoverStep3Component } from './recoverStep3/recoverStep3.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { ReCaptchaService } from '../reCaptchaCallback';
-import { SharingEmailService } from './sharingEmailService';
+
+import { SharingEmailService } from './services/sharingEmail.service';
+import { UserProfileService } from './services/userProfile.service';
 
 @NgModule({
   imports: [SharedModule],
@@ -23,7 +25,8 @@ import { SharingEmailService } from './sharingEmailService';
   ],
   providers: [
     ReCaptchaService,
-    SharingEmailService
+    SharingEmailService,
+    UserProfileService
   ],
   exports: [
     LoginComponent

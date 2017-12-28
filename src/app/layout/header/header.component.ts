@@ -4,6 +4,9 @@ import { SettingsService } from '../../core/settings/settings.service';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { Router } from '@angular/router';
 
+import { ModalDirective } from 'ngx-bootstrap';
+import { UserProfileService, UserProfileInterface } from "../../login/services/userProfile.service"
+
 import * as screenfull from 'screenfull';
 import * as browser from 'jquery.browser';
 declare var $: any;
@@ -15,14 +18,29 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
   isNavSearchVisible: boolean;
   @ViewChild('fsbutton') fsbutton; // the fullscreen button
+  @ViewChild('UserProfileModal') public UserProfileModal: ModalDirective;
+  userProfile: UserProfileInterface = <UserProfileInterface>{};
 
-  constructor(private settings: SettingsService, private oauthService: OAuthService, private router: Router) { }
+
+  constructor(private settings: SettingsService
+    , private oauthService: OAuthService
+    , private router: Router
+    , private userProfileService: UserProfileService) { }
+
+  profileClick() {
+    this.userProfileService.updateUserProfile();
+    this.UserProfileModal.show();
+  }
 
   ngOnInit() {
     this.isNavSearchVisible = false;
     if (browser.msie) { // Not supported under IE
       this.fsbutton.nativeElement.style.display = 'none';
     }
+
+    this.userProfileService.userProfile.subscribe(val => {
+      this.userProfile = val;
+    });
   }
 
   logoff() {

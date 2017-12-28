@@ -35,6 +35,9 @@ export class OAuthSettings {
   public static get api_user_management_registration_url(): string {
     return `${OAuthSettings.api_user_management}api/UserRegistration`;
   }
+  public static get api_user_management_user_profile_url(): string {
+    return `${OAuthSettings.api_user_management}api/UserProfile`;
+  }
 }
 
 import { AuthConfig } from 'angular-oauth2-oidc';

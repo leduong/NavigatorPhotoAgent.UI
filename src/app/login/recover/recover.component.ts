@@ -6,7 +6,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { OAuthSettings } from '../../oauthsettings';
 import { Router } from '@angular/router';
 
-import { SharingEmailService } from '../sharingEmailService';
+import { SharingEmailService } from '../services/sharingEmail.service';
 
 @Component({
   selector: 'app-recover',

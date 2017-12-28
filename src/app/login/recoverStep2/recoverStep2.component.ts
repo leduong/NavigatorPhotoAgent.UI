@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OAuthSettings } from '../../oauthsettings'
 import { Router } from '@angular/router';
 
-import { SharingEmailService } from '../sharingEmailService';
+import { SharingEmailService } from '../services/sharingEmail.service';
 
 @Component({
   selector: 'app-recoverStep2',

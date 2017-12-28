@@ -1,23 +1,36 @@
 <!-- START Top Navbar-->
 <nav class="navbar topnavbar" role="navigation">
-  <!-- START navbar header-->
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#/">
-      <div class="brand-logo">
-        <a href="#">Navigator Photo Agent</a>
-      </div>
-      <div class="brand-logo-collapsed">
-        <a href="#">NPA</a>
-      </div>
-    </a>
-  </div>
-  <!-- END navbar header-->
-  <!-- START Nav wrapper-->
-  <div class="nav-wrapper">
-  </div>
-  <div class="nav-logout-line">
-      <div class="welcome-user">Welcome, {{name}} {{familyName}}</div><a href="#" (click)="logoff()" class="log-off-link">Log off</a>
-  </div>
-  <!-- END Nav wrapper-->
+    <!-- START navbar header-->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+            <div class="brand-logo">
+                <a href="#">Navigator Photo Agent</a>
+            </div>
+            <div class="brand-logo-collapsed">
+                <a href="#">NPA</a>
+            </div>
+        </a>
+    </div>
+    <!-- END navbar header-->
+    <!-- START Nav wrapper-->
+    <div class="nav-wrapper">
+    </div>
+    <div class="nav-logout-line">
+        <div class="welcome-user"><a href="#" (click)="profileClick()">Welcome, {{name}} {{familyName}} </a></div><a href="#" (click)="logoff()" class="log-off-link">Log off</a>
+    </div>
+    <div id="user-profile-modal" bsModal #UserProfileModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exceptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div>{{userProfile.firstName}}</div>
+                <div>{{userProfile.lastName}}</div>
+                <div>{{userProfile.address}}</div>
+                <div>{{userProfile.address2}}</div>
+                <div>{{userProfile.city}}</div>
+                <div>{{userProfile.state}}</div>
+                <div>{{userProfile.country}}</div>
+            </div>
+        </div>
+    </div>
+    <!-- END Nav wrapper-->
 </nav>
 <!-- END Top Navbar-->

@@ -58,6 +58,9 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Compile Include="gulpfile.js" />
     <Compile Include="selenium.test.js" />
     <Compile Include="server.js" />
+    <Compile Include="src\app\login\services\userProfile.service.ts">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\app\reCaptchaCallback.ts">
       <SubType>Code</SubType>
     </Compile>
@@ -67,7 +70,7 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <TypeScriptCompile Include="src\app\login\oauthcustom.module.ts" />
     <TypeScriptCompile Include="src\app\login\recoverStep3\recoverStep3.component.ts" />
     <TypeScriptCompile Include="src\app\login\recover\recover.component.ts" />
-    <TypeScriptCompile Include="src\app\login\sharingEmailService.ts">
+    <TypeScriptCompile Include="src\app\login\services\sharingEmail.service.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\login\register\register.component.ts" />
@@ -158,6 +161,7 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Folder Include="src\app\layout\header\navsearch" />
     <Folder Include="src\app\layout\sidebar" />
     <Folder Include="src\app\login\" />
+    <Folder Include="src\app\login\services\" />
     <Folder Include="src\app\login\recoverStep2\" />
     <Folder Include="src\app\login\recoverStep3\" />
     <Folder Include="src\app\login\recover\" />
