@@ -16,18 +16,71 @@
     <div class="nav-wrapper">
     </div>
     <div class="nav-logout-line">
-        <div class="welcome-user"><a href="#" (click)="profileClick()">Welcome, {{name}} {{familyName}} </a></div><a href="#" (click)="logoff()" class="log-off-link">Log off</a>
+        <div class="welcome-user">
+            <a href="#" (click)="profileClick()">Welcome, {{name}} {{familyName}} </a>
+        </div>
+        <a href="#" (click)="logoff()" class="log-off-link">Log off</a>
     </div>
-    <div id="user-profile-modal" bsModal #UserProfileModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exceptionModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div id="user-profile-modal" bsModal #UserProfileModal="bs-modal" class="modal fade" tabindex="-1"
+         role="dialog" aria-labelledby="exceptionModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog userProfileDialog">
             <div class="modal-content">
-                <div>{{userProfile.firstName}}</div>
-                <div>{{userProfile.lastName}}</div>
-                <div>{{userProfile.address}}</div>
-                <div>{{userProfile.address2}}</div>
-                <div>{{userProfile.city}}</div>
-                <div>{{userProfile.state}}</div>
-                <div>{{userProfile.country}}</div>
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Modal title</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="hideUserProfileModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form [formGroup]="profileForm" (submit)="profileFormSubmit($event, profileForm.value)" class="profileForm">
+                    <div class="profileFormTable">
+                        <div>
+                            <span>First Name: </span>
+                            <div>
+                                <input type="text" formControlName="firstName" name="firstName" />
+                            </div>
+                        </div>
+                        <div>
+                            <span>Last Name: </span>
+                            <div>
+                                <input type="text" formControlName="lastName" name="lastName" />
+                            </div>
+                        </div>
+                        <div>
+                            <span>Address: </span>
+                            <div>
+                                <input type="text" formControlName="address" name="address" />
+                            </div>
+                        </div>
+                        <div>
+                            <span>Address2: </span>
+                            <div>
+                                <input type="text" formControlName="address2" name="address2" />
+                            </div>
+                        </div>
+                        <div>
+                            <span>City: </span>
+                            <div>
+                                <input type="text" formControlName="city" name="city" />
+                            </div>
+                        </div>
+                        <div>
+                            <span>State: </span>
+                            <div>
+                                <input type="text" formControlName="state" name="state" />
+                            </div>
+                        </div>
+                        <div>
+                            <span>Country: </span>
+                            <div>
+                                <input type="text" formControlName="country" name="country" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <button class="btn mt-lg closeButton" (click)="hideUserProfileModal()">Close</button>
+                    <button class="btn btn-success mt-lg saveButton" type="submit">Save Changes</button>
+                </form>
             </div>
         </div>
     </div>

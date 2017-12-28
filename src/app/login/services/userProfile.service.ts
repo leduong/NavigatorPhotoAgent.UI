@@ -11,7 +11,7 @@ export class UserProfileService {
 
   constructor(private http: Http) { }
 
-  updateUserProfile() {
+  getUserProfile() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
@@ -20,6 +20,18 @@ export class UserProfileService {
       .subscribe(
       res => {
         this.userProfileSource.next(<UserProfileInterface>res.json());
+      });
+  }
+
+  updateUserProfile(obj: UserProfileInterface) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options = new RequestOptions({ headers: headers });
+
+    this.http.post(OAuthSettings.api_user_management_user_profile_url, obj, options)
+      .subscribe(
+      res => {
+        this.userProfileSource.next(res.json());
       });
   }
 }
