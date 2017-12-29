@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "lib": [ "es5", "es6", "dom" ]
+    "lib": [ "es5", "dom" ]
   },
   "exclude": [
     "gulpfile.ts",
