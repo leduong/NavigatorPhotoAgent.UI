@@ -26,8 +26,17 @@ export class OAuthSettings {
   public static get api_user_management_recover_url(): string {
     return `${OAuthSettings.api_user_management}api/Account`;
   }
+  public static get api_user_management_change_password_token_validate_url(): string {
+    return `${OAuthSettings.api_user_management}api/Account/ValidatePassword`;
+  }
+  public static get api_user_management_change_password_url(): string {
+    return `${OAuthSettings.api_user_management}api/Account/CreatePassword`;
+  }
   public static get api_user_management_registration_url(): string {
     return `${OAuthSettings.api_user_management}api/UserRegistration`;
+  }
+  public static get api_user_management_user_profile_url(): string {
+    return `${OAuthSettings.api_user_management}api/UserProfile`;
   }
 }
 

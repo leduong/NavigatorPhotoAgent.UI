@@ -37,8 +37,10 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="src\app\login\login.component.html" />
+    <Content Include="src\app\login\recoverStep3\recoverStep3.component.html" />
     <Content Include="src\app\login\recover\recover.component.html" />
     <Content Include="src\app\login\register\register.component.html" />
+    <Content Include="src\app\login\recoverStep2\recoverStep2.component.html" />
     <Content Include="src\index.pug" />
     <Content Include="src\less\addons.less" />
     <Content Include="src\less\addons\gcaptcha.less" />
@@ -56,6 +58,9 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Compile Include="gulpfile.js" />
     <Compile Include="selenium.test.js" />
     <Compile Include="server.js" />
+    <Compile Include="src\app\login\services\userProfile.service.ts">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\app\reCaptchaCallback.ts">
       <SubType>Code</SubType>
     </Compile>
@@ -63,8 +68,13 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Content Include="src\favicon.ico" />
     <TypeScriptCompile Include="src\app\login\login.component.ts" />
     <TypeScriptCompile Include="src\app\login\oauthcustom.module.ts" />
+    <TypeScriptCompile Include="src\app\login\recoverStep3\recoverStep3.component.ts" />
     <TypeScriptCompile Include="src\app\login\recover\recover.component.ts" />
+    <TypeScriptCompile Include="src\app\login\services\sharingEmail.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\login\register\register.component.ts" />
+    <TypeScriptCompile Include="src\app\login\recoverStep2\recoverStep2.component.ts" />
     <TypeScriptCompile Include="src\app\oauthsettings.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -151,6 +161,9 @@ DUMMY_CLIENT_SECRET=geheim</Environment>
     <Folder Include="src\app\layout\header\navsearch" />
     <Folder Include="src\app\layout\sidebar" />
     <Folder Include="src\app\login\" />
+    <Folder Include="src\app\login\services\" />
+    <Folder Include="src\app\login\recoverStep2\" />
+    <Folder Include="src\app\login\recoverStep3\" />
     <Folder Include="src\app\login\recover\" />
     <Folder Include="src\app\login\register\" />
     <Folder Include="src\app\routes" />

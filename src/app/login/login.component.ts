@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-//import { CustomValidators } from 'ng2-validation';
-import { OAuthService } from 'angular-oauth2-oidc';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,9 @@ export class LoginComponent implements OnInit {
   valForm: FormGroup;
   private alertMessage: string;
 
-  constructor(private oauthService: OAuthService, fb: FormBuilder, private router: Router) {
+  constructor(private oauthService: OAuthService
+    , fb: FormBuilder
+    , private router: Router) {
     //oath
     if (oauthService.hasValidAccessToken()) {
       this.router.navigate(["home"]);
@@ -41,9 +43,8 @@ export class LoginComponent implements OnInit {
       .fetchTokenUsingPasswordFlowAndLoadUserProfile(login, password)
       .then(() => {
         this.router.navigate(['/home']);
-
-      })
-      .catch((err) => {
+      },
+      (err) => {
         this.alertMessage = "Invalid request";
       });
   }
