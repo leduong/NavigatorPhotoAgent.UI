@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 // import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 // import { AgmCoreModule } from 'angular2-google-maps';
 // import { Ng2TableModule } from 'ng2-table/ng2-table';
-import { AceEditorModule} from "ng2-ace-editor";
+import { AceEditorModule } from "ng2-ace-editor";
 
 import { MenuService } from '../core/menu/menu.service';
 
@@ -20,6 +20,7 @@ import { FeedComponent } from './feed/components/feed';
 import { FeedListComponent } from './feed/components/feedList';
 
 import { SharedModule } from '../shared/shared.module';
+import { RoutGuard } from './routeguard';
 
 import appMenu from './menu';
 import appRoutes from './routes';
@@ -30,9 +31,6 @@ import appRoutes from './routes';
     // Ng2TableModule,
     // InfiniteScrollModule,
     RouterModule.forRoot(appRoutes, { useHash: true }),
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyA8okzgfpEduXDLlebJtrgw6cmexiGNoN0'
-    // })
     AceEditorModule,
   ],
   declarations: [
@@ -42,12 +40,12 @@ import appRoutes from './routes';
     MessageComponent,
     PhotoComponent,
     FeedComponent,
-    FeedListComponent,
+    FeedListComponent
     // DetailsComponent,
     // DetailFormComponent,
     // MapsComponent,
   ],
-  providers: [],
+  providers: [RoutGuard],
   exports: [
     RouterModule,
     // Ng2TableModule,
@@ -59,7 +57,7 @@ import appRoutes from './routes';
     MessageComponent,
     PhotoComponent,
     FeedComponent,
-    FeedListComponent,
+    FeedListComponent
   ]
 })
 

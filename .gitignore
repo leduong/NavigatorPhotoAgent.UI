@@ -3,12 +3,15 @@
 
 .vs/
 .publish
+.vs
 .tmp
 wwwroot
 node_modules
 typings
 appsettings.yml
 npm-debug\.log
+bin/
+obj/
 
 src/app/routes/appsettings\.ts
 .idea/

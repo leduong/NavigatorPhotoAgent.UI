@@ -16,12 +16,39 @@
     <TypeScriptToolsVersion>2.3</TypeScriptToolsVersion>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <StartWebBrowser>True</StartWebBrowser>
+    <Environment>NG_ENVIRONMENT=Dev
+APIENDPOINT=https://agent.navigatorglass.com/api/
+APIUSERMANGEMENT=https://user-management.informationcart.com/
+
+PORT=4200
+AUTHORITY=https://steyer-identity-server.azurewebsites.net/identity
+CLIENT_ID=demo-resource-owner
+REDIRECT_URI=http://localhost:4200/index.html
+RESPONSE_TYPE=
+SCOPE=openid profile email voucher
+POST_LOGOUT_REDIRECT_URI=
+DUMMY_CLIENT_SECRET=geheim</Environment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include=".dockerignore" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
+    <Content Include="src\app\login\login.component.html" />
+    <Content Include="src\app\login\recoverStep3\recoverStep3.component.html" />
+    <Content Include="src\app\login\recover\recover.component.html" />
+    <Content Include="src\app\login\register\register.component.html" />
+    <Content Include="src\app\login\recoverStep2\recoverStep2.component.html" />
+    <Content Include="src\index.pug" />
+    <Content Include="src\less\addons.less" />
+    <Content Include="src\less\addons\gcaptcha.less" />
+    <Content Include="src\less\addons\layout.less" />
+    <Content Include="src\less\addons\login.less" />
+    <Content Include="src\less\addons\managment.less" />
+    <Content Include="src\less\app.less" />
+    <Content Include="src\less\bootstrap.less" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
     <Content Include="typings.json" />
@@ -31,17 +58,30 @@
     <Compile Include="gulpfile.js" />
     <Compile Include="selenium.test.js" />
     <Compile Include="server.js" />
+    <Compile Include="src\app\login\services\userProfile.service.ts">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\app\reCaptchaCallback.ts">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="systemjs.config.js" />
-    <Content Include="src\index.html" />
     <Content Include="src\favicon.ico" />
-    <Content Include="src\index.jade" />
+    <TypeScriptCompile Include="src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\login\oauthcustom.module.ts" />
+    <TypeScriptCompile Include="src\app\login\recoverStep3\recoverStep3.component.ts" />
+    <TypeScriptCompile Include="src\app\login\recover\recover.component.ts" />
+    <TypeScriptCompile Include="src\app\login\services\sharingEmail.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\login\register\register.component.ts" />
+    <TypeScriptCompile Include="src\app\login\recoverStep2\recoverStep2.component.ts" />
     <TypeScriptCompile Include="src\app\oauthsettings.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\routes\routeguard.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="typings\index.d.ts" />
-    <Content Include="wwwroot\index.html" />
-    <Content Include="wwwroot\favicon.ico" />
-    <Content Include="wwwroot\index.jade" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\appsettings.ts" />
@@ -100,65 +140,10 @@
     <TypeScriptCompile Include="src\app\shared\pipes\utc.ts" />
     <TypeScriptCompile Include="src\app\shared\services\prettyxml.ts" />
     <TypeScriptCompile Include="src\app\shared\services\session.ts" />
-    <Content Include="src\img\user\01.jpg" />
-    <Content Include="src\img\user\02.jpg" />
-    <Content Include="src\img\user\03.jpg" />
-    <Content Include="src\img\user\04.jpg" />
-    <Content Include="src\img\user\05.jpg" />
-    <Content Include="src\img\user\06.jpg" />
-    <Content Include="src\img\user\07.jpg" />
-    <Content Include="src\img\user\08.jpg" />
-    <Content Include="src\img\user\09.jpg" />
-    <Content Include="src\img\user\10.jpg" />
-    <Content Include="src\img\user\11.jpg" />
-    <Content Include="src\img\user\12.jpg" />
-    <Content Include="src\img\user\13.jpg" />
     <Content Include="typings\globals\core-js\typings.json" />
     <TypeScriptCompile Include="typings\globals\core-js\index.d.ts" />
     <Content Include="typings\globals\node\typings.json" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
-    <Content Include="wwwroot\css\app.css" />
-    <Content Include="wwwroot\css\bootstrap.css" />
-    <Content Include="wwwroot\css\theme-a.css" />
-    <Content Include="wwwroot\css\theme-b.css" />
-    <Content Include="wwwroot\css\theme-c.css" />
-    <Content Include="wwwroot\css\theme-d.css" />
-    <Content Include="wwwroot\css\theme-e.css" />
-    <Content Include="wwwroot\css\theme-f.css" />
-    <Content Include="wwwroot\css\theme-g.css" />
-    <Content Include="wwwroot\css\theme-h.css" />
-    <Content Include="wwwroot\fonts\fontawesome-webfont.svg" />
-    <Content Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="wwwroot\fonts\Simple-Line-Icons.svg" />
-    <Content Include="wwwroot\img\logo-single.png" />
-    <Content Include="wwwroot\img\logo.png" />
-    <Content Include="wwwroot\img\angular.svg" />
-    <Compile Include="wwwroot\js\shims.js" />
-    <Content Include="wwwroot\app\layout\layout.component.html" />
-    <Content Include="wwwroot\app\layout\footer\footer.component.html" />
-    <Content Include="wwwroot\app\layout\header\header.component.html" />
-    <Content Include="wwwroot\app\layout\sidebar\sidebar.component.html" />
-    <Content Include="wwwroot\app\layout\header\navsearch\navsearch.component.html" />
-    <Content Include="wwwroot\app\routes\home\home.component.html" />
-    <Content Include="wwwroot\app\routes\diagnostics\components\diagnostics.html" />
-    <Content Include="wwwroot\app\routes\feed\components\feed.html" />
-    <Content Include="wwwroot\app\routes\feed\components\feedList.html" />
-    <Content Include="wwwroot\app\routes\management\components\management.html" />
-    <Content Include="wwwroot\app\routes\message\components\message.html" />
-    <Content Include="wwwroot\app\routes\photo\components\photo.html" />
-    <Content Include="wwwroot\img\user\01.jpg" />
-    <Content Include="wwwroot\img\user\02.jpg" />
-    <Content Include="wwwroot\img\user\03.jpg" />
-    <Content Include="wwwroot\img\user\04.jpg" />
-    <Content Include="wwwroot\img\user\05.jpg" />
-    <Content Include="wwwroot\img\user\06.jpg" />
-    <Content Include="wwwroot\img\user\07.jpg" />
-    <Content Include="wwwroot\img\user\08.jpg" />
-    <Content Include="wwwroot\img\user\09.jpg" />
-    <Content Include="wwwroot\img\user\10.jpg" />
-    <Content Include="wwwroot\img\user\11.jpg" />
-    <Content Include="wwwroot\img\user\12.jpg" />
-    <Content Include="wwwroot\img\user\13.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin" />
@@ -175,6 +160,12 @@
     <Folder Include="src\app\layout\header" />
     <Folder Include="src\app\layout\header\navsearch" />
     <Folder Include="src\app\layout\sidebar" />
+    <Folder Include="src\app\login\" />
+    <Folder Include="src\app\login\services\" />
+    <Folder Include="src\app\login\recoverStep2\" />
+    <Folder Include="src\app\login\recoverStep3\" />
+    <Folder Include="src\app\login\recover\" />
+    <Folder Include="src\app\login\register\" />
     <Folder Include="src\app\routes" />
     <Folder Include="src\app\routes\diagnostics" />
     <Folder Include="src\app\routes\diagnostics\components" />
@@ -198,8 +189,8 @@
     <Folder Include="src\app\shared\services" />
     <Folder Include="src\app\utils" />
     <Folder Include="src\img" />
-    <Folder Include="src\img\user" />
     <Folder Include="src\less" />
+    <Folder Include="src\less\addons\" />
     <Folder Include="src\less\app" />
     <Folder Include="src\less\bootstrap" />
     <Folder Include="src\less\bootstrap\mixins" />
@@ -208,44 +199,6 @@
     <Folder Include="typings\globals" />
     <Folder Include="typings\globals\core-js" />
     <Folder Include="typings\globals\node" />
-    <Folder Include="wwwroot" />
-    <Folder Include="wwwroot\app" />
-    <Folder Include="wwwroot\app\core" />
-    <Folder Include="wwwroot\app\core\menu" />
-    <Folder Include="wwwroot\app\core\settings" />
-    <Folder Include="wwwroot\app\core\themes" />
-    <Folder Include="wwwroot\app\layout" />
-    <Folder Include="wwwroot\app\layout\footer" />
-    <Folder Include="wwwroot\app\layout\header" />
-    <Folder Include="wwwroot\app\layout\header\navsearch" />
-    <Folder Include="wwwroot\app\layout\sidebar" />
-    <Folder Include="wwwroot\app\routes" />
-    <Folder Include="wwwroot\app\routes\diagnostics" />
-    <Folder Include="wwwroot\app\routes\diagnostics\components" />
-    <Folder Include="wwwroot\app\routes\diagnostics\services" />
-    <Folder Include="wwwroot\app\routes\feed" />
-    <Folder Include="wwwroot\app\routes\feed\components" />
-    <Folder Include="wwwroot\app\routes\feed\services" />
-    <Folder Include="wwwroot\app\routes\home" />
-    <Folder Include="wwwroot\app\routes\management" />
-    <Folder Include="wwwroot\app\routes\management\components" />
-    <Folder Include="wwwroot\app\routes\management\services" />
-    <Folder Include="wwwroot\app\routes\message" />
-    <Folder Include="wwwroot\app\routes\message\components" />
-    <Folder Include="wwwroot\app\routes\message\services" />
-    <Folder Include="wwwroot\app\routes\photo" />
-    <Folder Include="wwwroot\app\routes\photo\components" />
-    <Folder Include="wwwroot\app\shared" />
-    <Folder Include="wwwroot\app\shared\colors" />
-    <Folder Include="wwwroot\app\shared\directives" />
-    <Folder Include="wwwroot\app\shared\pipes" />
-    <Folder Include="wwwroot\app\shared\services" />
-    <Folder Include="wwwroot\app\utils" />
-    <Folder Include="wwwroot\css" />
-    <Folder Include="wwwroot\fonts" />
-    <Folder Include="wwwroot\img" />
-    <Folder Include="wwwroot\img\user" />
-    <Folder Include="wwwroot\js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->

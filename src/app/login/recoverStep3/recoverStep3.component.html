@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <div class="block-center mt-xl wd-xl">
+        <!-- START panel-->
+        <div class="panel panel-dark panel-flat">
+            <div class="panel-heading text-center">
+                <a href="#">
+                    <img class="block-center img-rounded" src="/img/logo.png" alt="Image" />
+                </a>
+            </div>
+            <div class="panel-body">
+                <p class="text-center pv">UPDATE YOUR INFORMATION</p>
+                <form [formGroup]="valForm" class="form-validate" role="form" name="recoverForm" novalidate="" (submit)="submitForm($event, valForm.value)">
+                    <p class="text-center">Create a new password</p>
+                    <div formGroupName="passwordGroup">
+                        <div class="form-group has-feedback">
+                            <label class="text-muted">New Password</label>
+                            <input class="form-control" id="id-password" type="password" name="password" formControlName="password" [formControl]="valForm.get('passwordGroup.password')" />
+                            <span class="fa fa-lock form-control-feedback text-muted"></span>
+                            <span class="text-danger" *ngIf="valForm.get('passwordGroup.password').hasError('required') && (valForm.get('passwordGroup.password').dirty || valForm.get('passwordGroup.password').touched)">This field is required</span>
+                            <span class="text-danger" *ngIf="valForm.get('passwordGroup.password').hasError('pattern') && (valForm.get('passwordGroup.password').dirty || valForm.get('passwordGroup.password').touched)">Input should match 'a-zA-Z0-9' and minimum 8 characters</span>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="text-muted">Confirm Password</label>
+                            <input class="form-control" type="password" name="confirmPassword" formControlName="confirmPassword" [formControl]="valForm.get('passwordGroup.confirmPassword')" />
+                            <span class="fa fa-lock form-control-feedback text-muted"></span>
+
+                            <span class="text-danger" *ngIf="valForm.get('passwordGroup.confirmPassword').hasError('equalTo')">Password does Not match</span>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger text-center" *ngIf="alertMessage">{{alertMessage}}</div>
+                    <button class="btn btn-danger btn-block" type="submit">Reset</button>
+                </form>
+                <a class="btn btn-block btn-default" [routerLink]="'/login'">Login</a>
+            </div>
+        </div>
+        <!-- END panel-->
+        <div class="p-lg text-center">
+            <span>&copy;</span>
+            <span>2017</span>
+            <span>-</span>
+            <span>Navigator Photo Management</span>
+        </div>
+    </div>
+</div>

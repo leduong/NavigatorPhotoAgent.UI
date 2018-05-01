@@ -1,26 +1,45 @@
 html
   head
+    base(href="/")
     title Navigator Photo Agent
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='css/app.css')
     link(rel='stylesheet', href='css/bootstrap.css')
     link(rel='stylesheet', href='css/theme-a.css')
-    link(rel='stylesheet', href='css/managment.css')
+    link(rel='stylesheet', href='css/addons.css')
     script(type='text/javascript', src='js/shims.js')
     script(type='text/javascript', src='js/ace.js')
+    script.
+      let promiseDone = null;
+      window.reCaptchaCallback_Promise = new Promise(function (load, err) { promiseDone = function () { load(window.grecaptcha);} });
+      window.reCaptchaCallback = function () { promiseDone(); }
+    script(type='text/javascript', src='https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit', async, defer)
     style(type='text/css').
       .spinner { width: 40px; height: 40px; background-color: #008cba; margin: 100px auto; -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out; animation: sk-rotateplane 1.2s infinite ease-in-out; } @-webkit-keyframes sk-rotateplane { 0% { -webkit-transform: perspective(120px) } 50% { -webkit-transform: perspective(120px) rotateY(180deg) } 100% { -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg) } } @keyframes sk-rotateplane { 0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg); -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) } 50% { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } } .loading{ background-color: #d35400; }
   // 3. Display the application
   body
     app-root
-      .spinner
-  script(type='text/javascript', src='js/bundle.js')
+      .spinner  
   script.
     if (typeof(Storage) !== "undefined") {
-    localStorage.setItem("ApiEndpoint", "#{APIENDPOINT}");
-    localStorage.setItem("ApiMaps", "#{MAPSAPI}");
-    localStorage.setItem("ng2ENV", "#{ng2ENV}");
-    localStorage.setItem("BuildId", "#{BuildId}");
+    var localStoreValues = [
+    {name:"ApiEndpoint",val:"#{APIENDPOINT}"},
+    {name:"ApiMaps",val:"#{MAPSAPI}"},
+    {name:"ng2ENV",val:"#{ng2ENV}"},
+    {name:"BuildId",val:"#{BuildId}"},
+    {name:"authority",val:"#{authority}"},
+    {name:"client_id",val:"#{client_id}"},
+    {name:"redirect_uri",val:"#{redirect_uri}"},
+    {name:"response_type",val:"#{response_type}"},
+    {name:"scope",val:"#{scope}"},
+    {name:"post_logout_redirect_uri",val:"#{post_logout_redirect_uri}"},
+    {name:"client_secret",val:"#{client_secret}"},
+    {name:"api_user_management",val:"#{api_user_management}"},
+    {name:"g_recaptcha",val:"#{g_recaptcha}"},
+    {name:"recaptcha_is_disabled",val:"#{recaptcha_is_disabled}"}
+    ];
+    localStoreValues.forEach(function(item){ localStorage.setItem(item.name, item.val); });
     } else {
     alert('Sorry! No Web Storage support..');
     }
+  <!--bundleTpl-->
