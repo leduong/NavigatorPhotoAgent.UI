@@ -1,0 +1,61 @@
+version: '2.2'
+
+services:
+
+  photo-agent-ui:
+    container_name: 'photo-agent-ui'
+    image: stuartshay/navigator-photo-agent-ui:node8-120
+    ports:
+      - "8000:8000"
+    networks:
+      - navigator-photoagent-network
+
+  api-user-management:
+    container_name: 'api-user-management'
+    image: stuartshay/navigator-identity-user-management:2.1-local
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - DB_SERVER=database
+      - HEALTH_USER=${HEALTH_USER}
+      - HEALTH_USER_PASSWORD=${HEALTH_USER_PASSWORD}
+      - openIdConnectConfiguration:authority=${AUTHORITY}
+    ports:
+      - "8101:8101"
+    networks:
+      - navigator-photoagent-network
+
+
+
+
+      
+  database:
+    container_name: 'database'
+    hostname: database
+    image: "stuartshay/navigator-identity-sqlserver:2017-CU6"
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+    healthcheck:
+      test: sqlcmd -S database -U SA -P ${SA_PASSWORD} -Q 'select 1'  
+    volumes:
+      - sql-backup-volume:/backup
+    ports:
+      - "1433:1433"
+    depends_on:
+      - mail  
+    networks:
+    - navigator-photoagent-network
+
+  mail:
+    container_name: 'mail'
+    hostname: mail
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+    networks:
+    - navigator-photoagent-network
+
+volumes:
+  sql-backup-volume:
+
+networks:
+  navigator-photoagent-network:
