@@ -1,0 +1,16 @@
+version: '2.2'
+
+services:
+
+  photo-agent-ui:
+    container_name: 'photo-agent-ui'
+    image: stuartshay/navigator-photo-agent-ui:node8-120
+    environment:
+      - APIUSERMANGEMENT=https://proxy-nginx:8101/
+    ports:
+      - "8000:8000"
+    networks:
+      - navigator-photoagent-network
+
+networks:
+  navigator-photoagent-network:
