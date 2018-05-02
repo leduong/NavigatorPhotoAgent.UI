@@ -4,9 +4,15 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { RecoverComponent } from './recover/recover.component';
 import { RegisterComponent } from './register/register.component';
+import { RecoverStep2Component } from './recoverStep2/recoverStep2.component';
+import { RecoverStep3Component } from './recoverStep3/recoverStep3.component';
+
 
 import { SharedModule } from '../shared/shared.module';
-import { ReCaptchaService } from '../reCaptchaCallback'
+import { ReCaptchaService } from '../reCaptchaCallback';
+
+import { SharingEmailService } from './services/sharingEmail.service';
+import { UserProfileService } from './services/userProfile.service';
 
 @NgModule({
   imports: [SharedModule],
@@ -14,14 +20,20 @@ import { ReCaptchaService } from '../reCaptchaCallback'
     LoginComponent
     , RecoverComponent
     , RegisterComponent
+    , RecoverStep2Component
+    , RecoverStep3Component
   ],
   providers: [
-    ReCaptchaService
+    ReCaptchaService,
+    SharingEmailService,
+    UserProfileService
   ],
   exports: [
     LoginComponent
     , RecoverComponent
     , RegisterComponent
+    , RecoverStep2Component
+    , RecoverStep3Component
   ]
 })
 

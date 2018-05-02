@@ -6,7 +6,6 @@
 
 ### Demo     
 https://ui-agent.navigatorglass.com     
-https://stuartshay.github.io/NavigatorPhotoAgent.UI/
 
 ### API Endpoint      
 https://agent.navigatorglass.com/swagger/ui/index.html
@@ -120,6 +119,8 @@ docker push stuartshay/navigator-photo-agent-ui:staging
 ```
 
 ### Build and Deploy to Github Pages
+
+https://stuartshay.github.io/NavigatorPhotoAgent.UI/
 
 ```bash
 export APIENDPOINT=https://agent.navigatorglass.com/api/

@@ -1,6 +1,6 @@
 authority: https://auth.informationcart.com
 client_id: navigatorphotoagentui-dev
-redirect_uri: 
+redirect_uri: http://localhost:8000/index.html
 response_type: 
-scope: 
+scope: openid
 post_logout_redirect_uri: 

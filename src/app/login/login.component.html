@@ -37,6 +37,12 @@
                 </form>
                 <div class="alert alert-danger text-center" *ngIf="alertMessage">{{alertMessage}}</div>
                 <a class="btn btn-block btn-default" [routerLink]="'/login/register'">Register</a>
+                <div class="externalSignInPanel">
+                    <p>or sign in with</p>
+                    <i class="fa-facebook faceBook"></i>
+                    <i class="fa-twitter twitter"></i>
+                    <i class="fa-google google"></i>
+                </div>
             </div>
         </div>
         <!-- END panel-->
