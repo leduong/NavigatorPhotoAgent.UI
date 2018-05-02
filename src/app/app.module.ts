@@ -13,6 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
 import { OauthModuleCustom } from "./login/oauthcustom.module";
+import { enableProdMode } from '@angular/core';
+
+if (!localStorage.getItem("ng2ENV")
+  || localStorage.getItem("ng2ENV").toLowerCase() !== "Dev".toLowerCase()) {
+  enableProdMode();
+}
 
 @NgModule({
   declarations: [
