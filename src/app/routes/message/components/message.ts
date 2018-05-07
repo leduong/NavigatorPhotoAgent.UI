@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+//import { Observable } from 'rxjs/Rx';
+// import { Observable } from 'rxjs';
 import { ModalDirective } from 'ngx-bootstrap';
 
 declare let $: any;

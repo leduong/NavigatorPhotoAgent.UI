@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+//import { Observable } from 'rxjs/Rx';
+// import { Observable } from 'rxjs';
 
 import { SessionService } from '../../../shared/services/session';
 import { MessageLoggingService } from '../../message/services/message';

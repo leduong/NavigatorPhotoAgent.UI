@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, URLSearchParams } from '@angular/http';
-import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 import { AppSettings } from '../../../appsettings';
-import {PrettyXMLService} from "../../../shared/services/prettyxml";
+import { PrettyXMLService } from "../../../shared/services/prettyxml";
 
 @Injectable()
 export class MessageLoggingService {
@@ -16,7 +17,7 @@ export class MessageLoggingService {
     Sort ? : string,
     Order ? : string) {
     let params = new URLSearchParams();
-  
+
     if (Order && Order !== '') {
       params.set('Order', Order);
     }
@@ -31,15 +32,15 @@ export class MessageLoggingService {
     }
 
     return this.http.get(`${AppSettings.ApiEndpoint}messagelogging/${limit}/${page}`, { search: params })
-      .map((res: Response) => res.json());
+      .pipe(map((res: Response) => res.json()));
   };
 
   getLoggingId(id: number) {
     return this.http.get(`${AppSettings.ApiEndpoint}messagelogging/${id}`)
-      .map((res: Response) => res.json());
+      .pipe(map((res: Response) => res.json()));
   }
   getLoggingXmlId(id: string) {
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/xml/${id}`)
-        .map((res: Response) => res.ok?this.prettyXML.getParsedXML(res.text()):res.text());
+      .pipe(map((res: Response) => res.ok ? this.prettyXML.getParsedXML(res.text()) : res.text()));
   };
 }

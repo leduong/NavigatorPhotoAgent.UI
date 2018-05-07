@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild  } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
-import { Observable } from 'rxjs/Rx';
+//import { Observable } from 'rxjs/Rx';
+// import { Observable } from 'rxjs';
 
 import { AppSettings } from '../../../appsettings';
 

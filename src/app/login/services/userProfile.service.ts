@@ -1,7 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+// import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
+// import Rx from 'rxjs/Rx';
 import { OAuthSettings } from "../../oauthsettings"
 
 @Injectable()

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, URLSearchParams } from '@angular/http';
-import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 import { AppSettings } from '../../../appsettings';
 import { PrettyXMLService } from '../../../shared/services/prettyxml';
@@ -8,7 +9,7 @@ import { PrettyXMLService } from '../../../shared/services/prettyxml';
 @Injectable()
 export class ManagementLoggingService {
 
-  constructor(private http: Http, private prettyXML:PrettyXMLService) {}
+  constructor(private http: Http, private prettyXML: PrettyXMLService) {}
 
   getLoggings(page = 1, limit = 10,
     Method ? : string,
@@ -46,19 +47,19 @@ export class ManagementLoggingService {
     }
 
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/${limit}/${page}`, { search: params })
-      .map((res: Response) => res.json());
+      .pipe(map((res: Response) => res.json()));
   };
 
   getLoggingId(id: number) {
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/${id}`)
-      .map((res: Response) => res.json());
+      .pipe(map((res: Response) => res.json()));
   };
   getLoggingXmlId(id: string) {
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/xml/${id}`)
-      .map((res: Response) => res.ok?this.prettyXML.getParsedXML(res.text()):res.text());
+      .pipe(map((res: Response) => res.ok ? this.prettyXML.getParsedXML(res.text()) : res.text()));
   };
-  getLoggingExceptionId(id: string){
+  getLoggingExceptionId(id: string) {
     return this.http.get(`${AppSettings.ApiEndpoint}httplogging/exception/${id}`)
-        .map((res: Response) => res);
+      .pipe(map((res: Response) => res));
   }
 }
