@@ -1,8 +1,8 @@
 # NavigatorPhotoAgent.UI
 
 [![This image on DockerHub](https://img.shields.io/docker/pulls/stuartshay/navigator-photo-agent-ui.svg)](https://hub.docker.com/r/stuartshay/navigator-photo-agent-ui/)
-[![dependencies Status](https://david-dm.org/leduong/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI)
- [![devDependencies Status](https://david-dm.org/leduong/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/stuartshay/NavigatorPhotoAgent.UI?type=dev) [![Build Status](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI)
+[![dependencies Status](https://david-dm.org/leduong/NavigatorPhotoAgent.UI/status.svg)](https://david-dm.org/leduong/NavigatorPhotoAgent.UI)
+ [![devDependencies Status](https://david-dm.org/leduong/NavigatorPhotoAgent.UI/dev-status.svg)](https://david-dm.org/leduong/NavigatorPhotoAgent.UI?type=dev) [![Build Status](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI.svg?branch=master)](https://travis-ci.org/stuartshay/NavigatorPhotoAgent.UI)
 
 ## Demo
 https://ui-agent.navigatorglass.com
